@@ -6,6 +6,7 @@ using Ticket.Services.Catalog.Settings;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IEventService, EventService>();
 
 // Add services to the container.
 

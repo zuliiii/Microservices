@@ -17,8 +17,7 @@ public class Event
     public string Picture { get; set; }
 
     [BsonRepresentation(BsonType.DateTime)]
-    public string CreatedTime { get; set; }
-
+    public DateTime CreatedTime { get; set; }
     public string Location { get; set; }
 
     [BsonRepresentation(BsonType.ObjectId)]

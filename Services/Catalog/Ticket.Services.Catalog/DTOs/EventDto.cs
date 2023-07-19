@@ -4,7 +4,7 @@ using Ticket.Services.Catalog.Models;
 
 namespace Ticket.Services.Catalog.DTOs;
 
-internal class EventDto
+public class EventDto
 {
     
     public string Id { get; set; }
@@ -13,7 +13,7 @@ internal class EventDto
     public string UserId { get; set; }
     public decimal Price { get; set; } 
     public string Picture { get; set; } = null!;
-    public string CreatedTime { get; set; } = null!;
+    public DateTime CreatedTime { get; set; } 
     public string Location { get; set; } = null!;
     public string CategoryId { get; set; } = null!;
 

@@ -46,7 +46,7 @@ public class CategoryService : ICategoryService
 
         if(category == null)
         {
-            return Response<CategoryDto>.Fail("fail", StatusCodes.Status404NotFound);
+            return Response<CategoryDto>.Fail("Category NOT found", StatusCodes.Status404NotFound);
         }
         return Response<CategoryDto>.Success(_mapper.Map<CategoryDto>(category), StatusCodes.Status200OK);
     }
