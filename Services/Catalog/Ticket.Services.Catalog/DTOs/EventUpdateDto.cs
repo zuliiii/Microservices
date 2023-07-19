@@ -1,6 +1,6 @@
 ﻿namespace Ticket.Services.Catalog.DTOs;
 
-public class EventUpdateDto
+internal class EventUpdateDto
 {
     public string Id { get; set; }
     public string Title { get; set; } = null!;

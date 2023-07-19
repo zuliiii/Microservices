@@ -1,8 +1,11 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Ticket.Services.Catalog.Services;
 using Ticket.Services.Catalog.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 // Add services to the container.
 
