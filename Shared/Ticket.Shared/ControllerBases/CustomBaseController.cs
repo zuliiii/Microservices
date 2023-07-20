@@ -6,15 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Ticket.Shared.DTOs;
 
-namespace Ticket.Shared.ControllerBases;
-
-public class CustomBaseController : ControllerBase
+namespace Ticket.Shared.ControllerBases
 {
-    public IActionResult CreateActionResultInstance<T>(Response<T> response)
+    public class CustomBaseController : ControllerBase
     {
-        return new ObjectResult(response)
+        public IActionResult CreateActionResultInstance<T>(Response<T> response)
         {
-            StatusCode = response.StatusCode
-    };
+            return new ObjectResult(response)
+            {
+                StatusCode = response.StatusCode
+            };
+        }
     }
 }
+
+

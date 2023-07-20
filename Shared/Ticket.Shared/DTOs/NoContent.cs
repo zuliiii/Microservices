@@ -4,8 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ticket.Shared.DTOs;
-
-public class NoContent
+namespace Ticket.Shared.DTOs
 {
+    public class NoContent
+    {
+    }
 }
+
+
