@@ -32,8 +32,10 @@ public class CategoryService : ICategoryService
 
     }
 
-    public async Task<Response<CategoryDto>> CreateAsync(Category category)
+    public async Task<Response<CategoryDto>> CreateAsync(CategoryDto categoryDto)
     {
+        var category = _mapper.Map<Category>(categoryDto);
+
          await _categoryCollection.InsertOneAsync(category);
 
         return Response<CategoryDto>.Success(_mapper.Map<CategoryDto>(category), StatusCodes.Status204NoContent);  

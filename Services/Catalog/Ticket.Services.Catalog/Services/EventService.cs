@@ -22,26 +22,45 @@ public class EventService: IEventService
         var database = client.GetDatabase(databaseSettings.DatabaseName);
 
         _eventCollection = database.GetCollection<Event>(databaseSettings.EventCollectionName);
+        _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
         _mapper = mapper;
     }
 
     public async Task<Response<List<EventDto>>> GetAllAsync()
     {
+
+        //var events = await _eventCollection.Find(course => true).ToListAsync();
+
+        //if (events.Any())
+        //{
+        //    foreach (var eventt in events)
+        //    {
+        //        eventt.Category = await _categoryCollection.Find<Category>(x => x.Id == eventt.CategoryId).FirstAsync();
+        //    }
+        //}
+        //else
+        //{
+        //    events = new List<Event>();
+        //}
+
+        //return Response<List<EventDto>>.Success(_mapper.Map<List<EventDto>>(events), 200);
+
+
         var events = await _eventCollection.Find(evt => true).ToListAsync();
 
         if (events.Any())
         {
-            // Get all categoryIds from events to fetch categories in a single query
-            var categoryIds = events.Select(evt => evt.CategoryId).Distinct().ToList();
+            // get all categoryids from events to fetch categories in a single query
+            var categoryids = events.Select(evt => evt.CategoryId).Distinct().ToList();
 
-            // Fetch all categories in a single query using categoryIds
-            var categories = await _categoryCollection.Find<Category>(x => categoryIds.Contains(x.Id)).ToListAsync();
-            var categoryDictionary = categories.ToDictionary(cat => cat.Id);
+            // fetch all categories in a single query using categoryids
+            var categories = await _categoryCollection.Find<Category>(x => categoryids.Contains(x.Id)).ToListAsync();
+            var categorydictionary = categories.ToDictionary(cat => cat.Id);
 
-            // Assign categories to events using the dictionary
+            // assign categories to events using the dictionary
             foreach (var eventt in events)
             {
-                if (categoryDictionary.TryGetValue(eventt.CategoryId, out var category))
+                if (categorydictionary.TryGetValue(eventt.CategoryId, out var category))
                 {
                     eventt.Category = category;
                 }
@@ -135,4 +154,22 @@ public class EventService: IEventService
         }
     }
 
+    public async Task<Response<List<EventDto>>> GetAllByUserIdAsync(string userId)
+    {
+        var events = await _eventCollection.Find<Event>(x => x.UserId == userId).ToListAsync();
+
+        if (events.Any())
+        {
+            foreach (var e in events)
+            {
+                e.Category = await _categoryCollection.Find<Category>(x => x.Id == e.CategoryId).FirstAsync();
+            }
+        }
+        else
+        {
+            events = new List<Event>();
+        }
+
+        return Response<List<EventDto>>.Success(_mapper.Map<List<EventDto>>(events), 200);
+    }
 }

@@ -8,16 +8,17 @@ namespace Ticket.Services.Catalog.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class EventController : CustomBaseController
+public class EventsController : CustomBaseController
 {
     private readonly IEventService _eventService;
 
-    public EventController(IEventService eventService)
+    public EventsController(IEventService eventService)
     {
         _eventService = eventService;
 
     }
 
+    [HttpGet]
     public async Task<IActionResult> GetAll()
     {
         var response = await _eventService.GetAllAsync();
@@ -34,10 +35,14 @@ public class EventController : CustomBaseController
 
     }
 
+
+    [HttpGet]
     [Route("/api/[controller]/GetAllByUserId/{userId}")]
     public async Task<IActionResult> GetAllByUserId(string userId)
     {
-        var response = await _eventService.GetByIdAsync(userId);
+        var response = await _eventService.GetAllByUserIdAsync(userId);
+       
+        
 
         return CreateActionResultInstance(response);
 
