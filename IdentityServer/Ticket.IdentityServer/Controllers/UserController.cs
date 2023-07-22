@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 using Ticket.IdentityServer.DTOs;
@@ -41,6 +42,21 @@ namespace Ticket.IdentityServer.Controllers
             }
 
             return NoContent();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetUser()
+        {
+            var userClaim = User.Claims.FirstOrDefault(X=> X.Type == JwtRegisteredClaimNames.Sub);
+
+            if (userClaim == null) return BadRequest();
+
+            var user = await _userManager.FindByIdAsync(userClaim.Value);
+
+            if (user == null) return BadRequest();
+
+            return Ok(new { Id = user.Id, UserName = user.UserName, Email = user.Email, City=user.City }) ;
+
         }
     }
 }
