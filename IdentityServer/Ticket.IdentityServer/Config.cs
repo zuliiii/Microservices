@@ -35,8 +35,9 @@ namespace Ticket.IdentityServer
             {
                 new Client
                 {
-                   ClientName="Asp.Net Core MVC",
                     ClientId="WebMvcClient",
+                    ClientName = "Web MVC Client",
+                    //ClientName="Asp.Net Core MVC",
                     ClientSecrets= {new Secret("secret".Sha256())},
                     AllowedGrantTypes= GrantTypes.ClientCredentials,
                     AllowedScopes={ "catalog_fullpermission","photo_stock_fullpermission",IdentityServerConstants.LocalApi.ScopeName }
