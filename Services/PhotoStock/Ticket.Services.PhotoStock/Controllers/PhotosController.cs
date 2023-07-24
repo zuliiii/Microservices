@@ -10,6 +10,7 @@ namespace Ticket.Services.PhotoStock.Controllers
     [ApiController]
     public class PhotosController : CustomBaseController
     {
+        [HttpPost]
         public async Task<IActionResult> PhotoSave(IFormFile photo, CancellationToken cancellationToken)
         {
             if(photo !=null && photo.Length > 0)
@@ -29,6 +30,19 @@ namespace Ticket.Services.PhotoStock.Controllers
             }
 
             return CreateActionResultInstance(Response<PhotoDto>.Fail("photo is empty", StatusCodes.Status400BadRequest));
+        }
+
+        public IActionResult PhotoDelete(string photoUrl)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photoUrl);
+            if (!System.IO.File.Exists(path))
+            {
+                return CreateActionResultInstance(Response<NoContent>.Fail("photo not found", StatusCodes.Status404NotFound));
+            }
+
+            System.IO.File.Delete(path);
+
+            return CreateActionResultInstance(Response<NoContent>.Success(StatusCodes.Status204NoContent));
         }
     }
 }
