@@ -1,5 +1,9 @@
+using Ticket.Services.Bakset.Settings;
+
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 // Add services to the container.
 
 builder.Services.AddControllers();
