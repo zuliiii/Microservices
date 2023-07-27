@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
+using System.IdentityModel.Tokens.Jwt;
 using Ticket.Services.Bakset.Services;
 using Ticket.Services.Bakset.Settings;
 using Ticket.Shared.Services;
@@ -12,12 +13,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 
-
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
         options.Authority = builder.Configuration["IdentityServerURL"];
-        options.Audience = "resource_catalog";
+        options.Audience = "resource_basket";
         options.RequireHttpsMetadata = false;
 
     });
