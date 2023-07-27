@@ -1,9 +1,21 @@
+using Microsoft.Extensions.Options;
+using Ticket.Services.Bakset.Services;
 using Ticket.Services.Bakset.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
+
+builder.Services.AddSingleton<RedisService>(sp =>
+{
+    var redisSettings = sp.GetRequiredService<IOptions<RedisSettings>>().Value;
+    var redis = new RedisService(redisSettings.Host, redisSettings.Port);
+    redis.Connect();    
+    return redis;
+
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
