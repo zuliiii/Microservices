@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Options;
 using Ticket.Services.Bakset.Services;
 using Ticket.Services.Bakset.Settings;
+using Ticket.Shared.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,10 @@ builder.Services.AddSingleton<RedisService>(sp =>
     return redis;
 
 });
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ISharedIdentityService,SharedIdentityService>();
+builder.Services.AddScoped<IBasketService,BasketService>();
 
 // Add services to the container.
 
