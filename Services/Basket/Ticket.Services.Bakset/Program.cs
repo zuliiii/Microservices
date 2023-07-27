@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
 using Ticket.Services.Bakset.Services;
 using Ticket.Services.Bakset.Settings;
@@ -7,6 +10,17 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.Configure<RedisSettings>(builder.Configuration.GetSection("RedisSettings"));
+var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.Authority = builder.Configuration["IdentityServerURL"];
+        options.Audience = "resource_catalog";
+        options.RequireHttpsMetadata = false;
+
+    });
 
 builder.Services.AddSingleton<RedisService>(sp =>
 {
@@ -23,7 +37,10 @@ builder.Services.AddScoped<IBasketService,BasketService>();
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -37,6 +54,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
