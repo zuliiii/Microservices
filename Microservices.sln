@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticket.Services.Bakset", "S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{3ADB3837-A2B4-469F-95F3-35626B1A6585}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Services.Discount", "Services\Discount\Ticket.Services.Discount\Ticket.Services.Discount.csproj", "{313D4E1D-FD38-4CD9-9CE8-0A890C2EFDD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{B734343E-ACC1-472F-8992-9CA9F1B02652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B734343E-ACC1-472F-8992-9CA9F1B02652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B734343E-ACC1-472F-8992-9CA9F1B02652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{313D4E1D-FD38-4CD9-9CE8-0A890C2EFDD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{313D4E1D-FD38-4CD9-9CE8-0A890C2EFDD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{313D4E1D-FD38-4CD9-9CE8-0A890C2EFDD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{313D4E1D-FD38-4CD9-9CE8-0A890C2EFDD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 		{DB69BB0D-C725-4E43-95F9-38BF950DD5B5} = {72BCA93C-9F19-4C93-A979-754EEB92B845}
 		{B734343E-ACC1-472F-8992-9CA9F1B02652} = {DB69BB0D-C725-4E43-95F9-38BF950DD5B5}
 		{3ADB3837-A2B4-469F-95F3-35626B1A6585} = {72BCA93C-9F19-4C93-A979-754EEB92B845}
+		{313D4E1D-FD38-4CD9-9CE8-0A890C2EFDD1} = {3ADB3837-A2B4-469F-95F3-35626B1A6585}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE0C3D18-BE7F-4985-BC4C-B653CC0916A3}
