@@ -16,6 +16,7 @@ namespace Ticket.IdentityServer
                new ApiResource("resource_catalog"){Scopes={"catalog_fullpermission"}},
                new ApiResource("resource_photo_stock"){Scopes={"photo_stock_fullpermission"}},
                new ApiResource("resource_basket"){Scopes={"basket_fullpermission"}},
+               new ApiResource("resource_discount"){Scopes={"discount_fullpermission"}},
                new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
         public static IEnumerable<IdentityResource> IdentityResources =>
@@ -33,6 +34,7 @@ namespace Ticket.IdentityServer
                 new ApiScope("catalog_fullpermission", "Full acccess for Catalog API"),
                 new ApiScope("photo_stock_fullpermission", "Full acccess for PhotoStock API"),
                 new ApiScope("basket_fullpermission", "Full acccess for Basket API"),
+                new ApiScope("discount_fullpermission", "Full acccess for Discount API"),
                 new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -57,7 +59,8 @@ namespace Ticket.IdentityServer
                     ClientSecrets= {new Secret("secret".Sha256())},
                     AllowedGrantTypes= GrantTypes.ResourceOwnerPassword,
                     AllowedScopes={ 
-                        "basket_fullpermission", 
+                        "basket_fullpermission",
+                        "discount_fullpermission",
                         IdentityServerConstants.StandardScopes.Email, 
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile, 

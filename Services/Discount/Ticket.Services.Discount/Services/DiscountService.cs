@@ -15,7 +15,7 @@ namespace Ticket.Services.Discount.Services
             _configuration = configuration;
 
             _dbConnection = new SqlConnection(_configuration.GetConnectionString("SqlServer"));
-
+            
         }
 
         public async Task<Response<NoContent>> Delete(int id)
