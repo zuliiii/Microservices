@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Ticket.Shared\Ticket.Shared.csproj" />
     <ProjectReference Include="..\Ticket.Services.Order.Domain\Ticket.Services.Order.Domain.csproj" />
     <ProjectReference Include="..\Ticket.Services.Order.Infrastructure\Ticket.Services.Order.Infrastructure.csproj" />
   </ItemGroup>
