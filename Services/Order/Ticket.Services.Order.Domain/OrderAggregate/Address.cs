@@ -9,6 +9,12 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
 {
     public class Address : ValueObject
     {
+
+        public string Country { get; private set; }
+        public string State { get; private set; }
+        public string City { get; private set; }
+        public string ZipCode { get; private set; }
+
         public Address(string country, string state, string city, string zipCode)
         {
             Country = country;
@@ -16,11 +22,6 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
             City = city;
             ZipCode = zipCode;
         }
-
-        public string Country { get; private set; }
-        public string State { get; private set; }
-        public string City { get; private set; }
-        public string ZipCode { get; private set; }
 
         protected override IEnumerable<object> GetEqualityComponents()
         {

@@ -42,6 +42,12 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
                 _orderItems.Add(newOrderItem);
             }
         }
+
+        public void AddOrderItem(string productId, string productName, decimal price, string pictureUrl)
+        {
+            throw new NotImplementedException();
+        }
+
         public decimal GetTotalPrice => _orderItems.Sum(x => x.Price*x.Quantity);
 
     }
