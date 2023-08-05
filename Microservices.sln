@@ -36,15 +36,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticket.Services.Discount", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Order", "Order", "{D621DFB5-5AB0-4E28-9C8D-55817C377FE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Services.Order.API", "Services\Order\Ticket.Services.Order.API\Ticket.Services.Order.API.csproj", "{5779D5DC-FE39-478B-90E0-3950BCD53B78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticket.Services.Order.API", "Services\Order\Ticket.Services.Order.API\Ticket.Services.Order.API.csproj", "{5779D5DC-FE39-478B-90E0-3950BCD53B78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Services.Order.Application", "Services\Order\Ticket.Services.Order.Application\Ticket.Services.Order.Application.csproj", "{A16BB886-4A11-472D-813B-1A19CD0C9146}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticket.Services.Order.Application", "Services\Order\Ticket.Services.Order.Application\Ticket.Services.Order.Application.csproj", "{A16BB886-4A11-472D-813B-1A19CD0C9146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Services.Order.Domain", "Services\Order\Ticket.Services.Order.Domain\Ticket.Services.Order.Domain.csproj", "{3D3642D1-4CDF-4F5A-9A6C-020216C67863}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticket.Services.Order.Domain", "Services\Order\Ticket.Services.Order.Domain\Ticket.Services.Order.Domain.csproj", "{3D3642D1-4CDF-4F5A-9A6C-020216C67863}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Services.Order.Domain.Core", "Services\Order\Ticket.Services.Order.Domain.Core\Ticket.Services.Order.Domain.Core.csproj", "{0F15D48A-D333-4446-B50B-89FFBDE44D60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticket.Services.Order.Domain.Core", "Services\Order\Ticket.Services.Order.Domain.Core\Ticket.Services.Order.Domain.Core.csproj", "{0F15D48A-D333-4446-B50B-89FFBDE44D60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Services.Order.Infrastructure", "Services\Order\Ticket.Services.Order.Infrastructure\Ticket.Services.Order.Infrastructure.csproj", "{77696E02-2FA3-49C5-96B5-FFAA11B1659E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ticket.Services.Order.Infrastructure", "Services\Order\Ticket.Services.Order.Infrastructure\Ticket.Services.Order.Infrastructure.csproj", "{77696E02-2FA3-49C5-96B5-FFAA11B1659E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{027900F0-07AD-4C67-840F-6C38D180D2C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Services.Payment", "Services\Payment\Ticket.Services.Payment\Ticket.Services.Payment.csproj", "{8AA79C23-5619-4A13-999D-DF9F993F0665}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{935BCFB4-3C34-4FA2-BA0E-1A0955E49444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ticket.Gateway", "Gateways\Ticket.Gateway\Ticket.Gateway.csproj", "{6F03F012-2192-4FE3-892D-DF5F6B89EA00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,6 +104,14 @@ Global
 		{77696E02-2FA3-49C5-96B5-FFAA11B1659E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77696E02-2FA3-49C5-96B5-FFAA11B1659E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77696E02-2FA3-49C5-96B5-FFAA11B1659E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA79C23-5619-4A13-999D-DF9F993F0665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA79C23-5619-4A13-999D-DF9F993F0665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA79C23-5619-4A13-999D-DF9F993F0665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA79C23-5619-4A13-999D-DF9F993F0665}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F03F012-2192-4FE3-892D-DF5F6B89EA00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F03F012-2192-4FE3-892D-DF5F6B89EA00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F03F012-2192-4FE3-892D-DF5F6B89EA00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F03F012-2192-4FE3-892D-DF5F6B89EA00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +133,9 @@ Global
 		{3D3642D1-4CDF-4F5A-9A6C-020216C67863} = {D621DFB5-5AB0-4E28-9C8D-55817C377FE0}
 		{0F15D48A-D333-4446-B50B-89FFBDE44D60} = {D621DFB5-5AB0-4E28-9C8D-55817C377FE0}
 		{77696E02-2FA3-49C5-96B5-FFAA11B1659E} = {D621DFB5-5AB0-4E28-9C8D-55817C377FE0}
+		{027900F0-07AD-4C67-840F-6C38D180D2C3} = {72BCA93C-9F19-4C93-A979-754EEB92B845}
+		{8AA79C23-5619-4A13-999D-DF9F993F0665} = {027900F0-07AD-4C67-840F-6C38D180D2C3}
+		{6F03F012-2192-4FE3-892D-DF5F6B89EA00} = {935BCFB4-3C34-4FA2-BA0E-1A0955E49444}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DE0C3D18-BE7F-4985-BC4C-B653CC0916A3}
