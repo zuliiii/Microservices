@@ -7,3 +7,4 @@ Services
  -paymentAPI => 5016
 identityServer => 5001
 Gateway => 5000
+Web => 5010
