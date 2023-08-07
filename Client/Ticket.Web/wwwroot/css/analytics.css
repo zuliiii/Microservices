@@ -1,0 +1,64 @@
+#views-graphic {
+    height: 300px;
+    position: relative;
+}
+
+#views-graphic .ct-tooltip {
+    position: absolute;
+    display: inline-block;
+    min-width: 3em;
+    padding: 8px 10px;
+    border-radius: 5px;
+    background: #383838;
+    color: #fff;
+    text-align: center;
+    pointer-events: none;
+    z-index: 100;
+    transition: opacity .2s linear;
+}
+
+svg {
+    overflow: hidden;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.ct-grid {
+    stroke: rgba(0,0,0,.2) !important;
+    stroke-width: .4px !important;
+    stroke-dasharray: 2px !important;
+}
+
+.ct-grid {
+    stroke-width: 1px;
+}
+
+.ct-line {
+    fill: none;
+    stroke-width: 1px !important;
+}
+
+.ct-point {
+    stroke-width: 6px !important;
+	cursor: pointer;
+	stroke: #6ac045 !important;
+}
+
+.ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-donut {
+    stroke: #6ac045 !important;
+}
+
+.ct-series-a .ct-area, .ct-series-a .ct-slice-donut-solid, .ct-series-a .ct-slice-pie {
+    fill: #6ac045 !important;
+}
+
+.ct-series-a .ct-area, .ct-series-a .ct-slice-donut-solid, .ct-series-a .ct-slice-pie {
+    fill: #d70206;
+}
+
+.ct-chart {
+	position: relative;
+}
+

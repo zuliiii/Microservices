@@ -1,0 +1,1393 @@
+/****************
+Night Mood
+****************/
+
+.night-mode #night-mode {
+    padding: 0;
+    font-size: 15px;
+    background: #6ac045;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.night-mode .fa-sun:before {
+    content: "\f186";
+}
+
+.night-mode html , 
+.night-mode body  {
+    background-color: #111315 !important;
+    color: #6F767E !important;
+}
+
+.night-mode body {
+    background: #111315 !important;
+	height: auto;
+    float: left;
+    width: 100%;
+}
+
+.night-mode body::-webkit-scrollbar {
+    width: 14px;
+    height: 18px;
+}
+
+.night-mode body::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.night-mode body::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+.night-mode body::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+    -webkit-border-radius: 7px;
+    background-color: rgba(51,51,51,.6);
+    -webkit-box-shadow: inset -1px -1px 0 rgba(51,51,51,.05), inset 1px 1px 0 rgba(51,51,51,.05);
+}
+
+.night-mode h1,
+.night-mode h2,
+.night-mode h3,
+.night-mode h4,
+.night-mode h5 {
+    color: #fff;
+}
+
+.night-mode p {
+    color: #6F767E;
+}
+
+.night-mode #logo .logo-inverse {
+    display: inline !important;
+}
+
+.night-mode #logo img {
+    display: none;
+}
+
+.night-mode .bg-barren {
+    background: #1A1D1F;
+    box-shadow: inset 1px 0px 0px #111315, inset 0 -1px 0px #111315;
+}
+
+.night-mode .nav-link {
+    color: #6F767E !important;
+	font-weight: 500;
+}
+
+.night-mode .nav-link:hover {
+    color: #fcfcfc !important;
+}
+
+
+.night-mode .barren-head .nav-item .nav-link.active, .night-mode .barren-head .nav-item .show>.nav-link {
+    color: #fff !important;
+}
+
+.night-mode .hero-banner {
+    background-image: url(../images/dark-banner.jpg);
+}
+
+.night-mode .breadcrumb-block {
+    background-image: url(../images/dark-banner.jpg);
+}
+
+.night-mode .barren-breadcrumb .breadcrumb .breadcrumb-item a {
+    color: #9A9FA5;
+}
+
+.night-mode .barren-breadcrumb .breadcrumb .breadcrumb-item a:hover {
+    color: #fcfcfc !important;
+}
+
+.night-mode .barren-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
+    color: #9A9FA5 !important;
+}
+
+.night-mode .footer {
+    background: #1A1D1F;
+    color: #fff;
+}
+
+.night-mode .footer-link {
+    color: #6F767E;
+}
+
+.night-mode .footer-link:hover {
+    color: #fcfcfc !important;
+}
+
+.night-mode .filter-tag a {
+    color: #6F767E;
+    border: 1px solid #33383f;
+    background: #272B30;
+}
+
+.night-mode .filter-tag a.active, .night-mode .filter-tag a:hover {
+    background: #272B30;
+    color: #fff !important;
+}
+
+.night-mode .main-card {
+    border: 1px solid #1A1D1F;
+    background-color: #1A1D1F;
+}
+
+.night-mode .event-content > .event-title {
+    color: #fff;
+}
+
+.night-mode .event-content > .event-title:hover {
+    color: #fff !important;
+}
+
+.night-mode .duration-price {
+    color: #fff;
+}
+
+.night-mode .remaining {
+    color: #9A9FA5;
+}
+
+.night-mode .control {
+	color: #6F767E;
+    background: #272B30;
+}
+
+.night-mode .mixitup-control-active {
+	color: #fff !important;
+}
+
+.night-mode .mixitup-control-active[data-filter]:after {
+    background: transparent;
+	border-bottom: 3px solid #fff;
+	color: #fff;
+}
+
+.night-mode .event-timing {
+    color: #9A9FA5;
+}
+
+.night-mode .host-engaging-event-block {
+    background: #272b30;
+}
+
+.night-mode .owl-nav .owl-next {
+    color: #6F767E !important;
+    background: #383c41 !important;
+    border: 1px solid #383c41 !important;
+}
+
+.night-mode .owl-nav .owl-prev {
+    color: #6F767E !important;
+    background: #383c41 !important;
+    border: 1px solid #383c41 !important;
+}
+
+.night-mode .owl-nav .owl-prev:hover {
+	color: #fff !important;
+	opacity: 1;
+	background: #6ac045 !important;
+	border: 1px solid #6ac045 !important;
+}	
+
+.night-mode .owl-nav .owl-next:hover {
+	color: #fff !important;
+	opacity: 1;
+	border: 1px solid #6ac045 !important;
+	background: #6ac045 !important;
+}
+
+.night-mode .feature-group-list {
+    border-top: 2px solid #272B30;
+}
+
+.night-mode .host-step-block {
+    background-color: #272b30;
+}
+
+.night-mode .step-text {
+    color: #fff;
+}
+
+.night-mode .step-link span {
+    color: #fff;
+}
+
+.night-mode .step-tabs .step-link:hover {
+    background-color: #1A1D1F;
+}
+
+.night-mode .step-link {
+    border-bottom: 1px solid #1A1D1F;
+    color: #9A9FA5;
+}
+
+.night-mode .step-tabs .step-link.active:hover {
+    color: #fff;
+    background-color: #6ac045;
+}
+
+.night-mode .testimonial-slider-area {
+    border-top: 2px solid #272B30;
+}
+
+.night-mode .testimonial-user-dt span {
+    color: #9A9FA5;
+}
+
+.night-mode .dropdown-menu {
+    background-color: #111315 !important;
+    border: 1px solid #272B30 !important;
+}
+
+.night-mode .dropdown-submenu .dropdown-item {
+    color: #6F767E;
+}
+
+.night-mode .dropdown-item {
+    color: #6F767E !important;
+}
+
+.night-mode .dropdown-submenu .dropdown-item:hover {
+	color: #fff !important;
+	background-color: transparent !important;
+}
+
+.night-mode .dropdown-submenu .dropdown-item:focus {
+	color: #fff !important;
+	background-color: transparent;
+}
+
+.night-mode .dropdown-menu-account li .link-item {
+    color: #6F767E;
+}
+
+.night-mode .dropdown-menu-account li .link-item:hover {
+	color: #fff !important;
+	background-color: transparent !important;
+}
+
+.night-mode .profile-link {
+    border-top: 1px solid #272B30;
+}
+
+.night-mode .account-link {
+    color: #6F767E;
+}
+
+.night-mode .account-link:hover {
+    color: #fcfcfc !important;
+}
+
+.night-mode .navbar-toggler-icon {
+    color: #6F767E;
+}
+
+.night-mode .navbar-toggler-icon:hover {
+    color: #fcfcfc;
+}
+
+.night-mode .offcanvas {
+    background-color: #1A1D1F;
+}
+
+.night-mode .close-btn {
+    background: #272B30;
+    color: #6F767E;
+}
+
+.night-mode .close-btn:hover, .night-mode .close-btn:focus {
+    background: #272B30;
+    color: #fcfcfc;
+}
+
+.night-mode .checkout-title {
+    border-bottom: 2px solid #272B30;
+}
+
+.night-mode .custom-border-top {
+    border-top: 2px solid #272B30;
+}
+
+.night-mode .team-content span {
+    color: #6F767E;
+}
+
+.night-mode .user-dts .user-name {
+    color: #fff;
+}
+
+.night-mode .esv-btn {
+    color: #fcfcfc;
+    border: 1px solid #272B30;
+    background: #272B30;
+}
+
+.night-mode .esv-btn:hover {
+    color: #fff;
+    border: 1px solid #efefef;
+}
+
+.night-mode .co-main-btn {
+    color: #fcfcfc;
+    border: 1px solid #272b30 !important;
+    background: #272B30 !important;
+}
+
+.night-mode .co-main-btn:hover {
+    color: #fff !important;
+    border: 1px solid #efefef !important;
+}
+
+.night-mode .ff-block a {
+    color: #fcfcfc;
+}
+
+.night-mode .ff-block a:first-child {
+    border-right: 1px solid #272B30;
+}
+
+.night-mode .profile-social-link h6 {
+    color: #fff;
+}
+
+.night-mode .modal-content {
+    background-color: #111315;
+    border: 1px solid #272B30;
+}
+
+.night-mode .close-model-btn {
+    background: #272B30;
+    color: #6F767E;
+    opacity: 1;
+}
+
+.night-mode .close-model-btn:hover {
+    background: #272B30;
+    color: #fcfcfc;
+}
+
+.night-mode .ff-tablist {
+    border-bottom: 1px solid #272B30;
+}
+
+.night-mode .follow-btn {
+    color: #fcfcfc;
+    border: 1px solid #272b30;
+    background: #272B30 !important;
+}
+
+.night-mode .follow-btn:hover {
+    color: #fcfcfc !important;
+	border: 1px solid #efefef !important;
+}
+
+.night-mode .modal-header {
+    border-bottom: 1px solid #272B30 !important;
+}
+
+.night-mode .modal-footer {
+    border-top: 1px solid #272B30 !important;
+}
+
+.night-mode .text-light3 {
+    color: #6F767E !important;
+}
+
+.night-mode .form-label {
+    color: #efefef;
+}
+
+.night-mode .model-content .form-control {
+    background-color: #272B30 !important;
+}
+
+.night-mode .form-control {
+    color: #fcfcfc !important;
+    background-color: #272B30 !important;
+    border: 1px solid #272B30 !important;
+}
+
+.night-mode .form-control:focus {
+    color: #fcfcfc !important;
+    background-color: #000  !important;
+    border: 1px solid #6ac045 !important;
+}
+
+.night-mode .form-textarea {
+    color: #fcfcfc !important;
+    background-color: #272B30 !important;
+    border: 1px solid #272B30 !important;
+}
+
+.night-mode .form-textarea:focus {
+    color: #fcfcfc !important;
+    background-color: #000  !important;
+    border: 1px solid #6ac045 !important;
+}
+
+.night-mode .border_bottom {
+    border-bottom: 1px solid #272B30;
+}
+
+.night-mode .border_top {
+    border-top: 1px solid #272B30;
+}
+
+.night-mode .blog-title {
+    color: #fcfcfc;
+}
+
+.night-mode .blog-title:hover {
+    color: #fcfcfc !important;
+}
+
+.night-mode .cb-icon {
+    color: #9A9FA5;
+    background: #272B30;
+}
+
+.night-mode .cb-icon:hover {
+    color: #fff !important;
+    background: #6ac045;
+}
+
+.night-mode .booking-confirmed-bottom-bg {
+    background: #272b30;
+}
+
+.night-mode .buyer-name {
+    color: #9A9FA5;
+}
+
+.night-mode .booking-total-tickets span {
+    color: #9A9FA5;
+}
+
+.night-mode .booking-total-grand span {
+    color: #9A9FA5;
+}
+
+.night-mode .booking-total-grand {
+    color: #9A9FA5;
+}
+
+.night-mode .bp-title h4 {
+    border-bottom: 1px solid #272B30;
+}
+
+.night-mode .divider-line {
+    background: #272B30;
+}
+
+.night-mode .order-text {
+    color: #efefef;
+}
+
+.night-mode .confirmation-btn span {
+    color: #fcfcfc;
+}
+
+.night-mode .event-order-dt-content .category-type {
+    color: #efefef;
+}
+
+.night-mode .bp-form .btn-light {
+    color: #fcfcfc !important;
+    background-color: #272B30 !important;
+    border: 1px solid #272B30 !important;
+}
+
+.night-mode .bootstrap-select .dropdown-item:hover {
+    color: #FCFCFC !important;
+    background: inherit !important;
+}
+
+.night-mode .bootstrap-select .dropdown-item.active:hover {
+    color: #FCFCFC !important;
+    background: #6ac045 !important;
+}
+
+.night-mode .bootstrap-select.dropdown-item.active, .night-mode .bootstrap-select .dropdown-item:active {
+    color: #fff !important;
+    text-decoration: none;
+    background-color: #6ac045 !important;
+}
+
+.night-mode .main-form .bootstrap-select .dropdown-toggle:focus, .night-mode .main-form .bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
+    outline: none !important;
+    outline: none !important;
+    outline-offset: -2px;
+	border-color: #a2ff7a !important;
+	box-shadow: none !important;
+}
+
+.night-mode .ttl-clr {
+    color: #fff;
+}
+
+.night-mode .account-link img {
+    background-color: #272b30;
+    border: 2px solid #272b30;
+}
+
+.night-mode .user-avatar-img img {
+    background: #272b30;
+    border: 2px solid #6ac045;
+}
+
+.night-mode .account-holder-avatar img {
+    background-color: #272b30;
+    border: 2px solid #6ac045;
+}
+
+.night-mode .account-link.show img {
+    border: 2px solid #6ac045;
+}
+
+.night-mode .coming-soon-content {
+    background-color: #1A1D1F;
+}
+
+.night-mode .copyright-footer {
+    color: #efefef;
+}
+
+.night-mode .contact-hero-banner-info p {
+    color: #fff !important;
+}
+
+.night-mode .create-icon i {
+    color: #9A9FA5;
+    background: #272b30;
+}
+
+.night-mode #add-event-tab .step-steps > li:before {
+    background-color: #272b30;
+}
+
+.night-mode #add-event-tab .step-steps > li > a > .number {
+    background-color: #272b30;
+}
+
+.night-mode #add-event-tab .step-steps > li > a > .number:before {
+    background-color: rgba(39, 43, 48, 0.3);
+}
+
+.night-mode #add-event-tab .step-steps > li.active > a > .number,
+.night-mode #add-event-tab .step-steps > li.done > a > .number {
+	background-color: #6ac045;
+
+}
+
+.night-mode #add-event-tab .step-steps > li.active > a > .number:before,
+.night-mode #add-event-tab .step-steps > li.done > a > .number:before {
+	background-color: rgba(106, 192, 69, 0.3);
+}
+
+.night-mode #add-event-tab .step-steps > li.done:before {
+    background-color: #6ac045;
+}
+
+.night-mode #add-event-tab .step-steps > li.active > a > .step-name, 
+.night-mode #add-eventevent-tab .step-steps > li.done > a > .step-name {
+    color: #fff;
+}
+
+.night-mode .color-black {
+    color: #fff;
+}
+
+.night-mode .hosting-title {
+    color: #fcfcfc;
+}
+
+.night-mode .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
+    border-color: #272b30 !important;
+}
+
+.night-mode .ck.ck-editor__main>.ck-editor__editable:focus {
+    border-color: #272b30 !important;
+	background: #000;
+}
+
+
+.night-mode .ck.ck-editor__main>.ck-editor__editable {
+    background: #272B30;
+    border-radius: 0;
+}
+
+.night-mode .ck.ck-editor__main>.ck-editor__editable p {
+	color: #fcfcfc;
+}
+
+
+.night-mode .btn-switch .checkbox-slider {
+    background-color: #272B30;
+}
+
+.night-mode .datepicker {
+    background: #111315;
+    border: 1px solid #272B30;
+    color: #6F767E;
+}
+
+.night-mode .datepicker--nav {
+    border-bottom: 1px solid #272B30;
+}
+
+.night-mode .datepicker--nav-title:hover {
+	background: #272B30;
+}
+
+.night-mode .datepicker--pointer {
+    background: #111315;
+    border-top: 1px solid #272B30;
+    border-right: 1px solid #272B30;
+}
+
+.night-mode .absolute-icon {
+    color: #fcfcfc;
+}
+
+.night-mode .brn-checkbox-radio span {
+    color: #fcfcfc;
+}
+
+.night-mode .brn-checkbox-radio span:last-child {
+    color: #6F767E;
+}
+
+.night-mode .percentage-icon {
+    color: #fcfcfc;
+}
+
+.night-mode .price-ticket-card .price-ticket-card-body h6 {
+    color: #fcfcfc;
+}
+
+.night-mode .price-ticket-card .price-ticket-card-body .icon-box .icon {
+    color: #9A9FA5;
+    background: #272B30;
+}
+
+.night-mode .price-ticket-card .price-ticket-card-body .text-145 {
+    color: #9A9FA5;
+}
+
+.night-mode .dropdown-item:hover {
+	color: #fff !important;
+	background-color: transparent !important;
+}
+
+.night-mode .option-btn-1 {
+    color: #fcfcfc;
+    border: 1px solid #272B30;
+    background: #272B30;
+}
+
+.night-mode .option-btn-1:hover {
+    color: #fcfcfc;
+    border: 1px solid #efefef;
+}
+
+.night-mode .price-variation-head {
+    background: #272B30;
+}
+
+.night-mode .model-content .btn-light {
+    color: #fcfcfc !important;
+    background-color: #272B30 !important;
+    border: 1px solid #272B30 !important;
+}
+
+.night-mode .div-base-table .table-row .table-col {
+    -webkit-box-shadow: 0 1px 0 #272B30;
+    -moz-box-shadow: 0 1px 0 #272B30;
+    box-shadow: 0 1px 0 #272B30;
+}
+
+.night-mode .price-ticket-card {
+    border: 1px solid #272B30;
+}
+
+.night-mode .search-form .btn-light {
+    color: #fcfcfc !important;
+    background-color: #111315 !important;
+    border: 1px solid #111315 !important;
+}
+
+.night-mode .faq-widget-links li a {
+    color: #fcfcfc;
+}
+
+.night-mode .accordion-btn:not(.collapsed) {
+    color: #fff;
+}
+
+.night-mode .accordion-btn {
+    color: #fff;
+}
+
+.night-mode .faq-accordion .accordion-item:not(:first-of-type) {
+    border-top: 1px solid #272B30;
+}
+
+.night-mode .faq-accordion .accordion-item {
+    border-top: 1px solid #272B30;
+}
+
+.night-mode .faq-accordion .accordion-item:last-child {
+    border-bottom: 1px solid #272B30;
+}
+
+.night-mode .app-form-content {
+    background: #111315;
+}
+
+.night-mode .help-item-icon {
+    background: #272B30;
+    color: #fcfcfc;
+}
+
+.night-mode .help-item-link {
+	color: #fcfcfc;
+    border-bottom: 1px solid #272B30;
+}
+
+.night-mode .help-item-link:last-child {
+    border-bottom: 0;
+}
+
+.night-mode .hero-banner-content .form-control {
+	background-color: #111315 !important;
+    border: 1px solid #111315;
+}
+
+.night-mode .invoice-body {
+    background: #272b30;
+}
+
+.night-mode .vdt-list {
+    color: #bbb;
+}
+
+.night-mode .cut-line i {
+    background: #272b30;
+}
+
+.night-mode .invoice-header {
+    background: #1A1D1F;
+}
+
+.night-mode .QR-dt {
+    background: #2a2d2f;
+}
+
+.night-mode .QR-counter-type li {
+    color: #fcfcfc;
+}
+
+.night-mode .main-table .table .thead-dark th {
+    color: #efefef;
+    background-color: #272b30;
+    border-color: #272b30;
+}
+
+.night-mode .main-table .table {
+    color: #fff;
+    background: #1a1d1f;
+    border: 1px solid #272b30;
+}
+
+.night-mode .main-table .table tbody tr td a {
+    color: #fff;
+}
+
+.night-mode .main-table .table tbody tr td a:hover {
+    color: #fff !important;
+}
+
+
+.night-mode .totalinv2 {
+    color: #fcfcfc;
+}
+
+.night-mode .ocard-right .co-main-btn i {
+    background: #272b30;
+    border: 2px dashed #efefef;
+    color: #efefef;
+}
+
+.night-mode .org_design_button {
+    border: 2px dashed #272b30;
+    background: #111315;
+}
+
+.night-mode .address-title {
+    border-bottom: 1px solid #272b30;
+    color: #fff;
+}
+
+.night-mode .ct-label {
+    color: #c9c9c9;
+}
+
+.night-mode .ct-grid {
+    stroke: rgba(255,255,255,.2) !important;
+}
+
+.night-mode .btn-light {
+    color: #fcfcfc !important;
+    background-color: #272b30 !important;
+    border: 1px solid #272b30 !important;;
+}
+
+.night-mode .menu--link.active {
+    background: #272b30;
+    color: #fff;
+}
+
+.night-mode .vertical_nav {
+    background: #1A1D1F;
+}
+
+.night-mode .menu--link {
+    color: #6F767E;
+    font-weight: 500;
+}
+
+.night-mode .menu--link:hover, .night-mode .menu--link:hover .menu--label {
+	color:#fcfcfc;
+	background: transparent;
+}
+
+.night-mode .sub_menu--link .menu--icon:hover {
+	color: #fff !important;
+}
+
+.night-mode .custom2-tabs .tab-link {
+    background: #272b30;
+    border: 1px solid #272b30;
+    color: #fcfcfc;
+}
+
+.night-mode .custom2-tabs .tab-link {
+    background: #272b30;
+    border: 1px solid #272b30;
+    color: #fcfcfc;
+}
+
+.night-mode .custom2-tabs .tab-link:hover {
+	color: #fcfcfc;
+    background-color: #272b30;
+	border: 1px solid #efefef;
+}
+
+.night-mode .custom2-tabs .tab-link.active, .night-mode .tab-tabs .show>.tab-link {
+    color: #fff;
+    background-color: #6ac045;
+	border: 1px solid #6ac045;
+}
+
+.night-mode .custom2-tabs .tab-link.active span, .night-mode .tab-tabs .show>.tab-link span {
+    color: #fff;
+}
+
+.night-mode .card-top {
+    border-bottom: 1px solid #272b30;
+}
+
+.night-mode .card-dt-text h6 {
+    color: #9A9FA5;
+}
+
+.night-mode .card-dt-text span {
+    color: #fcfcfc;
+}
+
+.night-mode .card-icon i {
+    color: #9A9FA5;
+    background: #272b30;
+}
+
+.night-mode .option-btn {
+    color: #fcfcfc;
+    border: 1px solid #272B30;
+    background: #272B30;
+}
+
+.night-mode .option-btn:hover {
+    border: 1px solid #efefef;
+}
+
+.night-mode .event-list-icon {
+    background: #272B30;
+    border: 1px solid #272B30;
+}
+
+.night-mode .contact-list .bottom .icon-box .icon {
+    color: #9A9FA5;
+    background: #272b30;
+}
+
+.night-mode .contact-list .bottom .icon-box p {
+    color: #9A9FA5;
+}
+
+.night-mode .contact-list .bottom .icon-box h6 {
+    color: #fff;
+}
+
+.night-mode .gift-coupon-icon {
+    border-bottom: 2px dashed #272b30;
+}
+
+.night-mode .contact-list .top .icon-box h5 {
+    color: #fff;
+}
+
+.night-mode .contact-list .top .icon-box p {
+    color: #6F767E;
+}
+
+.night-mode .bank-card {
+    border: 1px solid #272b30;
+    background: #272b30;
+}
+
+.night-mode .bank-card h6 {
+    color: #efefef;
+}
+
+.night-mode .action-link {
+    color: #fcfcfc;
+    border: 1px solid #111315;
+    background: #111315;
+}
+
+.night-mode .action-link:hover {
+    color: #fcfcfc !important;
+    border: 1px solid #efefef;
+}
+
+.night-mode .subscription-item {
+    border: 1px solid #272b30;
+}
+
+.night-mode .s-info p {
+    color: #fff;
+}
+
+.night-mode .tracking-tab .tracking-head {
+    background: #272b30;
+    border: 1px solid #272b30;
+}
+
+.night-mode .tracking-tab .nav-tabs .nav-link {
+    background: #272b30;
+}
+
+.night-mode .tracking-tab .nav-tabs .nav-link.active {
+    background-color: #6ac045;
+	color: #fff !important;
+}
+
+.night-mode .specific-event {
+    border-top: 1px solid #272b30;
+}
+
+.night-mode .view-profile-link {
+    border-top: 1px solid #272b30;
+}
+
+.night-mode .p-bg {
+    background-color: #000;
+}
+
+.night-mode .copy-link {
+    background: #111315;
+    border: 1px solid #111315;
+}
+
+.night-mode .upgrade-content .upgrade-premium-center {
+    background-color: #111315;
+}
+
+.night-mode .event-dt-right-icon i {
+    color: #9A9FA5;
+    background: #272b30;
+}
+
+.night-mode .sv-btn {
+    color: #fcfcfc;
+    border: 1px solid #272b30;
+    background: #272b30;
+}
+
+.night-mode .sv-btn:hover {
+    color: #fcfcfc;
+    border: 1px solid #efefef;
+    background: #272b30;
+}
+
+.night-mode .event-type-name {
+    color: #9A9FA5;
+}
+
+.night-mode .details-hr:after {
+    background: #9A9FA5;
+}
+
+.night-mode .more-events {
+    border-top: 1px solid #272b30;
+}
+
+.night-mode .garren-line-tab {
+    border: 1px solid #1a1d1f;
+    background-color: #1a1d1f;
+}
+
+.night-mode .my-event-tabs {
+    background: #1a1d1f;
+    border: 1px solid #1a1d1f;
+}
+
+.night-mode .my-event-tabs .event-link.active:hover {
+    color: #6ac045;
+    background-color: #1a1d1f;
+    border-bottom: 3px solid #6ac045;
+}
+
+.night-mode .my-event-tabs .event-link.active, .night-mode .my-event-tabs .show>.event-link {
+    color: #6ac045;
+    background-color: #1a1d1f;
+    border-bottom: 3px solid #6ac045;
+}
+
+.night-mode .event-link span {
+    color: #fcfcfc;
+}
+
+.night-mode .event-count {
+    background: #272b30;
+    color: #9A9FA5;
+}
+
+.night-mode .card-top:last-child {
+    border-bottom: 0;
+}
+
+.night-mode .about-step {
+    border-bottom: 1px solid #272b30;
+}
+
+.night-mode .about-step:last-child {
+    border-bottom: 0;
+}
+
+.night-mode .setting-step {
+    border-bottom: 1px solid #272b30;
+}
+
+.night-mode .setting-step:last-child {
+    border-bottom: 0;
+}
+
+.night-mode .tab-link {
+    color: #6F767E;
+}
+
+.night-mode .custom-tabs .tab-link.active, .tab-tabs .show>.tab-link {
+    color: #6ac045;
+    background-color: #1a1d1f;
+	border-bottom: 3px solid #6ac045;
+}
+
+.night-mode .custom-tabs .tab-link:hover {
+	color: #fff;
+    background-color: #1a1d1f;
+	border-bottom: 3px solid transparent;
+}
+
+
+.night-mode .custom-tabs .tab-link.active span, .night-mode .tab-tabs .show>.tab-link span {
+    color: #fff;
+}
+
+.night-mode .custom-tabs .tab-link.active:hover {
+    color: #6ac045;
+    background-color: #1a1d1f;
+	border-bottom: 3px solid #6ac045;
+}
+
+.night-mode .flex-slide .right h3 {
+    color: #fff;
+}
+
+.night-mode .calculate-top {
+    background: #1a1d1f;
+}
+
+.night-mode .bg-white {
+    background: #212529 !important;
+}
+
+.night-mode .app-top-right-link {
+    color: #fff;
+}
+
+.night-mode .divider span {
+    background: #111315;
+    color: #fff;
+}
+
+.night-mode .divider:before {
+    background: rgba(112,112,112,0.4);
+}
+
+.night-mode .social-login-btn {
+	color: #fcfcfc;
+    border: 1px solid #272b30;
+    background: #272b30;
+}
+
+.night-mode .social-login-btn:hover {
+	color: #fcfcfc;
+    border: 1px solid #efefef;
+    background: #272b30;
+}
+
+.night-mode .agree-text {
+    color: #efefef;
+}
+
+.night-mode .term-link {
+    color: #fcfcfc;
+}
+
+.night-mode .terms-content ol li {
+    color: #fcfcfc;
+}
+
+.night-mode .select-tickets-block h6 {
+    color: #fff;
+    border-bottom: 1px solid #272b30;
+}
+
+.night-mode .ticket-price {
+    color: #fff;
+}
+
+.night-mode .x-title {
+    color: #6F767E;
+}
+
+.night-mode .counter input {
+    color: #fcfcfc;
+}
+
+.night-mode .counter span {
+    color: #efefef;
+    background: #111315;
+    border: 2px solid #272b30;
+}
+
+.night-mode .counter span:hover {
+    color: #fff;
+    background: #6ac045;
+    border: 2px solid #6ac045;
+}
+
+.night-mode .xtotel-tickets-count {
+    border-top: 1px solid #272b30;
+}
+
+.night-mode .help-faq-link {
+    color: #fcfcfc;
+}
+
+.night-mode .help-pagination-link {
+    color: #fcfcfc;
+}
+
+.night-mode .premium-select .option {
+    border: 2px solid #272B30;
+    background-color: #1a1d1f;
+}
+
+.night-mode .premium-select .option .dot {
+    background: #aaaaaa;
+}
+
+.night-mode .wrapper .option span {
+    color: #fcfcfc;
+}
+
+.night-mode .wrapper .option span:last-child {
+    color: #a2a2a2;
+}
+
+.night-mode #option-1:checked:checked ~ .option-1, 
+.night-mode #option-2:checked:checked ~ .option-2 {
+    border: 2px solid #6ac045;
+    background: #1a1d1f;
+}
+
+.night-mode #option-1:checked:checked ~ .option-1 span,
+.night-mode #option-2:checked:checked ~ .option-2 span {
+    color: #fff;
+}
+
+.night-mode #option-1:checked:checked ~ .option-1 span:last-child, 
+.night-mode #option-2:checked:checked ~ .option-2 span:last-child {
+    color: #a2a2a2;
+}
+
+.night-mode .upload-file-dt {
+    background: #111315;
+    border: 2px dashed #272b30;
+}
+
+.night-mode .upload-file-dt span {
+    color: #fff;
+}
+
+.night-mode .featured-controls label span {
+    color: #6F767E;
+    border: 1px solid #33383f;
+    background: #272B30;
+}
+
+.night-mode .featured-controls input:checked + span {
+	background: #272B30;
+    color: #fff !important
+}
+
+.night-mode .role-header {
+    background: #272b30;
+}
+
+
+.night-mode .role-header h6 {
+    color: #fff;
+}
+
+.night-mode .role-header span {
+    color: #a2a2a2;
+} 
+
+.night-mode .role-item span {
+    color: #fff;
+}
+
+.night-mode .i-disabled {
+    color: #fff !important;
+    background: rgba(255,255,255,0.1) !important;
+}
+
+.night-mode {
+    
+}
+
+.night-mode {
+    
+}
+
+.night-mode {
+    
+}
+
+.night-mode {
+    
+}
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+.night-mode .create-bg {
+    background-color: #272B30;
+}
+
+.night-mode .offcanvas-header {
+    border: 1px solid #272B30;
+}
+
+.night-mode .navbar-nav .nav-link:hover {
+    background-color: #1A1D1F;
+}
+
+.night-mode .dropdown-menu {
+    background-color: #111315 !important;
+    border: 1px solid transparent !important;
+}
+
+.night-mode .offcanvas-footer {
+    border-top: 1px solid #272B30;
+}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+.night-mode .create-bg {
+    background-color: #272B30;
+}
+
+.night-mode .offcanvas-header {
+    border: 1px solid #272B30;
+}
+
+.night-mode .navbar-nav .nav-link:hover {
+    background-color: #1A1D1F;
+}
+
+.night-mode .dropdown-menu {
+    background-color: #111315 !important;
+    border: 1px solid transparent !important;
+}
+
+.night-mode .offcanvas-footer {
+    border-top: 1px solid #272B30;
+}
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+.night-mode .create-bg {
+    background-color: #272B30;
+}
+
+.night-mode .offcanvas-header {
+    border: 1px solid #272B30;
+}
+
+.night-mode .navbar-nav .nav-link:hover {
+    background-color: #1A1D1F;	
+}
+
+.night-mode .dropdown-menu {
+    background-color: #111315 !important;
+    border: 1px solid transparent !important;
+}
+
+.night-mode .offcanvas-footer {
+    border-top: 1px solid #272B30;
+}
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	
+}
+}
