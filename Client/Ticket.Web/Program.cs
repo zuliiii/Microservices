@@ -1,14 +1,18 @@
+using System.Configuration;
 using Ticket.Web.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ClientSettings"));
+builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ClientSettings"));
-builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
+
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
