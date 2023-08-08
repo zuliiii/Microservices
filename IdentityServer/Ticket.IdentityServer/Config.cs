@@ -63,7 +63,7 @@ namespace Ticket.IdentityServer
                 new Client
                 {
                     ClientId="WebMvcClientForUser",
-                    ClientName = "Web MVC Client",
+					ClientName = "Web MVC Client",
                     AllowOfflineAccess=true,
                     //ClientName="Asp.Net Core MVC",
                     ClientSecrets= {new Secret("secret".Sha256())},

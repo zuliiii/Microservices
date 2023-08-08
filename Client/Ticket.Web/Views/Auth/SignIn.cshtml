@@ -1,9 +1,9 @@
-﻿
-@{
+﻿*@{
     ViewData["Title"] = "SignIn";
 }
 
 @model Ticket.Web.Models.SigninInput
+
 
 <html lang="en" class="h-100">
 
@@ -53,7 +53,7 @@
 				<div class="row justify-content-center">
 					<div class="col-lg-10 col-md-10">
 						<div class="app-top-items">
-							<a href="index.html">
+							<a href="">
 								<div class="sign-logo" id="logo">
 										<img src="~/images/logo.svg" alt="">
 										<img class="logo-inverse" src="~/images/dark-logo.svg" alt="">
@@ -66,26 +66,28 @@
 					</div>
 					<div class="col-xl-5 col-lg-6 col-md-7">
 						<div class="registration">
-							<form asp-controller="Auth" asp-action="SignIn" method="post">
+								<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+								<form asp-controller="Auth" asp-action="SignIn" method="post">
 								<h2 class="registration-title">Sign in to Barren</h2>
 								<div class="form-group mt-5">
 									<label asp-for="Email" class="form-label"></label>
-									<input asp-for="Email" class="form-control h_50" type="email" placeholder="Enter your email" value="">
+									<input asp-for="Email" class="form-control h_50" type="email" placeholder="Enter your email">
 								    <span class="text-danger" asp-validation-for="Email"></span>
+										
 								</div>
 								<div class="form-group mt-4">
 									<div class="field-password">
-										<label asp-for="Password" class="form-label"></label>
 										<a class="forgot-pass-link" href="forgot_password.html">Forgot Password?</a>
+											
 									</div>
 									<div class="loc-group position-relative">
-										<input asp-for="Password" class="form-control h_50" type="password" placeholder="Enter your password">
-										<span class="pass-show-eye"><i class="fas fa-eye-slash"></i></span>
-										<span class="text-danger" asp-validation-for="Password"></span>
+											<label asp-for="Password" for="exampleInputPassword1" class="form-label"></label>
+											<input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1">
+											<span class="text-danger" asp-validation-for="Password"></span>
 
 									</div>
 								</div>
-								<button class="main-btn btn-hover w-100 mt-4" type="button" onclick="window.location.href='index.html'">Sign In <i class="fas fa-sign-in-alt ms-2"></i></button>
+									<button type="submit" class="main-btn btn-hover w-100 mt-4" >Sign In <i class="fas fa-sign-in-alt ms-2"></i></button>
 							</form>
 							<div class="divider">
 								<span>or</span>
@@ -120,7 +122,52 @@
 <script src="~/js/custom.js"></script>
 <script src="~/js/night-mode.js"></script>
 
+	<script>
+		var email = document.getElementById('exampleInputEmail1').value;
+		var password = document.getElementById('exampleInputPassword1').value;
+		console.log("Email: " + email);
+		console.log("Password: " + password);
+	</script>
+
 </body>
-</html>
+</html> 
 
 
+
+
+
+
+@*<div class="row">
+
+	<div class="col-md-4 offset-md-4">
+		<div class="card">
+
+			<div class="card-body">
+
+				<h5 class="card-title">Üye Giriş</h5>
+				<div class="text-danger" asp-validation-summary="ModelOnly"></div>
+				<form asp-controller="Auth" asp-action="SignIn" method="post">
+					<div class="mb-3">
+						<label asp-for="Email" for="exampleInputEmail1" class="form-label"></label>
+						<input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+						<span class="text-danger" asp-validation-for="Email"></span>
+					</div>
+					<div class="mb-3">
+						<label asp-for="Password" for="exampleInputPassword1" class="form-label"></label>
+						<input type="password" asp-for="Password" class="form-control" id="exampleInputPassword1">
+						<span class="text-danger" asp-validation-for="Password"></span>
+					</div>
+					
+					<button type="submit" class="btn btn-primary">Giriş yap</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	var email = document.getElementById('exampleInputEmail1').value;
+	var password = document.getElementById('exampleInputPassword1').value;
+	console.log("Email: " + email);
+	console.log("Password: " + password);
+</script>*@
