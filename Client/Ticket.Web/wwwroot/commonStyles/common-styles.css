@@ -1,0 +1,15 @@
+﻿/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Vendor Stylesheets */
+@import url('../vendor/unicons-2.0.1/css/unicons.css');
+@import url('../vendor/fontawesome-free/css/all.min.css');
+@import url('../vendor/OwlCarousel/assets/owl.carousel.css');
+@import url('../vendor/OwlCarousel/assets/owl.theme.default.min.css');
+@import url('../vendor/bootstrap/css/bootstrap.min.css');
+@import url('../vendor/bootstrap-select/dist/css/bootstrap-select.min.css');
+
+/* App Stylesheets */
+@import url('../css/style.css');
+@import url('../css/responsive.css');
+@import url('../css/night-mode.css');

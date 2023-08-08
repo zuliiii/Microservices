@@ -7,29 +7,199 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Ticket.Web.styles.css" asp-append-version="true" />
+
+
+	<link href="~/commonStyles/common-styles.css" rel="stylesheet">
+
+	
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ticket.Web</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+	<header class="header">
+		<div class="header-inner">
+			<nav class="navbar navbar-expand-lg bg-barren barren-head navbar fixed-top justify-content-sm-start pt-0 pb-0">
+				<div class="container">
+					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+						<span class="navbar-toggler-icon">
+							<i class="fa-solid fa-bars"></i>
+						</span>
+					</button>
+					<a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto">
+						<div class="res-main-logo">
+							<img src="~/images/logo-icon.svg" alt="">
+						</div>
+						<div class="main-logo" id="logo">
+							<img src="~/images/logo.svg" alt="">
+							<img class="logo-inverse" src="~/images/dark-logo.svg" alt="">
+						</div>
+					</a>
+					<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+						<div class="offcanvas-header">
+							<div class="offcanvas-logo" id="offcanvasNavbarLabel">
+								<img src="~/images/logo-icon.svg" alt="">
+							</div>
+							<button type="button" class="close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
+								<i class="fa-solid fa-xmark"></i>
+							</button>
+						</div>
+						<div class="offcanvas-body">
+							<div class="offcanvas-top-area">
+								<div class="create-bg">
+									<a class="offcanvas-create-btn">
+										<i class="fa-solid fa-calendar-days"></i>
+										<span>Create Event</span>
+									</a>
+								</div>
+							</div>
+							<ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
+								<li class="nav-item">
+									<a class="nav-link active" aria-current="page">Home</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Explore Events
+									</a>
+									<ul class="dropdown-menu dropdown-submenu">
+										<li><a class="dropdown-item">Explore Events</a></li>
+										<li><a class="dropdown-item">Venue Event Detail View</a></li>
+										<li><a class="dropdown-item">Online Event Detail View</a></li>
+									</ul>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link">Pricing</a>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Blog
+									</a>
+									<ul class="dropdown-menu dropdown-submenu">
+										<li><a class="dropdown-item">Our Blog</a></li>
+										<li><a class="dropdown-item">Blog Detail View</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Help
+									</a>
+									<ul class="dropdown-menu dropdown-submenu">
+										<li><a class="dropdown-item">FAQ</a></li>
+										<li><a class="dropdown-item">Help Center</a></li>
+										<li><a class="dropdown-item" href="contact_us.html">Contact Us</a></li>
+									</ul>
+								</li>
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Pages
+									</a>
+									<ul class="dropdown-menu dropdown-submenu">
+										<li>
+											<a class="dropdown-item submenu-item" href="#">Other Pages</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5">Sign In</a></li>
+												<li><a class="dropdown-item pe-5">Sign Up</a></li>
+												<li><a class="dropdown-item pe-5">Forgot Password</a></li>
+												<li><a class="dropdown-item pe-5">About Us</a></li>
+												<li><a class="dropdown-item pe-5">Checkout</a></li>
+												<li><a class="dropdown-item pe-5">Checkout Premium</a></li>
+												<li><a class="dropdown-item pe-5">Invoice</a></li>
+												<li><a class="dropdown-item pe-5">Coming Soon</a></li>
+												<li><a class="dropdown-item pe-5">Error 404</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item" href="#">Create Event</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5">Create</a></li>
+												<li><a class="dropdown-item pe-5">Create Venue Event</a></li>
+												<li><a class="dropdown-item pe-5">Create Online Event</a></li>
+											</ul>
+										</li>
+										<li>
+											<a class="dropdown-item submenu-item" href="#">Events View</a>
+											<ul class="submenu dropdown-menu">
+												<li><a class="dropdown-item pe-5">Online Event Detail View</a></li>
+												<li><a class="dropdown-item pe-5">Venue Event Detail View</a></li>
+											</ul>
+										</li>
+										<li><a class="dropdown-item">Booking Confirmed</a></li>
+										<li><a class="dropdown-item">Attendee Profile View</a></li>
+										<li><a class="dropdown-item">Organiser Profile View</a></li>
+										<li><a class="dropdown-item">Organization Dashboard</a></li>
+										<li><a class="dropdown-item">Sell Tickets Online</a></li>
+										<li><a class="dropdown-item" </a></li>
+										<li><a class="dropdown-item">Terms & Conditions</a></li>
+										<li><a class="dropdown-item" </a></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div class="offcanvas-footer">
+							<div class="offcanvas-social">
+								<h5>Follow Us</h5>
+								<ul class="social-links">
+									<li><a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a>
+									<li><a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+									<li><a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+									<li><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+									<li><a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="right-header order-2">
+						<ul class="align-self-stretch">
+							<li>
+								<a class="create-btn btn-hover">
+									<i class="fa-solid fa-calendar-days"></i>
+									<span>Create Event</span>
+								</a>
+							</li>
+							<li class="dropdown account-dropdown">
+								<a href="#" class="account-link" role="button" id="accountClick" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
+									<img src="~/images/profile-imgs/img-13.jpg" alt="">
+									<i class="fas fa-caret-down arrow-icon"></i>
+								</a>
+
+								@if (User.Identity.IsAuthenticated)
+								{
+									<ul class="dropdown-menu dropdown-menu-account dropdown-menu-end" aria-labelledby="accountClick">
+										<li>
+											<div class="dropdown-account-header">
+												<div class="account-holder-avatar">
+													<img src="~/images/profile-imgs/img-13.jpg" alt="">
+												</div>
+												<h5>John Doe</h5>
+												<p>johndoe@example.com</p>
+											</div>
+										</li>
+										<li class="profile-link">
+											<a class="link-item">My Organisation</a>
+											<a class="link-item">My Profile</a>
+											<a class="link-item">Sign Out</a>
+										</li>
+									</ul>
+
+								}
+
+								else
+								{
+									<a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignIn">Giriş yap</a>
+								}
+
+							
+							</li>
+							<li>
+								<div class="night_mode_switch__btn">
+									<div id="night-mode" class="fas fa-moon fa-sun"></div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<div class="overlay"></div>
+		</div>
+	</header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -40,5 +210,9 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+	<script src="~/commonScripts/common-scripts.js"></script>
+
+
+
 </body>
 </html>

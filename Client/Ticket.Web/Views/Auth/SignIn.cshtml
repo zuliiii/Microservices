@@ -19,21 +19,7 @@
 	<!-- Favicon Icon -->
 	<link rel="icon" type="image/png" href="~/images/fav.png">
 
-	<!-- Stylesheets -->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-	<link href='~/vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
-	<link href="~/css/style.css" rel="stylesheet">
-	<link href="~/css/responsive.css" rel="stylesheet">
-	<link href="~/css/night-mode.css" rel="stylesheet">
 
-	<!-- Vendor Stylesheets -->
-	<link href="~/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-	<link href="~/vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
-	<link href="~/vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
-	<link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="~/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 
 </head>
 
@@ -71,7 +57,7 @@
 								<h2 class="registration-title">Sign in to Barren</h2>
 								<div class="form-group mt-5">
 									<label asp-for="Email" class="form-label"></label>
-									<input asp-for="Email" class="form-control h_50" type="email" placeholder="Enter your email">
+									<input value="zulu22@gmail.com" asp-for="Email" class="form-control h_50" type="email" placeholder="Enter your email">
 								    <span class="text-danger" asp-validation-for="Email"></span>
 										
 								</div>
@@ -82,7 +68,7 @@
 									</div>
 									<div class="loc-group position-relative">
 											<label asp-for="Password" for="exampleInputPassword1" class="form-label"></label>
-											<input asp-for="Password" type="password" class="form-control" id="exampleInputPassword1">
+											<input value="Password123!" asp-for="Password" type="password" class="form-control" id="exampleInputPassword1">
 											<span class="text-danger" asp-validation-for="Password"></span>
 
 									</div>
@@ -115,19 +101,9 @@
 		</div>
 	</div>
 </div>
-<script src="~/js/jquery-3.6.0.min.js"></script>
-<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="~/vendor/OwlCarousel/owl.carousel.js"></script>
-<script src="~/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<script src="~/js/custom.js"></script>
-<script src="~/js/night-mode.js"></script>
 
-	<script>
-		var email = document.getElementById('exampleInputEmail1').value;
-		var password = document.getElementById('exampleInputPassword1').value;
-		console.log("Email: " + email);
-		console.log("Password: " + password);
-	</script>
+	<script src="~/commonScripts/common-scripts.js"></script>
+
 
 </body>
 </html> 
