@@ -168,14 +168,14 @@
 												<div class="account-holder-avatar">
 													<img src="~/images/profile-imgs/img-13.jpg" alt="">
 												</div>
-												<h5>John Doe</h5>
-												<p>johndoe@example.com</p>
+												<h5>@User.Identity.Name</h5>
+												
 											</div>
 										</li>
 										<li class="profile-link">
 											<a class="link-item">My Organisation</a>
-											<a class="link-item">My Profile</a>
-											<a class="link-item">Sign Out</a>
+											<a class="link-item" asp-controller="User" asp-action="Index">My Profile</a>
+											<a class="link-item" asp-controller="Auth" asp-action="Logout">Sign Out</a>
 										</li>
 									</ul>
 
