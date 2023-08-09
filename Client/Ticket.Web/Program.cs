@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Configuration;
+using Ticket.Shared.Services;
 using Ticket.Web.Handler;
 using Ticket.Web.Models;
 using Ticket.Web.Services;
@@ -12,16 +13,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ISharedIdentityService,SharedIdentityService>();
 
 var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
 
+builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
+
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+builder.Services.AddScoped<ClientCredentialTokenHandler>();
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 
 builder.Services.AddHttpClient<ICatalogService, CatalogService>(options =>
 {
     options.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Catalog.Path}");
-});
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 builder.Services.AddHttpClient<IUserService, UserService>(options =>
 {

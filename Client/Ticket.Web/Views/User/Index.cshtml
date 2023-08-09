@@ -5,6 +5,7 @@
 
 @model UserViewModel
 
+
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -369,7 +370,7 @@
 											<a class="nav-link" id="setting-tab" data-bs-toggle="tab" href="#setting" role="tab" aria-controls="setting" aria-selected="false"><i class="fa-solid fa-gear"></i>Setting</a>
 										</li>
 										<li class="nav-item">
-											<a class="nav-link" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false"><i class="fa-solid fa-box"></i>My Orders</a>
+											<a class="nav-link" asp-asp-controller="Events" asp-action="Index" id="orders-tab" data-bs-toggle="tab" role="tab" aria-controls="orders" aria-selected="false"><i class="fa-solid fa-box"></i>My Orders</a>
 										</li>
 									</ul>
 									<div class="tab-content" id="myTabContent">
@@ -427,7 +428,7 @@
 																		<h5>Tutorial on Canvas Painting for Beginners</h5>
 																		<div class="evnt-time">Sun, Jul 17, 2022 5:30 AM</div>
 																		<div class="event-btn-group">
-																			<button class="esv-btn me-2" onclick="window.location.href='create_online_event.html'"><i class="fa-solid fa-gear me-2"></i>Manage Event</button>
+																			<button class="esv-btn me-2" ><i class="fa-solid fa-gear me-2"></i>Manage Event</button>
 																		</div>
 																	</div>
 																</div>
@@ -750,57 +751,7 @@
 												</div>
 											</div>
 										</div>
-										<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
-											<div class="main-card mt-4">
-												<div class="card-top p-4">
-													<div class="card-event-img">
-														<img src="~/images/event-imgs/img-7.jpg" alt="">
-													</div>
-													<div class="card-event-dt">
-														<h5>Tutorial on Canvas Painting for Beginners</h5>
-														<div class="invoice-id">Invoice ID : <span>BRCCRW-11111111</span></div>
-													</div>
-												</div>
-												<div class="card-bottom">
-													<div class="card-bottom-item">
-														<div class="card-icon">
-															<i class="fa-solid fa-calendar-days"></i>
-														</div>
-														<div class="card-dt-text">
-															<h6>Event Starts on</h6>
-															<span>01 June 2022</span>
-														</div>
-													</div>
-													<div class="card-bottom-item">
-														<div class="card-icon">
-															<i class="fa-solid fa-ticket"></i>
-														</div>
-														<div class="card-dt-text">
-															<h6>Total Tickets</h6>
-															<span>1</span>
-														</div>
-													</div>
-													<div class="card-bottom-item">
-														<div class="card-icon">
-															<i class="fa-solid fa-money-bill"></i>
-														</div>
-														<div class="card-dt-text">
-															<h6>Paid Amount</h6>
-															<span>AUD $50.00</span>
-														</div>
-													</div>
-													<div class="card-bottom-item">
-														<div class="card-icon">
-															<i class="fa-solid fa-money-bill"></i>
-														</div>
-														<div class="card-dt-text">
-															<h6>Invoice</h6>
-															<a href="invoice.html">Download</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+										
 									</div>
 								</div>
 							</div>

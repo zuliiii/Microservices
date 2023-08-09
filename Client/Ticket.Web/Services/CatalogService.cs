@@ -21,9 +21,11 @@ namespace Ticket.Web.Services
 			return response.IsSuccessStatusCode;
 		}
 
-		public Task<bool> DeleteEventAsync(string eventId)
+		public async Task<bool> DeleteEventAsync(string eventId)
 		{
-			throw new NotImplementedException();
+			var response = await _httpClient.DeleteAsync($"events/{eventId}");
+
+			return response.IsSuccessStatusCode;
 		}
 
 		public async Task<List<CategoryViewModel>> GetAllCategoryAsync()
@@ -41,6 +43,19 @@ namespace Ticket.Web.Services
 		public async Task<List<EventViewModel>> GetAllEventAsync()
 		{
 			var response = await _httpClient.GetAsync("events");
+			if (!response.IsSuccessStatusCode)
+			{
+				return null;
+			}
+
+			var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<EventViewModel>>>();
+			return responseSuccess.Data;
+		}
+
+		public async Task<List<EventViewModel>> GetAllEventByUserIdAsync(string userId)
+		{
+			var response = await _httpClient.GetAsync($"events/GetAllByUserId/{userId}");
+
 			if (!response.IsSuccessStatusCode)
 			{
 				return null;

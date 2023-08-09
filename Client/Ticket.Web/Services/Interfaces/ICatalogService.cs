@@ -8,7 +8,7 @@ namespace Ticket.Web.Services.Interfaces
 
 		Task<List<CategoryViewModel>> GetAllCategoryAsync();
 
-		//Task<List<EventViewModel>> GetAllEventByUserIdAsync(string userId);
+		Task<List<EventViewModel>> GetAllEventByUserIdAsync(string userId);
 
 		Task<EventViewModel> GetByEventId(string eventId);
 
