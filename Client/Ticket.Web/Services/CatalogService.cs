@@ -1,4 +1,6 @@
-﻿using Ticket.Web.Models.Catalog;
+﻿using Ticket.Shared.DTOs;
+using Ticket.Web.Models;
+using Ticket.Web.Models.Catalog;
 using Ticket.Web.Services.Interfaces;
 
 namespace Ticket.Web.Services
@@ -12,9 +14,11 @@ namespace Ticket.Web.Services
 			_httpClient = httpClient;
 		}
 
-		public Task<bool> CreateEventAsync(EventCreateInput eventCreateInput)
+		public async Task<bool> CreateEventAsync(EventCreateInput eventCreateInput)
 		{
-			throw new NotImplementedException();
+			var response = await _httpClient.PostAsJsonAsync<EventCreateInput>("events", eventCreateInput);
+
+			return response.IsSuccessStatusCode;
 		}
 
 		public Task<bool> DeleteEventAsync(string eventId)
@@ -22,24 +26,47 @@ namespace Ticket.Web.Services
 			throw new NotImplementedException();
 		}
 
-		public Task<List<CategoryViewModel>> GetAllCategoryAsync()
+		public async Task<List<CategoryViewModel>> GetAllCategoryAsync()
 		{
-			throw new NotImplementedException();
+			var response = await _httpClient.GetAsync("categories");
+			if (!response.IsSuccessStatusCode)
+			{
+				return null;
+			}
+
+			var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<CategoryViewModel>>>();
+			return responseSuccess.Data;
 		}
 
-		public Task<List<EventViewModel>> GetAllEventAsync()
+		public async Task<List<EventViewModel>> GetAllEventAsync()
 		{
-			throw new NotImplementedException();
+			var response = await _httpClient.GetAsync("events");
+			if (!response.IsSuccessStatusCode)
+			{
+				return null;
+			}
+
+			var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<EventViewModel>>>();
+			return responseSuccess.Data;
 		}
 
-		public Task<EventViewModel> GetByEventId(string eventId)
+		public async Task<EventViewModel> GetByEventId(string eventId)
 		{
-			throw new NotImplementedException();
+			var response = await _httpClient.GetAsync($"events/{eventId}");
+			if (!response.IsSuccessStatusCode)
+			{
+				return null;
+			}
+
+			var responseSuccess = await response.Content.ReadFromJsonAsync<Response<EventViewModel>>();
+			return responseSuccess.Data;
 		}
 
-		public Task<bool> UpdateEventAsync(EventCreateInput eventUpdateInput)
+		public async Task<bool> UpdateEventAsync(EventUpdateInput eventUpdateInput)
 		{
-			throw new NotImplementedException();
+			var response = await _httpClient.PutAsJsonAsync<EventUpdateInput>("events", eventUpdateInput);
+
+			return response.IsSuccessStatusCode;
 		}
 	}
 }

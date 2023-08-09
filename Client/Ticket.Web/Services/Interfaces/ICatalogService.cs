@@ -14,7 +14,7 @@ namespace Ticket.Web.Services.Interfaces
 
 		Task<bool> CreateEventAsync(EventCreateInput eventCreateInput);
 
-		Task<bool> UpdateEventAsync(EventCreateInput eventUpdateInput);
+		Task<bool> UpdateEventAsync(EventUpdateInput eventUpdateInput);
 
 		Task<bool> DeleteEventAsync(string eventId);
 	}
