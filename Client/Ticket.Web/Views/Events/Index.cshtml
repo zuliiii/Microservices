@@ -4,75 +4,99 @@
 }
 @model List<EventViewModel>
 
-<div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
 
-	@if (Model.Any())
-	{
-		@foreach (var item in Model)
-		{
-			<div class="main-card mt-4">
-				<div class="card-top p-4">
-					<div class="card-event-img">
-						<img src="~/images/event-imgs/img-7.jpg" alt="">
-					</div>
-					<div class="card-event-dt">
-						<h5>@item.Title</h5>
+<html>
+<head>
+	<title>Events</title>
+	<link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="~/vendor/OwlCarousel/owl.carousel.css">
+	<link rel="stylesheet" href="~/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+	<!-- Add other stylesheets if needed -->
+</head>
 
-					</div>
-				</div>
-				<div class="card-bottom">
-					<div class="card-bottom-item">
-						<div class="card-icon">
-							<i class="fa-solid fa-calendar-days"></i>
-						</div>
-						<div class="card-dt-text">
-							<h6>Event Starts on</h6>
-							<span>@item.CreatedTime</span>
-						</div>
-					</div>
-					<div class="card-bottom-item">
-						<div class="card-icon">
-							<i class="fa-solid fa-ticket"></i>
-						</div>
-						<div class="card-dt-text">
-							<h6>Location</h6>
-							<span>@item.Location</span>
-						</div>
-					</div>
-					<div class="card-bottom-item">
-						<div class="card-icon">
-							<i class="fa-solid fa-money-bill"></i>
-						</div>
-						<div class="card-dt-text">
-							<h6>Paid Amount</h6>
-							<span>@item.Price</span>
-						</div>
-					</div>
-					<div class="card-bottom-item">
-						<div class="card-icon">
-							<i class="fa-solid fa-money-bill"></i>
-						</div>
-						<div class="card-dt-text">
-							<h6>Invoice</h6>
-							<a>Download</a>
-						</div>
-					</div>
-				</div>
+<body>
+
+<div class="tab-pane mt-10" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+
+		@*<div class="offcanvas-top-area">
+			<div class="create-bg">
+				<a asp-controller="Events" asp-action="Create" class="offcanvas-create-btn">
+					<i class="fa-solid fa-calendar-days"></i>
+					<span>Create Event</span>
+				</a>
 			</div>
-		}
-	}
-	else
-	{
-		<div><h1>There is no event</h1></div>
-	}
+		</div>*@
 
+		@if (Model.Any())
+		{
+			@foreach (var item in Model)
+			{
+				<div class="main-card mt-4">
+					<div class="card-top p-4">
+						<div class="card-event-img">
+							<img src="~/images/event-imgs/img-7.jpg" alt="">
+						</div>
+						<div class="card-event-dt">
+							<h5>@item.Title</h5>
+
+						</div>
+					</div>
+					<div class="card-bottom">
+						<div class="card-bottom-item">
+							<div class="card-icon">
+								<i class="fa-solid fa-calendar-days"></i>
+							</div>
+							<div class="card-dt-text">
+								<h6>Event Starts on</h6>
+								<span>@item.CreatedTime</span>
+							</div>
+						</div>
+						@*<div class="card-bottom-item">
+							<div class="card-icon">
+								<i class="fa-solid fa-ticket"></i>
+							</div>
+							<div class="card-dt-text">
+								<h6>Location</h6>
+								<span>@item.Location</span>
+							</div>
+						</div>*@
+						<div class="card-bottom-item">
+							<div class="card-icon">
+								<i class="fa-solid fa-money-bill"></i>
+							</div>
+							<div class="card-dt-text">
+								<h6>Paid Amount</h6>
+								<span>@item.Price</span>
+							</div>
+						</div>
+						@*<div class="card-bottom-item">
+							<div class="card-icon">
+								<i class="fa-solid fa-money-bill"></i>
+							</div>
+							<div class="card-dt-text">
+								<h6>Invoice</h6>
+								<a>Download</a>
+							</div>
+						</div>*@
+					</div>
+					<a asp-controller="Events" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success btn-sm">Update</a>
+					<a asp-controller="Events" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-success btn-sm">Delete</a>
+				</div>
+			}
+		}
+		else
+		{
+			<div><h1>There is no event</h1></div>
+		}
 	
 	
 </div>
+	<script src="~/js/jquery-3.6.0.min.js"></script>
+	<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="~/vendor/OwlCarousel/owl.carousel.js"></script>
+	<script src="~/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="~/js/custom.js"></script>
+	<script src="~/js/night-mode.js"></script>
+</body>
 
-<script src="~/~/js/jquery-3.6.0.min.js"></script>
-<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="~/vendor/OwlCarousel/owl.carousel.js"></script>
-<script src="~/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-<script src="~/js/custom.js"></script>
-<script src="~/js/night-mode.js"></script>
+</html>

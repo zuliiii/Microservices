@@ -4,7 +4,7 @@ using Ticket.Web.Services.Interfaces;
 
 namespace Ticket.Web.Handler
 {
-	public class ClientCredentialTokenHandler:DelegatingHandler
+	public class ClientCredentialTokenHandler : DelegatingHandler
 	{
 		private readonly IClientCredentialTokenService _clientCredentialTokenService;
 

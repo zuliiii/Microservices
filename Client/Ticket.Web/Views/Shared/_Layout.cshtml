@@ -1,12 +1,13 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Ticket.Web</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Ticket.Web.styles.css" asp-append-version="true" />
+@*    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Ticket.Web.styles.css" asp-append-version="true" />*@
 
 
 	<link href="~/commonStyles/common-styles.css" rel="stylesheet">
@@ -15,7 +16,7 @@
 </head>
 
 <body>
-	<header class="header">
+<header class="header">
 		<div class="header-inner">
 			<nav class="navbar navbar-expand-lg bg-barren barren-head navbar fixed-top justify-content-sm-start pt-0 pb-0">
 				<div class="container">
@@ -45,7 +46,7 @@
 						<div class="offcanvas-body">
 							<div class="offcanvas-top-area">
 								<div class="create-bg">
-									<a class="offcanvas-create-btn">
+									<a  class="offcanvas-create-btn">
 										<i class="fa-solid fa-calendar-days"></i>
 										<span>Create Event</span>
 									</a>
@@ -205,6 +206,77 @@
             @RenderBody()
         </main>
     </div>
+
+	@*<footer class="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6">
+						<div class="footer-content">
+							<h4>Company</h4>
+							<ul class="footer-link-list">
+								<li><a href="about_us.html" class="footer-link">About Us</a></li>
+								<li><a href="help_center.html" class="footer-link">Help Center</a></li>
+								<li><a href="faq.html" class="footer-link">FAQ</a></li>
+								<li><a href="contact_us.html" class="footer-link">Contact Us</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="footer-content">
+							<h4>Useful Links</h4>
+							<ul class="footer-link-list">
+								<li><a href="create.html" class="footer-link">Create Event</a></li>
+								<li><a href="sell_tickets_online.html" class="footer-link">Sell Tickets Online</a></li>
+								<li><a href="privacy_policy.html" class="footer-link">Privacy Policy</a></li>
+								<li><a href="term_and_conditions.html" class="footer-link">Terms & Conditions</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="footer-content">
+							<h4>Resources</h4>
+							<ul class="footer-link-list">
+								<li><a href="pricing.html" class="footer-link">Pricing</a></li>
+								<li><a href="our_blog.html" class="footer-link">Blog</a></li>
+								<li><a href="refer_a_friend.html" class="footer-link">Refer a Friend</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6">
+						<div class="footer-content">
+							<h4>Follow Us</h4>
+							<ul class="social-links">
+								<li><a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a>
+								<li><a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+								<li><a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+								<li><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+								<li><a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+							</ul>
+						</div>
+						<div class="footer-content">
+							<h4>Download Mobile App</h4>
+							<div class="download-app-link">
+								<a href="#" class="download-btn"><img src="images/app-store.png" alt=""></a>
+								<a href="#" class="download-btn"><img src="images/google-play.png" alt=""></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="footer-copyright-text">
+							<p class="mb-0">© 2022, <strong>Barren</strong>. All rights reserved. Powered by Gambolthemes</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -31,6 +31,7 @@ namespace Ticket.Web.Services
 		public async Task<List<CategoryViewModel>> GetAllCategoryAsync()
 		{
 			var response = await _httpClient.GetAsync("categories");
+
 			if (!response.IsSuccessStatusCode)
 			{
 				return null;

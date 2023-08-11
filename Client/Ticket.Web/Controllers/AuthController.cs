@@ -49,7 +49,8 @@ namespace Ticket.Web.Controllers
 			await _identityService.RevokeRefreshToken();
 			return RedirectToAction(nameof(HomeController.Index), "Home");
 		}
+	
 
-	}
+}
 
 }

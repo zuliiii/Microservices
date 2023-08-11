@@ -6,7 +6,7 @@ using Ticket.Shared.ControllerBases;
 
 namespace Ticket.Services.Catalog.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : CustomBaseController
     {
