@@ -65,7 +65,7 @@ namespace Ticket.Web.Services
 			var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<EventViewModel>>>();
 			responseSuccess.Data.ForEach(x =>
 			{
-				x.Picture = _photoHelper.GetPhotoStockUrl(x.Picture);
+				x.StockPictureUrl = _photoHelper.GetPhotoStockUrl(x.Picture);
 			});
 			return responseSuccess.Data;
 		}
@@ -83,7 +83,7 @@ namespace Ticket.Web.Services
 
 			responseSuccess.Data.ForEach(x =>
 			{
-				x.Picture = _photoHelper.GetPhotoStockUrl(x.Picture);
+				x.StockPictureUrl = _photoHelper.GetPhotoStockUrl(x.Picture);
 			});
 
 			return responseSuccess.Data;
@@ -98,11 +98,20 @@ namespace Ticket.Web.Services
 			}
 
 			var responseSuccess = await response.Content.ReadFromJsonAsync<Response<EventViewModel>>();
+			responseSuccess.Data.StockPictureUrl = _photoHelper.GetPhotoStockUrl(responseSuccess.Data.Picture);
 			return responseSuccess.Data;
 		}
 
 		public async Task<bool> UpdateEventAsync(EventUpdateInput eventUpdateInput)
 		{
+			var resultPhotoService = await _photoStockService.UploadPhoto(eventUpdateInput.PhotoFormFile);
+
+			if (resultPhotoService != null)
+			{
+				_photoStockService.DeletePhoto(eventUpdateInput.Picture);
+				eventUpdateInput.Picture = resultPhotoService.Url;
+			}
+
 			var response = await _httpClient.PutAsJsonAsync<EventUpdateInput>("events", eventUpdateInput);
 
 			return response.IsSuccessStatusCode;
