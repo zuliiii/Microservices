@@ -1,4 +1,5 @@
 ﻿using Ticket.Shared.DTOs;
+using Ticket.Web.Helpers;
 using Ticket.Web.Models;
 using Ticket.Web.Models.Catalog;
 using Ticket.Web.Services.Interfaces;
@@ -8,14 +9,26 @@ namespace Ticket.Web.Services
 	public class CatalogService : ICatalogService
 	{
 		private readonly HttpClient _httpClient;
+		private readonly IPhotoStockService _photoStockService;
+		private readonly PhotoHelper _photoHelper;
 
-		public CatalogService(HttpClient httpClient)
+		public CatalogService(HttpClient httpClient, IPhotoStockService photoStockService, PhotoHelper photoHelper)
 		{
 			_httpClient = httpClient;
+			_photoStockService = photoStockService;
+			_photoHelper = photoHelper;
 		}
 
 		public async Task<bool> CreateEventAsync(EventCreateInput eventCreateInput)
 		{
+			var resultPhotoService = await _photoStockService.UploadPhoto(eventCreateInput.PhotoFormFile);
+
+			if (resultPhotoService != null)
+			{
+				eventCreateInput.Picture = resultPhotoService.Url;
+			}
+
+
 			var response = await _httpClient.PostAsJsonAsync<EventCreateInput>("events", eventCreateInput);
 
 			return response.IsSuccessStatusCode;
@@ -50,6 +63,10 @@ namespace Ticket.Web.Services
 			}
 
 			var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<EventViewModel>>>();
+			responseSuccess.Data.ForEach(x =>
+			{
+				x.Picture = _photoHelper.GetPhotoStockUrl(x.Picture);
+			});
 			return responseSuccess.Data;
 		}
 
@@ -63,6 +80,12 @@ namespace Ticket.Web.Services
 			}
 
 			var responseSuccess = await response.Content.ReadFromJsonAsync<Response<List<EventViewModel>>>();
+
+			responseSuccess.Data.ForEach(x =>
+			{
+				x.Picture = _photoHelper.GetPhotoStockUrl(x.Picture);
+			});
+
 			return responseSuccess.Data;
 		}
 

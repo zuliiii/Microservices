@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Configuration;
 using Ticket.Shared.Services;
 using Ticket.Web.Handler;
+using Ticket.Web.Helpers;
 using Ticket.Web.Models;
 using Ticket.Web.Services;
 using Ticket.Web.Services.Interfaces;
@@ -14,6 +15,7 @@ builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("Cli
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAccessTokenManagement();
+builder.Services.AddSingleton<PhotoHelper>();
 builder.Services.AddScoped<ISharedIdentityService,SharedIdentityService>();
 
 var serviceApiSettings = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();

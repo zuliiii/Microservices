@@ -9,5 +9,7 @@
 		public string? Picture { get; set; } 
 		public string? Location { get; set; } 
 		public string? CategoryId { get; set; }
+
+		public IFormFile PhotoFormFile { get; set; }
 	}
 }

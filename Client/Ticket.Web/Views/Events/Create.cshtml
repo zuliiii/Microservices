@@ -129,21 +129,20 @@
 																		</div>
 																	</div>
 																</div>*@
-																@*<div class="form-group pt_30 pb_30">
+																<div class="form-group pt_30 pb_30">
 																	<label class="form-label fs-16">Add a few images to your event banner.</label>
-																	<p class="mt-2 fs-14 d-block mb-3 pe_right">Upload colorful and vibrant images as the banner for your event! See how beautiful images help your event details page. <a href="#" class="a-link">Learn more</a></p>
 																	<div class="content-holder mt-4">
 																		<div class="default-event-thumb">
 																			<div class="default-event-thumb-btn">
 																				<div class="thumb-change-btn">
-																					<input type="file" id="thumb-img">
-																					<label for="thumb-img">Change Image</label>
+																					<input asp-for="PhotoFormFile" type="file" class="form-control" id="thumb-img">
+																					<label asp-for="PhotoFormFile" >Change Image</label>
 																				</div>
 																			</div>
 																			<img src="images/banners/custom-img.jpg" alt="">
 																		</div>
 																	</div>
-																</div>*@
+																</div>
 																<div class="form-group border_bottom pb_30">
 																	<label asp-for="Description" class="form-label">Please describe your event</label>
 																	<textarea asp-for="Description" class="form-control"></textarea>
