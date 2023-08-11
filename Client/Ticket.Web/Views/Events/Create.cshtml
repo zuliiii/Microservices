@@ -1,0 +1,242 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+@model EventCreateInput
+
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/create_online_event.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 19:02:06 GMT -->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, shrink-to-fit=9">
+	<meta name="description" content="Gambolthemes">
+	<meta name="author" content="Gambolthemes">
+	<title>Barren - Simple Online Event Ticketing System</title>
+
+	<!-- Favicon Icon -->
+	<link rel="icon" type="image/png" href="images/fav.png">
+
+	<!-- Stylesheets -->
+	<link rel="preconnect" href="https://fonts.googleapis.com/">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
+	<link href='vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
+	<link href="css/style.css" rel="stylesheet">
+	<link href="css/datepicker.min.css" rel="stylesheet">
+	<link href="css/jquery-steps.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">
+	<link href="css/night-mode.css" rel="stylesheet">
+
+	<!-- Vendor Stylesheets -->
+	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+	<link href="vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
+	<link href="vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="vendor/ckeditor5/sample/css/sample.css" rel="stylesheet">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+	<!-- Header Start-->
+
+	<!-- Header End-->
+	<!-- Body Start-->
+	<div class="wrapper">
+		
+		<div class="event-dt-block p-80">
+			<div class="container">
+				<div class="row justify-content-center">
+					<div class="col-lg-12 col-md-12">
+						<div class="main-title text-center">
+							<h3>Create Event</h3>
+						</div>
+					</div>
+					<div class="col-xl-8 col-lg-9 col-md-12">
+						<div class="wizard-steps-block">
+							<div id="add-event-tab" class="step-app">
+								<ul class="step-steps">
+									<li class="active">
+										<a href="#tab_step1">
+											<span class="number"></span>
+											<span class="step-name">Details</span>
+										</a>
+									</li>
+							
+								</ul>
+								<form asp-controller="Events" asp-action="Create" method="post" enctype="multipart/form-data">
+									<div asp-validation-summary="ModelOnly"></div>
+									<div class="step-content">
+										<div class="step-tab-panel step-tab-info active" id="tab_step1">
+											<div class="tab-from-content">
+												<div class="main-card">
+													<div class="bp-title">
+														<h4><i class="fa-solid fa-circle-info step_icon me-3"></i>Details</h4>
+													</div>
+													<div class="p-4 bp-form main-form">
+														<div class="row">
+															<div class="col-lg-12 col-md-12">
+																<div class="form-group border_bottom pb_30">
+																	<label asp-for="Title" class="form-label fs-16">Give your event a name.*</label>
+																	<input asp-for="Title" class="form-control h_50" type="text" placeholder="Enter event name here" value="">
+																	<span class="text-danger" asp-validation-for="Title"></span>
+																</div>
+																<div class="form-group border_bottom pt_30 pb_30">
+																	<label for="exampleFormControlInput1" class="form-label" asp-for="CategoryId">Choose a category for your event.*</label>
+																	<select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.categoryList">
+																		<option value="">Select category</option>
+																	</select>
+
+																	<span class="text-danger" asp-validation-for="CategoryId"></span>
+																	
+																</div>
+																@*<div class="form-group border_bottom pt_30 pb_30">
+																	<label class="form-label fs-16">When is your event?*</label>
+																	<p class="mt-2 fs-14 d-block mb-3">Tell your attendees when your event starts so they can get ready to attend.</p>
+																	<div class="row g-2">
+																		<div class="col-md-6">
+																			<label class="form-label mt-3 fs-6">Event Date.*</label>
+																			<div class="loc-group position-relative">
+																				<input class="form-control h_50 datepicker-here" data-language="en" type="text" placeholder="MM/DD/YYYY" value="">
+																				<span class="absolute-icon"><i class="fa-solid fa-calendar-days"></i></span>
+																			</div>
+																		</div>
+																		<div class="col-md-6">
+																			<div class="row g-2">
+																				<div class="col-md-6">
+																					<div class="clock-icon">
+																						<label class="form-label mt-3 fs-6">Time</label>
+																						<select class="selectpicker" data-size="5" data-live-search="true">
+																							<option value="00:00">12:00 AM</option>
+																							<option value="00:15">12:15 AM</option>
+																	
+																						</select>
+																					</div>
+																				</div>
+																				<div class="col-md-6">
+																					<label class="form-label mt-3 fs-6">Duration</label>
+																					<select class="selectpicker" data-size="5" data-live-search="true">
+																						<option value="15">15m</option>
+																						<option value="30">30m</option>
+																					
+																					</select>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>*@
+																@*<div class="form-group pt_30 pb_30">
+																	<label class="form-label fs-16">Add a few images to your event banner.</label>
+																	<p class="mt-2 fs-14 d-block mb-3 pe_right">Upload colorful and vibrant images as the banner for your event! See how beautiful images help your event details page. <a href="#" class="a-link">Learn more</a></p>
+																	<div class="content-holder mt-4">
+																		<div class="default-event-thumb">
+																			<div class="default-event-thumb-btn">
+																				<div class="thumb-change-btn">
+																					<input type="file" id="thumb-img">
+																					<label for="thumb-img">Change Image</label>
+																				</div>
+																			</div>
+																			<img src="images/banners/custom-img.jpg" alt="">
+																		</div>
+																	</div>
+																</div>*@
+																<div class="form-group border_bottom pb_30">
+																	<label asp-for="Description" class="form-label">Please describe your event</label>
+																	<textarea asp-for="Description" class="form-control"></textarea>
+																	<span class="text-danger" asp-validation-for="Description"></span>
+																@*	<label asp-for= "Description"  class="form-label fs-16">Please describe your event.</label>
+																	<p class="mt-2 fs-14 d-block mb-3">Write a few words below to describe your event and provide any extra information such as schedules, itinerary or any special instructions required to attend your event.</p>
+																	<div class="text-editor mt-4">
+																		<div asp-for="Description" id="pd_editor"></div>
+																	</div>
+																	<span class="text-danger" asp-validation-for="Description"></span>*@
+																</div>
+																
+															</div>
+														</div>
+														<div class="ticket-section">
+															<label class="form-label fs-16">Let's create tickets!</label>
+															<p class="mt-2 fs-14 d-block mb-3 pe_right">Add the ticket price and the number of your attendees. For free events, keep the price at $0.</p>
+															<div class="content-holder">
+																<div class="row g-3">
+																	<div class="col-md-6">
+																		<label asp-for="Price" class="form-label mt-3 fs-6">Price*</label>
+																		<div class="loc-group position-relative input-group">
+																			<input asp-for="Price" class="form-control h_50" type="text" placeholder="" value="10.00">
+																		
+																		</div>
+																		<span class="text-danger" asp-validation-for="Price"></span>
+																	</div>
+																	@*<div class="col-md-6">
+																		<label class="form-label mt-3 fs-6">Total number of tickets available*</label>
+																		<div class="input-number">
+																			<input class="form-control h_50" type="number" placeholder="" value="5">
+																		</div>
+																	</div>*@
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										
+									</div>
+									<button type="submit" class="btn btn-default btn-hover steps_btn">Create</button>
+								</form>
+							
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Body End-->
+
+
+	<!-- Footer Start-->
+	
+	<!-- Footer End-->
+
+
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="vendor/OwlCarousel/owl.carousel.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="vendor/ckeditor5/ckeditor.js"></script>
+	<script src="js/jquery-steps.min.js"></script>
+	<script src="js/datepicker.min.js"></script>
+	<script src="js/i18n/datepicker.en.js"></script>
+	<script src="js/custom.js"></script>
+	<script src="js/night-mode.js"></script>
+	<script>
+		$('#add-event-tab').steps({
+			onFinish: function () {
+				alert('Wizard Completed');
+			}
+		});
+	</script>
+	<script>
+		ClassicEditor
+			.create(document.querySelector('#pd_editor'), {
+				// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+			})
+			.then(editor => {
+				window.editor = editor;
+			})
+			.catch(err => {
+				console.error(err.stack);
+			});
+	</script>
+</body>
+
+<!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/create_online_event.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 19:02:07 GMT -->
+</html>
+
