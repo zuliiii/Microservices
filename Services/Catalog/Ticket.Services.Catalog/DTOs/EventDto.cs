@@ -14,8 +14,10 @@ public class EventDto
     public string Picture { get; set; }
     public DateTime CreatedTime { get; set; } 
     public string Location { get; set; } 
-    public string CategoryId { get; set; } 
+    public string CategoryId { get; set; }
+	public int Quantity { get; set; }
 
 
-    public CategoryDto Category { get; set; }
+
+	public CategoryDto Category { get; set; }
 }

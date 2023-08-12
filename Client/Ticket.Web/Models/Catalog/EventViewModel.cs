@@ -12,6 +12,7 @@
         public DateTime CreatedTime { get; set; }
         public string Location { get; set; }
         public string? CategoryId { get; set; }
+        public int Quantity { get; set; }
 
 
         public CategoryViewModel Category { get; set; }
