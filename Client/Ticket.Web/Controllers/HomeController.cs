@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Ticket.Web.Exceptions;
 using Ticket.Web.Models;
 using Ticket.Web.Services.Interfaces;
 
@@ -29,7 +31,14 @@ namespace Ticket.Web.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+			var errorFeature = HttpContext.Features.Get<IExceptionHandlerFeature>();
+
+			if (errorFeature != null && errorFeature.Error is UnAuthorizeException)
+			{
+				return RedirectToAction(nameof(AuthController.Logout), "Auth");
+			}
+
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

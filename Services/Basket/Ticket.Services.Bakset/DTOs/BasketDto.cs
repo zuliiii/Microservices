@@ -7,8 +7,9 @@
 
         public List<BasketItemDto> basketItems { get; set; }
 
-        public decimal TotalPrice {
+        public decimal TotalPrice 
+        {
             get => basketItems.Sum(x => x.Quantity * x.Price);
-                }
+        }
     }
 }
