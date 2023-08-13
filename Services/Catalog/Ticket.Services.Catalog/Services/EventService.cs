@@ -29,23 +29,6 @@ public class EventService: IEventService
     public async Task<Response<List<EventDto>>> GetAllAsync()
     {
 
-        //var events = await _eventCollection.Find(course => true).ToListAsync();
-
-        //if (events.Any())
-        //{
-        //    foreach (var eventt in events)
-        //    {
-        //        eventt.Category = await _categoryCollection.Find<Category>(x => x.Id == eventt.CategoryId).FirstAsync();
-        //    }
-        //}
-        //else
-        //{
-        //    events = new List<Event>();
-        //}
-
-        //return Response<List<EventDto>>.Success(_mapper.Map<List<EventDto>>(events), 200);
-
-
         var events = await _eventCollection.Find(evt => true).ToListAsync();
 
         if (events.Any())
@@ -80,7 +63,7 @@ public class EventService: IEventService
 
        if (eventt ==null)
        {
-            return Response<EventDto>.Fail("course not found", StatusCodes.Status404NotFound);
+            return Response<EventDto>.Fail("event not found", StatusCodes.Status404NotFound);
        }
         eventt.Category = await _categoryCollection.Find<Category>(x=>x.Id == eventt.CategoryId).FirstOrDefaultAsync();
         return Response<EventDto>.Success(_mapper.Map<EventDto>(eventt), StatusCodes.Status200OK);

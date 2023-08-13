@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Ticket.Web.Models.Basket;
 using Ticket.Web.Services.Interfaces;
 
 namespace Ticket.Web.Controllers
 {
+	[Authorize]
 	public class BasketController : Controller
 	{
 		private readonly ICatalogService _catalogService;
@@ -22,9 +24,9 @@ namespace Ticket.Web.Controllers
 
 		public async Task<IActionResult> AddBasketItem(string eventId)
 		{
-			var events = await _catalogService.GetByEventId(eventId);
+			var eventt = await _catalogService.GetByEventId(eventId);
 
-			var basketItem = new BasketItemViewModel { EventId = events.Id, EventTitle = events.Title, Price = events.Price, Quantity=events.Quantity };
+			var basketItem = new BasketItemViewModel { EventId=eventt.Id, EventTitle=eventt.Title, Price=eventt.Price, Quantity= eventt.Quantity };
 
 			await _basketService.AddBasketItem(basketItem);
 

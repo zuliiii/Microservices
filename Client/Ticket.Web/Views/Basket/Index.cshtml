@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model BasketViewModel
+
+<div class="row">
+
+<div class="col-xl-4 col-lg-12 col-md-12">
+	<div class="main-card order-summary">
+		<div class="bp-title">
+			<h4>Billing information</h4>
+		</div>
+			@if(Model !=null && Model.BasketItems.Any())
+			{
+				@foreach(var item in Model.BasketItems)
+				{
+					<div class="order-summary-content p_30">
+						<div class="event-order-dt">
+							@*<div class="event-thumbnail-img">
+								<img  alt="">
+							</div>*@
+							<div class="event-order-dt-content">
+								<h5>@item.EventTitle</h5>
+								<span>Wed, Jun 01, 2022 5:30 AM</span>
+								@*<div class="category-type">Online Event</div>*@
+							</div>
+						</div>
+						<div class="order-total-block">
+							<div class="order-total-dt">
+								<div class="order-text">Total Ticket</div>
+								<div class="order-number">@item.Quantity</div>
+							</div>
+							<div class="order-total-dt">
+								<div class="order-text">Sub Total</div>
+								<div class="order-number">@item.GetCurrentPrice</div>
+							</div>
+							<div class="divider-line"></div>
+							<div class="order-total-dt">
+								<div class="order-text">Total</div>
+								<div class="order-number ttl-clr">AUD $50.00</div>
+							</div>
+						</div>
+						<div class="coupon-code-block">
+							<div class="form-group mt-4">
+								<label class="form-label">Coupon Code*</label>
+								<div class="position-relative">
+									<input class="form-control h_50" type="text" placeholder="Code" value="">
+									<button class="apply-btn btn-hover" type="button">Apply</button>
+								</div>
+							</div>
+						</div>
+						<div class="confirmation-btn">
+							<button class="main-btn btn-hover h_50 w-100 mt-5" type="button">Confirm</button>
+							<a class="btn btn-danger" asp-controller="Basket" asp-action="RemoveBasketItem" asp-route-courseId="@item.EventId">sil</a>
+						</div>
+					</div>
+				}
+				
+			}
+			else{
+				<h1>Basket is empty</h1>
+			}
+			
+	</div>
+</div>
+
+</div>

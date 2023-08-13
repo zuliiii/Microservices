@@ -42,9 +42,9 @@ builder.Services.AddHttpClient<IUserService, UserService>(options =>
     options.BaseAddress = new Uri(serviceApiSettings.IdentityBaseUri);
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
-builder.Services.AddHttpClient<IBasketService, BasketService>(options =>
+builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
 {
-	options.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Basket.Path}");
+	opt.BaseAddress = new Uri($"{serviceApiSettings.GatewayBaseUri}/{serviceApiSettings.Basket.Path}");
 }).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
 
 
@@ -78,6 +78,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Events}/{action=Create}");
+    pattern: "{controller=Home}/{action=Index}");
 
 app.Run();
