@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Configuration;
 using Ticket.Shared.Services;
@@ -6,6 +7,7 @@ using Ticket.Web.Helpers;
 using Ticket.Web.Models;
 using Ticket.Web.Services;
 using Ticket.Web.Services.Interfaces;
+using Ticket.Web.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,7 +60,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddFluentValidation(fv => 
+fv.RegisterValidatorsFromAssemblyContaining<EventCreateInputValidator>());
 
 var app = builder.Build();
 
