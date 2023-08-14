@@ -4,6 +4,7 @@
 	{
        
         public string EventId { get; set; }
+
 		public string EventTitle { get; set; }
 		public int Quantity { get; set; } = 2;
 		public decimal Price { get; set; }
