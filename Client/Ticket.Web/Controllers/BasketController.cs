@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ticket.Web.Models.Basket;
+using Ticket.Web.Models.Discount;
 using Ticket.Web.Services.Interfaces;
 
 namespace Ticket.Web.Controllers
@@ -39,6 +40,20 @@ namespace Ticket.Web.Controllers
 		{
 			var result = await _basketService.RemoveBasketItem(eventId);
 
+			return RedirectToAction(nameof(Index));
+		}
+
+		public async Task<IActionResult> ApplyDiscount(DiscountApplyInput discountApplyInput)
+		{
+		
+			var discountStatus = await _basketService.ApplyDiscount(discountApplyInput.Code);
+
+			TempData["discountStatus"] = discountStatus;
+			return RedirectToAction(nameof(Index));
+		}
+		public async Task<IActionResult> CancelApplyDiscount()
+		{
+			await _basketService.CancelApplyDiscount();
 			return RedirectToAction(nameof(Index));
 		}
 	}
