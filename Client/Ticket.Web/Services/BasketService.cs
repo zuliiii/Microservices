@@ -54,8 +54,10 @@ namespace Ticket.Web.Services
 			{
 				return false;
 			}
-			basket.DiscountRate = hasDiscount.Rate;
-			basket.DiscountCode = hasDiscount.Code;
+			//basket.DiscountRate = hasDiscount.Rate;
+			//basket.DiscountCode = hasDiscount.Code;
+
+			basket.ApplyDiscount(hasDiscount.Code, hasDiscount.Rate);
 			await SaveOrUpdate(basket);
 			return true;
 		}
@@ -69,7 +71,9 @@ namespace Ticket.Web.Services
 				return false;
 			}
 
-			basket.DiscountCode = null;
+			//basket.DiscountCode = null;
+			basket.CancelDiscount();
+
 			await SaveOrUpdate(basket);
 			return true;
 		}

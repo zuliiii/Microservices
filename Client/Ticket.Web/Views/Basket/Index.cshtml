@@ -6,63 +6,85 @@
 
 <div class="row">
 
-<div class="col-xl-4 col-lg-12 col-md-12">
-	<div class="main-card order-summary">
-		<div class="bp-title">
-			<h4>Billing information</h4>
-		</div>
-			@if(Model !=null && Model.BasketItems.Any())
-			{
-				@foreach(var item in Model.BasketItems)
+	<div class="col-md-8 offset-md-2">
+
+		<div class="card">
+			<div class="card-body">
+
+				<h5 class="card-title">Sepet</h5>
+
+				@if (Model != null && Model.BasketItems.Any())
 				{
-					<div class="order-summary-content p_30">
-						<div class="event-order-dt">
-							@*<div class="event-thumbnail-img">
-								<img  alt="">
-							</div>*@
-							<div class="event-order-dt-content">
-								<h5>@item.EventTitle</h5>
-								<span>Wed, Jun 01, 2022 5:30 AM</span>
-								@*<div class="category-type">Online Event</div>*@
+					<table class="table table-striped">
+
+						<tr>
+							<th>Kurs isim</th>
+							<th>Kurs fiyat</th>
+							<th>İşlemler</th>
+						</tr>
+
+						@foreach (var item in Model.BasketItems)
+						{
+							<tr>
+								<td>@item.EventTitle</td>
+								<td>
+									@item.GetCurrentPrice TL @(Model.HasDiscount ? $"(%{Model.DiscountRate.Value} uygulandı)" : "")
+								</td>
+								<td>
+									<a class="btn btn-danger" asp-controller="Basket" asp-action="RemoveBasketItem" asp-route-eventId="@item.EventId">sil</a>
+								</td>
+							</tr>
+						}
+
+						@if (Model.HasDiscount)
+						{
+
+							<tr>
+								<td>Indirim oranı</td>
+								<th colspan="2"> % @Model.DiscountRate.Value</th>
+							</tr>
+
+						}
+
+						<tr>
+							<td>@(Model.HasDiscount ? "İndirimli fiyat" : "Toplam fiyat")</td>
+							<th colspan="2">@Model.TotalPrice TL</th>
+						</tr>
+					</table>
+
+					<form asp-controller="Basket" asp-action="ApplyDiscount">
+						@if (Model.HasDiscount)
+						{
+							<div class="alert alert-success">
+								"@Model.DiscountCode"indirim kodu uygulandı
+								<a asp-controller="Basket" asp-action="CancelApplyDiscount"> (iptal et)</a>
 							</div>
+
+						}
+
+						<div class="input-group mb-3">
+							<input type="text" class="form-control" name="DiscountApplyInput.Code">
+							<button class="btn btn-outline-secondary" type="submit">Uygula</button>
 						</div>
-						<div class="order-total-block">
-							<div class="order-total-dt">
-								<div class="order-text">Total Ticket</div>
-								<div class="order-number">@item.Quantity</div>
-							</div>
-							<div class="order-total-dt">
-								<div class="order-text">Sub Total</div>
-								<div class="order-number">@item.GetCurrentPrice</div>
-							</div>
-							<div class="divider-line"></div>
-							<div class="order-total-dt">
-								<div class="order-text">Total</div>
-								<div class="order-number ttl-clr">AUD $50.00</div>
-							</div>
-						</div>
-						<div class="coupon-code-block">
-							<div class="form-group mt-4">
-								<label class="form-label">Coupon Code*</label>
-								<div class="position-relative">
-									<input class="form-control h_50" type="text" placeholder="Code" value="">
-									<button class="apply-btn btn-hover" type="button">Apply</button>
-								</div>
-							</div>
-						</div>
-						<div class="confirmation-btn">
-							<button class="main-btn btn-hover h_50 w-100 mt-5" type="button">Confirm</button>
-							<a class="btn btn-danger" asp-controller="Basket" asp-action="RemoveBasketItem" asp-route-eventId="@item.EventId">sil</a>
-						</div>
-					</div>
+
+						@if (TempData["discountStatus"] != null && (bool)TempData["discountStatus"] == false)
+						{
+							<div class="text-danger">indirim kodu geçersiz</div>
+						}
+						@if (TempData["discountError"] != null)
+						{
+							<div class="text-danger">@TempData["discountError"]</div>
+						}
+					</form>
+			@*		<a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Ödeme bilgileri</a>
+					<a class="btn btn-warning" asp-controller="Home" asp-action="Index">Kursları incelemeye devam et</a>*@
 				}
-				
-			}
-			else{
-				<h1>Basket is empty</h1>
-			}
-			
+				else
+				{
+					<div class="alert alert-info">Sepet boş</div>
+				}
+			</div>
+		</div>
 	</div>
 </div>
 
-</div>
