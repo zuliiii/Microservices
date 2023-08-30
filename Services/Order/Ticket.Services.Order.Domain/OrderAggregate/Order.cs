@@ -9,6 +9,7 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
 {
     public class Order : Entity,IAggregateRoot
     {
+
         public DateTime CreatedDate { get; private set; }
 
         public Address Address { get; private set; }
@@ -31,7 +32,7 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
             Address = address;
         }
 
-        public void AddOrderItem(string productId, string productName, decimal price, string pictureUrl, int quantity )
+        public void AddOrderItem(string productId, string productName, decimal? price, string pictureUrl, int quantity )
         {
             var existProduct = _orderItems.Any(x => x.ProductId == productId);
 
@@ -43,12 +44,8 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
             }
         }
 
-        public void AddOrderItem(string productId, string productName, decimal price, string pictureUrl)
-        {
-            throw new NotImplementedException();
-        }
 
-        public decimal GetTotalPrice => _orderItems.Sum(x => x.Price*x.Quantity);
+        public decimal? GetTotalPrice => _orderItems.Sum(x => x.Price*x.Quantity);
 
     }
 }

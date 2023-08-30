@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewData["Title"] = "SuccessfulCheckout";
+}
+
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+	<!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/invoice.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 19:02:03 GMT -->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, shrink-to-fit=9">
+		<meta name="description" content="Gambolthemes">
+		<meta name="author" content="Gambolthemes">
+		<title>Barren - Simple Online Event Ticketing System</title>
+
+		<!-- Favicon Icon -->
+		<link rel="icon" type="image/png" href="~/images/fav.png">
+	</head>
+
+	<body class="d-flex flex-column h-100">
+		<!-- Invoice Start-->
+		<div class="invoice clearfix" style="margin-top:6%">
+			<div class="container">
+				<div class="row justify-content-md-center">
+					<div class="col-lg-8 col-md-10">
+						<div class="invoice-header justify-content-between">
+							<div class="invoice-header-logo">
+								<img src="~/images/dark-logo.svg" alt="invoice-logo">
+							</div>
+							<div class="invoice-header-text">
+								<a  class="download-link">Download</a>
+							</div>
+						</div>
+						<div class="invoice-body">
+							<div class="main-table bt_40">
+								<div class="table-responsive">
+									<table class="table">
+										<thead class="thead-dark">
+											<tr>
+												<th scope="col">#</th>
+												<th scope="col">Event Title</th>
+												<th scope="col">Quantity</th>
+												<th scope="col">Unit Price</th>
+												<th scope="col">Total</th>
+											</tr>
+										</thead>
+										<tbody>
+											@{int i = 1;}
+											@foreach (var item in ViewBag.order.OrderItems as List<OrderItemViewModel>) {
+											<tr>
+												<td>@(i++)</td>
+													<td><a href="#" target="_blank">@item.ProductName</a></td>
+												<td>@item.Quantity</td>
+												<td>@item.Price</td>
+												<td>@(item.Price*item.Quantity)</td>
+											</tr>
+											}
+											<tr>
+												<td colspan="1"></td>
+												<td colspan="5">
+													<div class="user_dt_trans text-end pe-xl-4">
+														<div class="totalinv2">Invoice Total : @ViewBag.order.TotalPrice</div>
+														<p>Paid via Paypal</p>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="invoice_footer">
+								<div class="cut-line">
+									<i class="fa-solid fa-scissors"></i>
+								</div>
+								<div class="main-card">
+											<div class="QR-dt p-4">
+												<ul class="QR-counter-type">
+													<li>Counter</li>
+													<li>gghff</li>
+												</ul>
+												<div class="QR-scanner">
+													<img src="images/qr.png" alt="QR-Ticket-Scanner">
+												</div>
+											</div>
+								</div>
+								<div class="cut-line">
+									<i class="fa-solid fa-scissors"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+	</body>
+
+	<!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/invoice.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 19:02:04 GMT -->
+</html>

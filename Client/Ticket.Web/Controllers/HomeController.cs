@@ -25,7 +25,9 @@ namespace Ticket.Web.Controllers
 
         public async Task<IActionResult> Detail(string id)
         {
-            return View(await _catalogService.GetByEventId(id));
+            var item = await _catalogService.GetByEventId(id);
+
+            return View(item);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

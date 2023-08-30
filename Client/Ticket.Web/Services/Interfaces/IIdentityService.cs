@@ -6,6 +6,8 @@ namespace Ticket.Web.Services.Interfaces
 {
     public interface IIdentityService
     {
+		Task<Response<bool>> SignUp(SignUpInput signupDto);
+
 		Task<Response<bool>> SignIn(SigninInput signinInput);
 
 		Task<TokenResponse> GetAccessTokenByRefreshToken();

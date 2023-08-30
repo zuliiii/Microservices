@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using Mass = MassTransit;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using Ticket.Services.Catalog.DTOs;
 using Ticket.Services.Catalog.Models;
 using Ticket.Services.Catalog.Settings;
 using Ticket.Shared.DTOs;
+using Ticket.Shared.Messages;
 
 namespace Ticket.Services.Catalog.Services;
 
@@ -12,10 +14,10 @@ public class EventService: IEventService
 {
     private readonly IMongoCollection<Event> _eventCollection;
     private readonly IMongoCollection<Category> _categoryCollection;
-
     private readonly IMapper _mapper;
+    private readonly Mass.IPublishEndpoint _publishEndpoint;
 
-    public EventService(IMapper mapper, IDatabaseSettings databaseSettings)
+    public EventService(IMapper mapper, IDatabaseSettings databaseSettings, Mass.IPublishEndpoint publishEndpoint)
     {
         var client = new MongoClient(databaseSettings.ConnectionString);
 
@@ -24,6 +26,7 @@ public class EventService: IEventService
         _eventCollection = database.GetCollection<Event>(databaseSettings.EventCollectionName);
         _categoryCollection = database.GetCollection<Category>(databaseSettings.CategoryCollectionName);
         _mapper = mapper;
+        _publishEndpoint = publishEndpoint;
     }
 
     public async Task<Response<List<EventDto>>> GetAllAsync()
@@ -120,6 +123,11 @@ public class EventService: IEventService
         {
             return Response<NoContent>.Fail("Event NOT Found", StatusCodes.Status404NotFound);
         }
+        await _publishEndpoint.Publish<EventNameChangedEvent>(new EventNameChangedEvent
+        {
+            EventId = updateEvent.Id,
+            UpdatedName = eventUpdateDto.Title
+        });
         return Response<NoContent>.Success(StatusCodes.Status204NoContent);
     }
 

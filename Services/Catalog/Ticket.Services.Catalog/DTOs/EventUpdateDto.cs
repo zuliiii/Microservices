@@ -10,4 +10,6 @@ public class EventUpdateDto
     public string? Picture { get; set; } 
     public string? Location { get; set; } 
     public string CategoryId { get; set; }
+
+	public DateTime EventDateTime { get; set; }
 }

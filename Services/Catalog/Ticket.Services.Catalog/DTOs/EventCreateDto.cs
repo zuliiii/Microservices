@@ -10,4 +10,6 @@ public class EventCreateDto
     public string? Location { get; set; } 
     public string CategoryId { get; set; }
 
+	public DateTime EventDateTime { get; set; }
+
 }

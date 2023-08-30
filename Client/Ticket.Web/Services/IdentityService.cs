@@ -167,6 +167,33 @@ namespace Ticket.Web.Services
 
 			return Response<bool>.Success(StatusCodes.Status200OK);
 		}
+
+		public async Task<Response<bool>> SignUp(SignUpInput signUpInput)
+		{
+			var discovery = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
+			{
+				Address = _serviceApiSettings.IdentityBaseUri,
+				Policy = new DiscoveryPolicy { RequireHttps = false }
+			});
+
+			if (discovery.IsError)
+			{
+				throw discovery.Exception;
+			}
+
+			var userCreationResponse = await _httpClient.PostAsJsonAsync($"{discovery.AuthorizeEndpoint}/api/User/SignUp", signUpInput);
+
+			if (!userCreationResponse.IsSuccessStatusCode)
+			{
+				// Handle signup failure, e.g., display error messages
+				var responseContent = await userCreationResponse.Content.ReadAsStringAsync();
+				var errorDto = JsonSerializer.Deserialize<ErrorDto>(responseContent, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+				return Response<bool>.Fail(errorDto.Errors, StatusCodes.Status400BadRequest);
+			}
+
+			// User creation successful
+			return Response<bool>.Success(StatusCodes.Status200OK);
+		}
 	}
 
 

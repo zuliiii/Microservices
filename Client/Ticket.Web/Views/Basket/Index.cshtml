@@ -4,34 +4,50 @@
 }
 @model BasketViewModel
 
-<div class="row">
 
-	<div class="col-md-8 offset-md-2">
+<div class="row">
+	<div class="col-md-10 offset-md-1" style="margin-top:6% !important; padding-bottom:2%">
+		<div class="d-flex justify-content-between align-items-center mb-4">
+			<h3 class="fw-normal mb-0 text-black">Basket</h3>
+		</div>
 
 		<div class="card">
 			<div class="card-body">
 
-				<h5 class="card-title">Sepet</h5>
+				
 
 				@if (Model != null && Model.BasketItems.Any())
 				{
-					<table class="table table-striped">
+					<table class="table">
 
-						<tr>
-							<th>Kurs isim</th>
-							<th>Kurs fiyat</th>
-							<th>İşlemler</th>
-						</tr>
+						@*<tr>
+							<th>Event Title</th>
+							<th>Event Price</th>
+							<th>Operation</th>
+						</tr>*@
 
 						@foreach (var item in Model.BasketItems)
 						{
-							<tr>
-								<td>@item.EventTitle</td>
+							<tr style="font-size: 14px; font-weight: 500;">
 								<td>
-									@item.GetCurrentPrice TL @(Model.HasDiscount ? $"(%{Model.DiscountRate.Value} uygulandı)" : "")
+									<div class="col">
+										<img style="width:120px" src="http://localhost:5012/photos/@(item.Picture)">
+									</div>
+								</td>
+								<td style="font-size: 14px; font-weight: 500;">
+									<div class="col">
+										<p class="lead fw-normal mb-2">@item.EventTitle</p>
+									</div>
 								</td>
 								<td>
-									<a class="btn btn-danger" asp-controller="Basket" asp-action="RemoveBasketItem" asp-route-eventId="@item.EventId">sil</a>
+									<div class="col">
+										<h5 class="mb-0">@item.GetCurrentPrice AZN @(Model.HasDiscount ? $"(%{Model.DiscountRate.Value} percent discount applied)" : "")</h5>
+									</div>
+								</td>
+								<td>
+									<div class="col">
+										<a asp-controller="Basket" asp-action="RemoveBasketItem" asp-route-eventId="@item.EventId" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+									</div>
 								</td>
 							</tr>
 						}
@@ -40,15 +56,16 @@
 						{
 
 							<tr>
-								<td>Indirim oranı</td>
+								<td style="font-size: 14px; font-weight: 500;"><div class="col-md-3 col-lg-6 col-xl-4">Discount rate</div></td>
 								<th colspan="2"> % @Model.DiscountRate.Value</th>
 							</tr>
 
 						}
 
-						<tr>
-							<td>@(Model.HasDiscount ? "İndirimli fiyat" : "Toplam fiyat")</td>
-							<th colspan="2">@Model.TotalPrice TL</th>
+						<tr style="font-size: 14px; font-weight: 500;">
+							<td>
+								@(Model.HasDiscount ? "Discounted price" : "Total Price")</td>
+							<th colspan="2">@Model.TotalPrice AZN</th>
 						</tr>
 					</table>
 
@@ -56,32 +73,34 @@
 						@if (Model.HasDiscount)
 						{
 							<div class="alert alert-success">
-								"@Model.DiscountCode"indirim kodu uygulandı
-								<a asp-controller="Basket" asp-action="CancelApplyDiscount"> (iptal et)</a>
+								"@Model.DiscountCode" discount code applied
+								<a asp-controller="Basket" asp-action="CancelApplyDiscount"> (cancel)</a>
 							</div>
 
 						}
 
 						<div class="input-group mb-3">
 							<input type="text" class="form-control" name="DiscountApplyInput.Code">
-							<button class="btn btn-outline-secondary" type="submit">Uygula</button>
+							<button class="btn btn-outline-secondary" type="submit">Apply</button>
 						</div>
 
 						@if (TempData["discountStatus"] != null && (bool)TempData["discountStatus"] == false)
 						{
-							<div class="text-danger">indirim kodu geçersiz</div>
+							<div class="alert alert-danger" role="alert">
+								Invalid discount code
+							</div>
 						}
 						@if (TempData["discountError"] != null)
 						{
 							<div class="text-danger">@TempData["discountError"]</div>
 						}
 					</form>
-			@*		<a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Ödeme bilgileri</a>
-					<a class="btn btn-warning" asp-controller="Home" asp-action="Index">Kursları incelemeye devam et</a>*@
+					<a class="btn btn-default btn-hover steps_btn" asp-controller="Order" asp-action="Checkout">Payment information</a>
+					<a class="btn btn-backtoevent" asp-controller="Home" asp-action="Index">Keep reviewing events</a>
 				}
 				else
 				{
-					<div class="alert alert-info">Sepet boş</div>
+					<div class="alert alert-info">Basket is empty</div>
 				}
 			</div>
 		</div>

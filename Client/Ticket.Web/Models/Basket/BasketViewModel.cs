@@ -2,6 +2,7 @@
 {
 	public class BasketViewModel
 	{
+
 		public BasketViewModel()
 		{
 			_basketItems = new List<BasketItemViewModel>();
@@ -34,7 +35,7 @@
 
 		public decimal TotalPrice
 		{
-			get => _basketItems.Sum(x => x.Quantity * x.GetCurrentPrice);
+			get => _basketItems.Sum(x => x.GetCurrentPrice);
 		}
 		public bool HasDiscount
 		{

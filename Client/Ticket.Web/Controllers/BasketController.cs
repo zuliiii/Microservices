@@ -27,10 +27,7 @@ namespace Ticket.Web.Controllers
 		{
 			var eventt = await _catalogService.GetByEventId(eventId);
 
-
-
-			var basketItem = new BasketItemViewModel { EventId=eventt.Id, EventTitle=eventt.Title, Price=eventt.Price, Quantity= eventt.Quantity };
-
+			var basketItem = new BasketItemViewModel { EventId = eventt.Id, EventTitle = eventt.Title, Price = eventt.Price, Quantity = eventt.Quantity, Picture = eventt.Picture,  };
 			await _basketService.AddBasketItem(basketItem);
 
 			return RedirectToAction(nameof(Index));

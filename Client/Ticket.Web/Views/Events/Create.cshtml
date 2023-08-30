@@ -17,28 +17,6 @@
 	<meta name="author" content="Gambolthemes">
 	<title>Barren - Simple Online Event Ticketing System</title>
 
-	<!-- Favicon Icon -->
-	<link rel="icon" type="image/png" href="images/fav.png">
-
-	<!-- Stylesheets -->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-	<link href='vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/datepicker.min.css" rel="stylesheet">
-	<link href="css/jquery-steps.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<link href="css/night-mode.css" rel="stylesheet">
-
-	<!-- Vendor Stylesheets -->
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-	<link href="vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
-	<link href="vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="vendor/ckeditor5/sample/css/sample.css" rel="stylesheet">
-
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -94,7 +72,30 @@
 																	<span class="text-danger" asp-validation-for="CategoryId"></span>
 																	
 																</div>
-																@*<div class="form-group border_bottom pt_30 pb_30">
+																<label for="exampleFormControlInput1" class="form-label" asp-for="Location">Choose a location for your event.*</label>
+																<select asp-for="Location" class="form-control">
+																	<option value="">Select location for your event</option>
+																	<option value="Sea breeze">Sea breeze</option>
+																	<option value="Baku Olympic Stadium">Baku Olympic Stadium</option>
+																	<option value="Heydar Aliyev Palace">Heydar Aliyev Palace</option>
+																	<option value="Baku Sports Hall">Baku Sports Hall</option>
+																	<option value="EGP Arena">EGP Arena</option>
+																	<option value="Best Place Baku">Best Place Baku</option>
+																	<option value="Nizami Cinema">Nizami Cinema</option>
+																	<option value="Azerbaijan Art School">Azerbaijan Art School</option>
+																	<option value="Academic National Drama Theatre">Academic National Drama Theatre</option>
+																	<option value="The State Museum of Musical Culture of Azerbaijan">The State Museum of Musical Culture of Azerbaijan</option>
+																</select>
+
+																<div class="col-md-6">
+																	<label asp-for="EventDateTime" class="form-label mt-3 fs-6">Event Date and Time.*</label>
+																	<div class="loc-group position-relative">
+																		<input asp-for="EventDateTime" class="form-control h_50" type="datetime-local">
+																		<span asp-for="EventDateTime" class="absolute-icon"><i class="fa-solid fa-calendar-days"></i></span>
+																	</div>
+																</div>
+
+															@*	<div class="form-group border_bottom pt_30 pb_30">
 																	<label class="form-label fs-16">When is your event?*</label>
 																	<p class="mt-2 fs-14 d-block mb-3">Tell your attendees when your event starts so they can get ready to attend.</p>
 																	<div class="row g-2">
@@ -129,43 +130,32 @@
 																		</div>
 																	</div>
 																</div>*@
-																<div class="form-group pt_30 pb_30">
-																	<label class="form-label fs-16">Add a few images to your event banner.</label>
-																	<div class="content-holder mt-4">
-																		<div class="default-event-thumb">
-																			<div class="default-event-thumb-btn">
-																				<div class="thumb-change-btn">
-																					<input asp-for="PhotoFormFile" type="file" class="form-control" id="thumb-img">
-																					<label asp-for="PhotoFormFile" >Change Image</label>
-																				</div>
-																			</div>
-																			<img src="images/banners/custom-img.jpg" alt="">
-																		</div>
-																	</div>
-																</div>
-																<div class="form-group border_bottom pb_30">
+
+
+
+																<div class="">
+																	<label >Add a image to your event banner.</label>
+																	<input asp-for="PhotoFormFile" type="file" class="form-control">
+																	<label asp-for="PhotoFormFile">Change Image</label>
+																<div/>
+																<div>
 																	<label asp-for="Description" class="form-label">Please describe your event</label>
 																	<textarea asp-for="Description" class="form-control"></textarea>
 																	<span class="text-danger" asp-validation-for="Description"></span>
-																@*	<label asp-for= "Description"  class="form-label fs-16">Please describe your event.</label>
-																	<p class="mt-2 fs-14 d-block mb-3">Write a few words below to describe your event and provide any extra information such as schedules, itinerary or any special instructions required to attend your event.</p>
-																	<div class="text-editor mt-4">
-																		<div asp-for="Description" id="pd_editor"></div>
-																	</div>
-																	<span class="text-danger" asp-validation-for="Description"></span>*@
+																
 																</div>
 																
 															</div>
 														</div>
 														<div class="ticket-section">
 															<label class="form-label fs-16">Let's create tickets!</label>
-															<p class="mt-2 fs-14 d-block mb-3 pe_right">Add the ticket price and the number of your attendees. For free events, keep the price at $0.</p>
+															<p class="mt-2 fs-14 d-block mb-3 pe_right">Add the ticket price. For free events, keep the price at $0.</p>
 															<div class="content-holder">
 																<div class="row g-3">
 																	<div class="col-md-6">
 																		<label asp-for="Price" class="form-label mt-3 fs-6">Price*</label>
 																		<div class="loc-group position-relative input-group">
-																			<input asp-for="Price" class="form-control h_50" type="text" placeholder="" value="10.00">
+																			<input asp-for="Price" class="form-control h_50" type="text">
 																		
 																		</div>
 																		<span class="text-danger" asp-validation-for="Price"></span>
@@ -200,40 +190,6 @@
 	<!-- Body End-->
 
 
-	<!-- Footer Start-->
-	
-	<!-- Footer End-->
-
-
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="vendor/OwlCarousel/owl.carousel.js"></script>
-	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="vendor/ckeditor5/ckeditor.js"></script>
-	<script src="js/jquery-steps.min.js"></script>
-	<script src="js/datepicker.min.js"></script>
-	<script src="js/i18n/datepicker.en.js"></script>
-	<script src="js/custom.js"></script>
-	<script src="js/night-mode.js"></script>
-	<script>
-		$('#add-event-tab').steps({
-			onFinish: function () {
-				alert('Wizard Completed');
-			}
-		});
-	</script>
-	<script>
-		ClassicEditor
-			.create(document.querySelector('#pd_editor'), {
-				// toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
-			})
-			.then(editor => {
-				window.editor = editor;
-			})
-			.catch(err => {
-				console.error(err.stack);
-			});
-	</script>
 </body>
 
 <!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/create_online_event.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 19:02:07 GMT -->

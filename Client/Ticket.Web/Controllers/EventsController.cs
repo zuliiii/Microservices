@@ -42,6 +42,9 @@ namespace Ticket.Web.Controllers
 
 			if (!ModelState.IsValid)
 			{
+				var errors = ModelState.Select(x => x.Value.Errors)
+						   .Where(y => y.Count > 0)
+						   .ToList();
 				return View();
 			}
 			eventCreateInput.UserId = _sharedIdentityService.GetUserId;
@@ -59,7 +62,7 @@ namespace Ticket.Web.Controllers
 
 			if (events == null)
 			{
-				//mesaj göster
+				
 				RedirectToAction(nameof(Index));
 			}
 			ViewBag.categoryList = new SelectList(categories, "Id", "Name", events.Id);
@@ -73,7 +76,8 @@ namespace Ticket.Web.Controllers
 				Price = events.Price,
 				Picture = events.Picture,
 				Location = events.Location,
-				CategoryId	= events.CategoryId
+				CategoryId	= events.CategoryId,
+				EventDateTime=events.EventDateTime
 			};
 			return View(eventUpdateInput);
 		}
@@ -85,6 +89,9 @@ namespace Ticket.Web.Controllers
 			ViewBag.categoryList = new SelectList(categories, "Id", "Name", eventUpdateInput.Id);
 			if (!ModelState.IsValid)
 			{
+				var errors = ModelState.Select(x => x.Value.Errors)
+						   .Where(y => y.Count > 0)
+						   .ToList();
 				return View();
 			}
 			await _catalogService.UpdateEventAsync(eventUpdateInput);

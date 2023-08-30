@@ -6,9 +6,11 @@ namespace Ticket.Web.Services.Interfaces
 	{
 		Task<OrderCreatedViewModel> CreateOrder(CheckoutInfoInput checkoutInfoInput);
 
-		Task SuspendOrder(CheckoutInfoInput checkoutInfoInput);
+		Task<OrderSuspendViewModel> SuspendOrder(CheckoutInfoInput checkoutInfoInput);
 
 		Task<List<OrderViewModel>> GetOrder();
+
+		Task<OrderViewModel> GetOrderById(int orderId);
 
 	}
 }

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "OrderHistory";
+}
+@model List<OrderViewModel>
+
+<div class="row">
+
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Order History</h5>
+
+                @if (Model.Any())
+                {
+
+                    <table class="table table-bordered">
+
+                        <tr>
+                            <th>Order no</th>
+                            <th>Order date</th>
+                            <th>Details</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>@item.Id</td>
+                                <td>@item.CreatedDate</td>
+                                <td>
+                                    <table class="table">
+
+                                        <tr>
+                                            <th>Event title</th>
+                                            <th>Event Price</th>
+                                        </tr>
+                                        @foreach (var orderItem in item.OrderItems)
+                                        {
+                                            <tr>
+                                                <td>@orderItem.ProductName</td>
+                                                <td>@orderItem.Price AZN</td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </td>
+                            </tr>
+                        }
+                    </table>
+
+                }
+                else
+                {
+                    <div class="alert alert-info">Your order history is empty</div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

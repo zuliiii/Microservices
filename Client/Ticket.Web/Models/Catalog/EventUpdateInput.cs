@@ -1,4 +1,6 @@
-﻿namespace Ticket.Web.Models.Catalog
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Ticket.Web.Models.Catalog
 {
 	public class EventUpdateInput
 	{
@@ -10,6 +12,10 @@
 		public string? Picture { get; set; } //
 		public string? Location { get; set; } //
 		public string CategoryId { get; set; }
-		public IFormFile PhotoFormFile { get; set; }
+
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-ddTHH:mm}")]
+		public DateTime EventDateTime { get; set; }
+
+		public IFormFile? PhotoFormFile { get; set; }
 	}
 }

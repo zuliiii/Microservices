@@ -6,5 +6,7 @@
         public decimal Price { get; set; }
         public string EventId { get; set;}
         public string EventTitle { get; set;}
-    }
+		public string? Picture { get; set; }
+
+	}
 }

@@ -20,6 +20,7 @@ public class Event
 
     [BsonRepresentation(BsonType.DateTime)]
     public DateTime CreatedTime { get; set; }
+    public DateTime EventDateTime { get; set; }
     public string? Location { get; set; }
 
 	[BsonRepresentation(BsonType.ObjectId)]

@@ -16,122 +16,60 @@
 </head>
 
 <body>
-<header class="header">
+
+	@{
+		var currentController = ViewContext.RouteData.Values["Controller"].ToString();
+		var currentAction = ViewContext.RouteData.Values["Action"].ToString();
+
+		if (!(currentController.Equals("Auth", StringComparison.OrdinalIgnoreCase) && currentAction.Equals("SignIn", StringComparison.OrdinalIgnoreCase)))
+		{
+			
+	<header class="header">
 		<div class="header-inner">
 			<nav class="navbar navbar-expand-lg bg-barren barren-head navbar fixed-top justify-content-sm-start pt-0 pb-0">
-				<div class="container">
+				<div class="container">	
 					<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
 						<span class="navbar-toggler-icon">
 							<i class="fa-solid fa-bars"></i>
 						</span>
 					</button>
-					<a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto">
-						<div class="res-main-logo">
-							<img src="~/images/logo-icon.svg" alt="">
+					<a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" asp-asp-controller="Home" asp-action="Index">
+								<div asp-controller="Home" asp-action="Index" class="res-main-logo">
+							<img  src="~/images/logo-icon.svg" alt="">
 						</div>
-						<div class="main-logo" id="logo">
-							<img src="~/images/logo.svg" alt="">
-							<img class="logo-inverse" src="~/images/dark-logo.svg" alt="">
+								<div asp-controller="Home" asp-action="Index" class="main-logo" id="logo">
+									<img  src="~/images/logo.svg" alt="">
+									<img class="logo-inverse" src="~/images/dark-logo.svg" alt="">
 						</div>
 					</a>
 					<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 						<div class="offcanvas-header">
 							<div class="offcanvas-logo" id="offcanvasNavbarLabel">
-								<img src="~/images/logo-icon.svg" alt="">
+										<img src="~/images/logo-icon.svg" alt="">
 							</div>
 							<button type="button" class="close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
 								<i class="fa-solid fa-xmark"></i>
 							</button>
 						</div>
 						<div class="offcanvas-body">
-							<div class="offcanvas-top-area">
-								<div class="create-bg">
-									<a  class="offcanvas-create-btn">
-										<i class="fa-solid fa-calendar-days"></i>
-										<span>Create Event</span>
-									</a>
-								</div>
-							</div>
+														
 							<ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
 								<li class="nav-item">
-									<a class="nav-link active" aria-current="page">Home</a>
+									<a asp-controller="Home" asp-action="Index" class="nav-link active" aria-current="page">Home</a>
 								</li>
+								
+							
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										Explore Events
-									</a>
-									<ul class="dropdown-menu dropdown-submenu">
-										<li><a class="dropdown-item">Explore Events</a></li>
-										<li><a class="dropdown-item">Venue Event Detail View</a></li>
-										<li><a class="dropdown-item">Online Event Detail View</a></li>
-									</ul>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link">Pricing</a>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										Blog
-									</a>
-									<ul class="dropdown-menu dropdown-submenu">
-										<li><a class="dropdown-item">Our Blog</a></li>
-										<li><a class="dropdown-item">Blog Detail View</a></li>
-									</ul>
-								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										Help
 									</a>
 									<ul class="dropdown-menu dropdown-submenu">
-										<li><a class="dropdown-item">FAQ</a></li>
-										<li><a class="dropdown-item">Help Center</a></li>
+										<li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+										<li><a class="dropdown-item" href="help_center.html">Help Center</a></li>
 										<li><a class="dropdown-item" href="contact_us.html">Contact Us</a></li>
 									</ul>
 								</li>
-								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										Pages
-									</a>
-									<ul class="dropdown-menu dropdown-submenu">
-										<li>
-											<a class="dropdown-item submenu-item" href="#">Other Pages</a>
-											<ul class="submenu dropdown-menu">
-												<li><a class="dropdown-item pe-5">Sign In</a></li>
-												<li><a class="dropdown-item pe-5">Sign Up</a></li>
-												<li><a class="dropdown-item pe-5">Forgot Password</a></li>
-												<li><a class="dropdown-item pe-5">About Us</a></li>
-												<li><a class="dropdown-item pe-5">Checkout</a></li>
-												<li><a class="dropdown-item pe-5">Checkout Premium</a></li>
-												<li><a class="dropdown-item pe-5">Invoice</a></li>
-												<li><a class="dropdown-item pe-5">Coming Soon</a></li>
-												<li><a class="dropdown-item pe-5">Error 404</a></li>
-											</ul>
-										</li>
-										<li>
-											<a class="dropdown-item submenu-item" href="#">Create Event</a>
-											<ul class="submenu dropdown-menu">
-												<li><a class="dropdown-item pe-5">Create</a></li>
-												<li><a class="dropdown-item pe-5">Create Venue Event</a></li>
-												<li><a class="dropdown-item pe-5">Create Online Event</a></li>
-											</ul>
-										</li>
-										<li>
-											<a class="dropdown-item submenu-item" href="#">Events View</a>
-											<ul class="submenu dropdown-menu">
-												<li><a class="dropdown-item pe-5">Online Event Detail View</a></li>
-												<li><a class="dropdown-item pe-5">Venue Event Detail View</a></li>
-											</ul>
-										</li>
-										<li><a class="dropdown-item">Booking Confirmed</a></li>
-										<li><a class="dropdown-item">Attendee Profile View</a></li>
-										<li><a class="dropdown-item">Organiser Profile View</a></li>
-										<li><a class="dropdown-item">Organization Dashboard</a></li>
-										<li><a class="dropdown-item">Sell Tickets Online</a></li>
-										<li><a class="dropdown-item" </a></li>
-										<li><a class="dropdown-item">Terms & Conditions</a></li>
-										<li><a class="dropdown-item" </a></li>
-									</ul>
-								</li>
+								
 							</ul>
 						</div>
 						<div class="offcanvas-footer">
@@ -149,45 +87,30 @@
 					</div>
 					<div class="right-header order-2">
 						<ul class="align-self-stretch">
-							<li>
-								<a class="create-btn btn-hover">
-									<i class="fa-solid fa-calendar-days"></i>
-									<span>Create Event</span>
-								</a>
-							</li>
+							
 							<li class="dropdown account-dropdown">
 								<a href="#" class="account-link" role="button" id="accountClick" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-									<img src="~/images/profile-imgs/img-13.jpg" alt="">
+									<img src="images/profile-imgs/img-11.jpg" alt="">
 									<i class="fas fa-caret-down arrow-icon"></i>
 								</a>
-
-								@if (User.Identity.IsAuthenticated)
-								{
-									<ul class="dropdown-menu dropdown-menu-account dropdown-menu-end" aria-labelledby="accountClick">
-										<li>
-											<div class="dropdown-account-header">
-												<div class="account-holder-avatar">
-													<img src="~/images/profile-imgs/img-13.jpg" alt="">
-												</div>
-												<h5>@User.Identity.Name</h5>
-												
+								<ul class="dropdown-menu dropdown-menu-account dropdown-menu-end" aria-labelledby="accountClick">
+									<li>
+										<div class="dropdown-account-header">
+											<div class="account-holder-avatar">
+												<img src="~/images/profile-imgs/img-11.jpg" alt="">
 											</div>
-										</li>
-										<li class="profile-link">
-											<a class="link-item">My Organisation</a>
-											<a class="link-item" asp-controller="User" asp-action="Index">My Profile</a>
-											<a class="link-item" asp-controller="Auth" asp-action="Logout">Sign Out</a>
-										</li>
-									</ul>
-
-								}
-
-								else
-								{
-									<a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignIn">Giriş yap</a>
-								}
-
-							
+											<h5>@User.Identity.Name</h5>
+											
+										</div>
+									</li>
+									<li class="profile-link">
+										<a asp-controller="Events" asp-action="Index" class="link-item">My Events</a>
+										<a asp-controller="Basket" asp-action="Index" class="link-item">Basket</a>
+									    <a asp-controller="Order" asp-action="OrderHistory" class="link-item">Order History</a>
+										<a asp-controller="User" asp-action="Index" class="link-item">My Profile</a>									
+										<a asp-controller="Auth" asp-action="SignIn" class="link-item">Sign Out</a>									
+									</li>
+								</ul>
 							</li>
 							<li>
 								<div class="night_mode_switch__btn">
@@ -200,91 +123,109 @@
 			</nav>
 			<div class="overlay"></div>
 		</div>
-	</header>
+		</header>
+		}
+	}
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-	@*<footer class="footer">
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-3 col-md-6">
-						<div class="footer-content">
-							<h4>Company</h4>
-							<ul class="footer-link-list">
-								<li><a href="about_us.html" class="footer-link">About Us</a></li>
-								<li><a href="help_center.html" class="footer-link">Help Center</a></li>
-								<li><a href="faq.html" class="footer-link">FAQ</a></li>
-								<li><a href="contact_us.html" class="footer-link">Contact Us</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="footer-content">
-							<h4>Useful Links</h4>
-							<ul class="footer-link-list">
-								<li><a href="create.html" class="footer-link">Create Event</a></li>
-								<li><a href="sell_tickets_online.html" class="footer-link">Sell Tickets Online</a></li>
-								<li><a href="privacy_policy.html" class="footer-link">Privacy Policy</a></li>
-								<li><a href="term_and_conditions.html" class="footer-link">Terms & Conditions</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="footer-content">
-							<h4>Resources</h4>
-							<ul class="footer-link-list">
-								<li><a href="pricing.html" class="footer-link">Pricing</a></li>
-								<li><a href="our_blog.html" class="footer-link">Blog</a></li>
-								<li><a href="refer_a_friend.html" class="footer-link">Refer a Friend</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-6">
-						<div class="footer-content">
-							<h4>Follow Us</h4>
-							<ul class="social-links">
-								<li><a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a>
-								<li><a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-								<li><a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-								<li><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-								<li><a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-							</ul>
-						</div>
-						<div class="footer-content">
-							<h4>Download Mobile App</h4>
-							<div class="download-app-link">
-								<a href="#" class="download-btn"><img src="images/app-store.png" alt=""></a>
-								<a href="#" class="download-btn"><img src="images/google-play.png" alt=""></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-bottom">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="footer-copyright-text">
-							<p class="mb-0">© 2022, <strong>Barren</strong>. All rights reserved. Powered by Gambolthemes</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>*@
+	@{
+		var currentController2 = ViewContext.RouteData.Values["Controller"].ToString();
+		var currentAction2 = ViewContext.RouteData.Values["Action"].ToString();
 
+		if (!(currentController2.Equals("Auth", StringComparison.OrdinalIgnoreCase) && currentAction2.Equals("SignIn", StringComparison.OrdinalIgnoreCase)))
+		{
+			//<footer class="footer">
+			//	<div class="footer-top">
+			//		<div class="container">
+			//			<div class="row">
+			//				<div class="col-lg-3 col-md-6">
+			//					<div class="footer-content">
+			//						<h4>Company</h4>
+			//						<ul class="footer-link-list">
+			//							<li><a class="footer-link">About Us</a></li>
+			//							<li><a class="footer-link">Help Center</a></li>
+			//							<li><a  class="footer-link">FAQ</a></li>
+			//							<li><a  class="footer-link">Contact Us</a></li>
+			//						</ul>
+			//					</div>
+			//				</div>
+			//				<div class="col-lg-3 col-md-6">
+			//					<div class="footer-content">
+			//						<h4>Useful Links</h4>
+			//						<ul class="footer-link-list">
+			//							<li><a class="footer-link">Create Event</a></li>
+			//							<li><a  class="footer-link">Sell Tickets Online</a></li>
+			//							<li><a  class="footer-link">Privacy Policy</a></li>
+			//							<li><a  class="footer-link">Terms & Conditions</a></li>
+			//						</ul>
+			//					</div>
+			//				</div>
+			//				<div class="col-lg-3 col-md-6">
+			//					<div class="footer-content">
+			//						<h4>Resources</h4>
+			//						<ul class="footer-link-list">
+			//							<li><a  class="footer-link">Pricing</a></li>
+			//							<li><a  class="footer-link">Blog</a></li>
+			//							<li><a  class="footer-link">Refer a Friend</a></li>
+			//						</ul>
+			//					</div>
+			//				</div>
+			//				<div class="col-lg-3 col-md-6">
+			//					<div class="footer-content">
+			//						<h4>Follow Us</h4>
+			//						<ul class="social-links">
+			//							<li><a  class="social-link"><i class="fab fa-facebook-square"></i></a>
+			//							<li><a  class="social-link"><i class="fab fa-instagram"></i></a>
+			//							<li><a  class="social-link"><i class="fab fa-twitter"></i></a>
+			//							<li><a  class="social-link"><i class="fab fa-linkedin-in"></i></a>
+			//							<li><a  class="social-link"><i class="fab fa-youtube"></i></a>
+			//						</ul>
+			//					</div>
+			//					<div class="footer-content">
+			//						<h4>Download Mobile App</h4>
+			//						<div class="download-app-link">
+			//							<a class="download-btn"><img src="images/app-store.png" alt=""></a>
+			//							<a class="download-btn"><img src="images/google-play.png" alt=""></a>
+			//						</div>
+			//					</div>
+			//				</div>
+			//			</div>
+			//		</div>
+			//	</div>
+			//	<div class="footer-bottom">
+			//		<div class="container">
+			//			<div class="row">
+			//				<div class="col-12">
+			//					<div class="footer-copyright-text">
+			//						<p class="mb-0">© 2022, <strong>Barren</strong>. All rights reserved. Powered by Gambolthemes</p>
+			//					</div>
+			//				</div>
+			//			</div>
+			//		</div>
+			//	</div>
+			//</footer>
+
+		}
+	}
+	<script src="~/js/jquery-3.6.0.min.js"></script>
+	<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="~/vendor/OwlCarousel/owl.carousel.js"></script>
+	<script src="~/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="~/js/custom.js"></script>
+	<script src="~/js/night-mode.js"></script>
+
+	
+
+	<!--
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
-
-	<script src="/commonScripts/common-scripts.js"></script>
-
+	@await RenderSectionAsync("Scripts", required: false)-->
 
 
 </body>

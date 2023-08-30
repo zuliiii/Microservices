@@ -31,8 +31,6 @@ namespace Ticket.Web.Services
 			{
 				basket = new BasketViewModel();
 
-
-
 				basket.BasketItems.Add(basketItemViewModel);
 			}
 

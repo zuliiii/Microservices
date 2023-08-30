@@ -28,7 +28,6 @@ namespace Ticket.Web.Services
 				eventCreateInput.Picture = resultPhotoService.Url;
 			}
 
-
 			var response = await _httpClient.PostAsJsonAsync<EventCreateInput>("events", eventCreateInput);
 
 			return response.IsSuccessStatusCode;

@@ -15,24 +15,6 @@
 	<meta name="author" content="Gambolthemes">
 	<title>Barren - Simple Online Event Ticketing System</title>
 
-	<!-- Favicon Icon -->
-	<link rel="icon" type="image/png" href="images/fav.png">
-
-	<!-- Stylesheets -->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-	<link href='vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<link href="css/night-mode.css" rel="stylesheet">
-
-	<!-- Vendor Stylesheets -->
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-	<link href="vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
-	<link href="vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
 
 </head>
 
@@ -48,47 +30,7 @@
 					<div class="col-xl-8 col-lg-8 col-md-10">
 						<div class="hero-banner-content">
 							<h2>Discover Events For All The Things You Love</h2>
-							<div class="search-form main-form">
-								<div class="row g-3">
-									<div class="col-lg-5 col-md-12">
-										<div class="form-group search-category">
-											<select class="selectpicker" data-width="100%" data-size="5">
-												<option value="browse_all" data-icon="fa-solid fa-tower-broadcast" selected>Browse All</option>
-												<option value="online_events" data-icon="fa-solid fa-video">Online Events</option>
-												<option value="venue_events" data-icon="fa-solid fa-location-dot">Venue Events</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-lg-5 col-md-12">
-										<div class="form-group">
-											<select class="selectpicker" data-width="100%" data-size="5" data-live-search="true">
-												<option value="01" selected>All</option>
-												<option value="02">Arts</option>
-												<option value="03">Business</option>
-												<option value="04">Coaching and Consulting</option>
-												<option value="05">Community and Culture</option>
-												<option value="06">Education and Training</option>
-												<option value="07">Family and Friends</option>
-												<option value="08">Fashion and Beauty</option>
-												<option value="09">Film and Entertainment</option>
-												<option value="10">Food and Drink</option>
-												<option value="11">Free</option>
-												<option value="12">Health and Wellbeing</option>
-												<option value="13">Hobbies and Interest</option>
-												<option value="14">Music and Theater</option>
-												<option value="15">Religion and Spirituality</option>
-												<option value="16">Science and Technology</option>
-												<option value="17">Sports and Fitness</option>
-												<option value="18">Travel and Outdoor</option>
-												<option value="19">Visual Arts</option>
-											</select>
-										</div>
-									</div>
-									<div class="col-lg-2 col-md-12">
-										<a href="#" class="main-btn btn-hover w-100">Find</a>
-									</div>
-								</div>
-							</div>
+						
 						</div>
 					</div>
 				</div>
@@ -100,46 +42,45 @@
 					<div class="col-xl-12 col-lg-12 col-md-12">
 						<div class="event-filter-items">
 							<div class="featured-controls">
-								<div class="filter-tag">
-									<a href="explore_events_by_date.html" class="active">All</a>
-									<a href="explore_events_by_date.html">Today</a>
-									<a href="explore_events_by_date.html">Tomorrow</a>
-									<a href="explore_events_by_date.html">This Week</a>
-									<a href="explore_events_by_date.html">This Weekend</a>
-									<a href="explore_events_by_date.html">Next Week</a>
-									<a href="explore_events_by_date.html">Next Weekend</a>
-									<a href="explore_events_by_date.html">This Month</a>
-									<a href="explore_events_by_date.html">Next Month</a>
-									<a href="explore_events_by_date.html">This Year</a>
-									<a href="explore_events_by_date.html">Next Year</a>
-								</div>
+								@*@if (Model.Any())
+								{
+									@foreach (var category in Model)
+									{
+										<div class="controls">
+											<button type="button" class="control" data-filter="all">@category.Category.Name</button>
+										
+										</div>
+									}
+								
+								}*@
 								<div class="controls">
-									<button type="button" class="control" data-filter="all">All</button>
-									<button type="button" class="control" data-filter=".arts">Arts</button>
-									<button type="button" class="control" data-filter=".business">Business</button>
-									<button type="button" class="control" data-filter=".concert">Concert</button>
-									<button type="button" class="control" data-filter=".workshops">Workshops</button>
-									<button type="button" class="control" data-filter=".coaching_consulting">Coaching and Consulting</button>
-									<button type="button" class="control" data-filter=".health_Wellness">Health and Wellbeing</button>
-									<button type="button" class="control" data-filter=".volunteer">Volunteer</button>
-									<button type="button" class="control" data-filter=".sports">Sports</button>
-									<button type="button" class="control" data-filter=".free">Free</button>
+
+								<button type="button" class="control" data-filter="all">All</button>
+								@foreach (var categoryGroup in Model.GroupBy(data => data.Category.Id))
+								{
+										var category = categoryGroup.First();
+										<button type="button" class="control" data-filter=".@category.TrimmedCategory">@categoryGroup.First().Category.Name</button>
+								}
 								</div>
+
+
 								<div class="row" data-ref="event-filter-content">
 									@if (Model.Any())
 									{
-										@foreach(var item in Model)
+										@foreach (var item in Model)
 										{
-											<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix arts concert workshops volunteer sports health_Wellness" data-ref="mixitup-target">
+
+											<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mix @item.TrimmedCategory" data-ref="mixitup-target">
 												<div class="main-card mt-4">
 													<div class="event-thumbnail">
 														<a asp-controller="Home" asp-action="Detail" asp-route-id="@item.Id" class="thumbnail-img">
 															<img src="@item.StockPictureUrl" alt="">
 														</a>
-														<span class="bookmark-icon" title="Bookmark"></span>
+														
 													</div>
 													<div class="event-content">
-														<a  class="event-title">@item.Title</a>
+														<a class="event-title">@item.Title</a>
+														<p>@item.Category.Name</p>
 														<div class="duration-price-remaining">
 															<span class="duration-price">@item.Price</span>
 															<span class="remaining"></span>
@@ -152,7 +93,7 @@
 																<span class="dot"><i class="fa-solid fa-circle"></i></span>
 																@*<span>Fri, 3.45 PM</span>*@
 															</div>
-															<span class="publish-time"><i class="fa-solid fa-clock me-2"></i>1h</span>
+															<span class="publish-time"><i class="fa-solid fa-clock me-2"></i></span>
 														</div>
 													</div>
 												</div>
@@ -167,11 +108,282 @@
 									}
 
 								</div>
+
 								<div class="browse-btn">
 									<a href="#" class="main-btn btn-hover ">See More</a>
 								</div>
 							</div>
 						</div>
+						<div class="host-engaging-event-block p-80" style="margin-top:3% !important">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-10">
+										<div class="main-title">
+											<h3>Host Engaging Online and Venue Events with Barren</h3>
+											<p>Organise venue events and host online events with unlimited possibilities using our built-in virtual event platform. Build a unique event experience for you and your attendees.</p>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="engaging-block">
+											<div class="owl-carousel engaging-slider owl-theme">
+												<div class="item">
+													<div class="main-card">
+														<div class="host-item">
+															<div class="host-img">
+																<img src="images/icons/venue-events.png" alt="">
+															</div>
+															<h4>Venue Events</h4>
+															<p>Create outstanding event page for your venue events, attract attendees and sell more tickets.</p>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="host-item">
+															<div class="host-img">
+																<img src="images/icons/webinar.png" alt="">
+															</div>
+															<h4>Webinar</h4>
+															<p>Webinars tend to be one-way events. Barren helps to make them more engaging.</p>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="host-item">
+															<div class="host-img">
+																<img src="images/icons/training-workshop.png" alt="">
+															</div>
+															<h4>Training & Workshop </h4>
+															<p>Create and host profitable workshops and training sessions online, sell tickets and earn money.</p>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="host-item">
+															<div class="host-img">
+																<img src="images/icons/online-class.png" alt="">
+															</div>
+															<h4>Online Class</h4>
+															<p>Try our e-learning template to create a fantastic e-learning event page and drive engagement. </p>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="host-item">
+															<div class="host-img">
+																<img src="images/icons/talk-show.png" alt="">
+															</div>
+															<h4>Talk Show</h4>
+															<p>Use our intuitive built-in event template to create and host an engaging Talk Show.</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="testimonial-block p-80">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-10">
+										<div class="main-title">
+											<h3>Transforming Thousands of Event Hosts Just Like You</h3>
+											<p>Be part of a winning team. We are continuously thriving to bring the best to our customers. Be that a new product feature, help in setting up your events or even supporting your customers so that they can easily buy tickets and participate your in events. Here is what some of the clients have to say,</p>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="testimonial-slider-area">
+											<div class="owl-carousel testimonial-slider owl-theme">
+												<div class="item">
+													<div class="main-card">
+														<div class="testimonial-content">
+															<div class="testimonial-text">
+																<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus arcu et ligula maximus vehicula. Phasellus at luctus lacus, quis eleifend nibh. Nam vitae convallis nisi, vitae tempus risus.</p>
+															</div>
+															<div class="testimonial-user-dt">
+																<h5>Madeline S.</h5>
+																<span>Events Co-ordinator</span>
+																<ul>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																</ul>
+															</div>
+															<span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="testimonial-content">
+															<div class="testimonial-text">
+																<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus arcu et ligula maximus vehicula. Phasellus at luctus lacus, quis eleifend nibh. Nam vitae convallis nisi, vitae tempus risus.</p>
+															</div>
+															<div class="testimonial-user-dt">
+																<h5>Gabrielle B.</h5>
+																<span>Administration</span>
+																<ul>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																</ul>
+															</div>
+															<span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="testimonial-content">
+															<div class="testimonial-text">
+																<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus arcu et ligula maximus vehicula. Phasellus at luctus lacus, quis eleifend nibh. Nam vitae convallis nisi, vitae tempus risus.</p>
+															</div>
+															<div class="testimonial-user-dt">
+																<h5>Piyush G.</h5>
+																<span>Application Developer</span>
+																<ul>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																</ul>
+															</div>
+															<span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="testimonial-content">
+															<div class="testimonial-text">
+																<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus arcu et ligula maximus vehicula. Phasellus at luctus lacus, quis eleifend nibh. Nam vitae convallis nisi, vitae tempus risus.</p>
+															</div>
+															<div class="testimonial-user-dt">
+																<h5>Joanna P.</h5>
+																<span>Event manager</span>
+																<ul>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																</ul>
+															</div>
+															<span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="testimonial-content">
+															<div class="testimonial-text">
+																<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus arcu et ligula maximus vehicula. Phasellus at luctus lacus, quis eleifend nibh. Nam vitae convallis nisi, vitae tempus risus.</p>
+															</div>
+															<div class="testimonial-user-dt">
+																<h5>Romo S.</h5>
+																<span>Admin</span>
+																<ul>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																</ul>
+															</div>
+															<span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+														</div>
+													</div>
+												</div>
+												<div class="item">
+													<div class="main-card">
+														<div class="testimonial-content">
+															<div class="testimonial-text">
+																<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus maximus arcu et ligula maximus vehicula. Phasellus at luctus lacus, quis eleifend nibh. Nam vitae convallis nisi, vitae tempus risus.</p>
+															</div>
+															<div class="testimonial-user-dt">
+																<h5>Christopher F.</h5>
+																<span>Online Marketing Executive</span>
+																<ul>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																	<li><i class="fa-solid fa-star"></i></li>
+																</ul>
+															</div>
+															<span class="quote-icon"><i class="fa-solid fa-quote-right"></i></span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="our-organisations-block p-80" style="width: 100% !important">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="main-title text-center">
+											<h3>321+ events created by thousands of organisations around the globe</h3>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="organisations-area">
+											<div class="owl-carousel organisations-slider owl-theme">
+												<div class="item">
+													<div class="sponsor">
+														<a href="#"><img src="images/icons/sponsor-1.png" alt=""></a>
+													</div>
+												</div>
+												<div class="item">
+													<div class="sponsor">
+														<a href="#"><img src="images/icons/sponsor-2.png" alt=""></a>
+													</div>
+												</div>
+												<div class="item">
+													<div class="sponsor">
+														<a href="#"><img src="images/icons/sponsor-3.png" alt=""></a>
+													</div>
+												</div>
+												<div class="item">
+													<div class="sponsor">
+														<a href="#"><img src="images/icons/sponsor-4.png" alt=""></a>
+													</div>
+												</div>
+												<div class="item">
+													<div class="sponsor">
+														<a href="#"><img src="images/icons/sponsor-5.png" alt=""></a>
+													</div>
+												</div>
+												<div class="item">
+													<div class="sponsor">
+														<a href="#"><img src="images/icons/sponsor-6.png" alt=""></a>
+													</div>
+												</div>
+												<div class="item">
+													<div class="sponsor">
+														<a href="#"><img src="images/icons/sponsor-7.png" alt=""></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 					</div>
 				</div>
 			</div>
@@ -182,14 +394,23 @@
 	
 	<!-- Footer End-->
 
-
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="vendor/OwlCarousel/owl.carousel.js"></script>
-	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 	<script src="vendor/mixitup/dist/mixitup.min.js"></script>
-	<script src="js/custom.js"></script>
-	<script src="js/night-mode.js"></script>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const findButton = document.getElementById("findButton");
+			const categorySelect = document.querySelector(".selectpicker");
+
+			findButton.addEventListener("click", function () {
+				const selectedCategoryValue = categorySelect.value;
+				// Use the selectedCategoryValue to filter events or perform other actions.
+				// For example, you can use an AJAX request to fetch filtered events from the server.
+				console.log("Selected Category:", selectedCategoryValue);
+			});
+		});
+	</script>
+
+
 	<script>
 		var containerEl = document.querySelector('[data-ref~="event-filter-content"]');
 
@@ -199,6 +420,7 @@
 			}
 		});
 	</script>
+
 </body>
 
 <!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/explore_events.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 12 Jul 2023 19:01:51 GMT -->

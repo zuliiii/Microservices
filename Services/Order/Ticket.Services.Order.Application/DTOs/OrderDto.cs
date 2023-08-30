@@ -16,6 +16,6 @@ namespace Ticket.Services.Order.Application.DTOs
 
         public string BuyerId { get;  set; }
 
-        public List<OrderItemDto> OrderItems;
+        public List<OrderItemDto> OrderItems { get; set; }
     }
 }

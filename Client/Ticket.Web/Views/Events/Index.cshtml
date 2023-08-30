@@ -8,15 +8,14 @@
 <html>
 <head>
 	<title>Events</title>
-	<link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css">
+@*	<link rel="stylesheet" href="~/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="~/vendor/OwlCarousel/owl.carousel.css">
-	<link rel="stylesheet" href="~/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">
+	<link rel="stylesheet" href="~/vendor/bootstrap-select/dist/css/bootstrap-select.min.css">*@
 	<!-- Add other stylesheets if needed -->
 </head>
 
 <body>
-
-<div class="tab-pane mt-10" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+	<div class="tab-pane" id="orders" style="margin-top: 6% !important;">
 
 		@*<div class="offcanvas-top-area">
 			<div class="create-bg">
@@ -47,11 +46,20 @@
 								<i class="fa-solid fa-calendar-days"></i>
 							</div>
 							<div class="card-dt-text">
-								<h6>Event Starts on</h6>
-								<span>@item.CreatedTime</span>
+								<h6>Event Created</h6>
+								<span>@item.CreatedTime.ToString("yyyy-MM-dd")</span>
 							</div>
 						</div>
-						@*<div class="card-bottom-item">
+						<div class="card-bottom-item">
+							<div class="card-icon">
+								<i class="fa-solid fa-calendar-days"></i>
+							</div>
+							<div class="card-dt-text">
+								<h6>Event Date</h6>
+								<span>@item.EventDateTime.ToString("yyyy-MM-dd HH:mm")</span>
+							</div>
+						</div>
+						<div class="card-bottom-item">
 							<div class="card-icon">
 								<i class="fa-solid fa-ticket"></i>
 							</div>
@@ -59,7 +67,7 @@
 								<h6>Location</h6>
 								<span>@item.Location</span>
 							</div>
-						</div>*@
+						</div>
 						<div class="card-bottom-item">
 							<div class="card-icon">
 								<i class="fa-solid fa-money-bill"></i>
@@ -79,8 +87,8 @@
 							</div>
 						</div>*@
 					</div>
-					<a asp-controller="Events" asp-action="Update" asp-route-id="@item.Id" class="btn btn-success btn-sm">Update</a>
-					<a asp-controller="Events" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-success btn-sm">Delete</a>
+					<a asp-controller="Events" asp-action="Update" asp-route-id="@item.Id" class="btn btn-default btn-hover steps_btn">Update</a>
+					<a asp-controller="Events" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-backtoevent">Delete</a>
 				</div>
 			}
 		}
@@ -88,15 +96,10 @@
 		{
 			<div><h1>There is no event</h1></div>
 		}
-	
-	
+		<a asp-controller="Events" asp-action="Create" class="btn btn-success btn-sm">Create an Event</a>
+
 </div>
-	<script src="~/js/jquery-3.6.0.min.js"></script>
-	<script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="~/vendor/OwlCarousel/owl.carousel.js"></script>
-	<script src="~/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-	<script src="~/js/custom.js"></script>
-	<script src="~/js/night-mode.js"></script>
+
 </body>
 
 </html>

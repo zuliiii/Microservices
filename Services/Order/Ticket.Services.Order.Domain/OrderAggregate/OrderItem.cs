@@ -12,14 +12,14 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
         public string ProductId { get; private set; }
         public string ProductName { get; private set; }
         public string PictureUrl { get; private set; }
-        public decimal Price { get; private set; }
+        public decimal? Price { get; private set; }
         public int Quantity { get; private set; }
-        public decimal Total { get => Price * Quantity; }
+        public decimal? Total { get => Price * Quantity; }
 
         public OrderItem()
         {
         }
-        public OrderItem(string productId, string productName, string pictureUrl, decimal price, int quantity)
+        public OrderItem(string productId, string productName, string pictureUrl, decimal? price, int quantity)
         {
             ProductId = productId;
             ProductName = productName;
@@ -28,7 +28,7 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
             Quantity = quantity;
         }
 
-        public void UpdateOrderItem(string productName, string pictureUrl, decimal price, int quantity)
+        public void UpdateOrderItem(string productName, string pictureUrl, decimal? price, int quantity)
         {
             ProductName = productName;
             Price = price;

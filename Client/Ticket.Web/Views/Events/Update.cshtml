@@ -15,27 +15,7 @@
 	<meta name="author" content="Gambolthemes">
 	<title>Barren - Simple Online Event Ticketing System</title>
 
-	<!-- Favicon Icon -->
-	<link rel="icon" type="image/png" href="images/fav.png">
 
-	<!-- Stylesheets -->
-	<link rel="preconnect" href="https://fonts.googleapis.com/">
-	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap" rel="stylesheet">
-	<link href='vendor/unicons-2.0.1/css/unicons.css' rel='stylesheet'>
-	<link href="css/style.css" rel="stylesheet">
-	<link href="css/datepicker.min.css" rel="stylesheet">
-	<link href="css/jquery-steps.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
-	<link href="css/night-mode.css" rel="stylesheet">
-
-	<!-- Vendor Stylesheets -->
-	<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-	<link href="vendor/OwlCarousel/assets/owl.carousel.css" rel="stylesheet">
-	<link href="vendor/OwlCarousel/assets/owl.theme.default.min.css" rel="stylesheet">
-	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
-	<link href="vendor/ckeditor5/sample/css/sample.css" rel="stylesheet">
 
 </head>
 
@@ -80,12 +60,11 @@
 															<input type="hidden" asp-for="Id" />
 															<input type="hidden" asp-for="UserId" />
 															<input type="hidden" asp-for="Picture" />
-															<input type="hidden" asp-for="Location" />
 															<div class="col-lg-12 col-md-12">
 																<div class="form-group border_bottom pb_30">
 																	<label asp-for="Title" class="form-label fs-16">Give your event a name.*</label>
 																	<p class="mt-2 d-block fs-14 mb-3">See how your name appears on the event page and a list of all places where your event name will be used. <a href="#" class="a-link">Learn more</a></p>
-																	<input asp-for="Title" type="text">
+																	<input class="form-control h_50" type="text" placeholder="Enter event name here" asp-for="Title" type="text">
 																	<span class="text-danger" asp-validation-for="Title"></span>
 																</div>
 																<div class="form-group border_bottom pt_30 pb_30">
@@ -94,12 +73,28 @@
 																	</select>
 
 																	<span class="text-danger" asp-validation-for="CategoryId"></span>
-																	@*<label asp-for="CategoryId" class="form-label fs-16">Choose a category for your event.*</label>
-																	<p class="mt-2 d-block fs-14 mb-3">Choosing relevant categories helps to improve the discoverability of your event. <a href="#" class="a-link">Learn more</a></p>
-																	<select asp-for="CategoryId" asp-items="@ViewBag.eventList">
-																	<option value="">Select Category</option>
-																	</select>
-																	<span class="text-danger" asp-validation-for="CategoryId"></span>*@
+																
+																</div>
+																<select asp-for="Location" class="form-control">
+																	<option value="">Select location for your event</option>
+																	<option value="Sea breeze">Sea breeze</option>
+																	<option value="Baku Olympic Stadium">Baku Olympic Stadium</option>
+																	<option value="Heydar Aliyev Palace">Heydar Aliyev Palace</option>
+																	<option value="Baku Sports Hall">Baku Sports Hall</option>
+																	<option value="EGP Arena">EGP Arena</option>
+																	<option value="Best Place Baku">Best Place Baku</option>
+																	<option value="Nizami Cinema">Nizami Cinema</option>
+																	<option value="Azerbaijan Art School">Azerbaijan Art School</option>
+																	<option value="Academic National Drama Theatre">Academic National Drama Theatre</option>
+																	<option value="The State Museum of Musical Culture of Azerbaijan">The State Museum of Musical Culture of Azerbaijan</option>
+																</select>
+
+																<div class="col-md-6">
+																	<label class="form-label mt-3 fs-6">Event Date and Time.*</label>
+																	<div class="loc-group position-relative">
+																		<input asp-for="EventDateTime" class="form-control h_50" type="datetime-local">
+																		<span class="absolute-icon"><i class="fa-solid fa-calendar-days"></i></span>
+																	</div>
 																</div>
 																@*<div class="form-group border_bottom pt_30 pb_30">
 																<label class="form-label fs-16">When is your event?*</label>
