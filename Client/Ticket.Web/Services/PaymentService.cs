@@ -74,7 +74,7 @@ namespace Ticket.Web.Services
 					{ "[price_data][currency]", "azn" },
 					{ "[price_data][product_data][name]", productName },
 					{ "[price_data][unit_amount]", unitAmount },
-					{ "[quantity]","1"  }
+					{ "[quantity]", quantity}
 				};
 		}
 		

@@ -99,7 +99,7 @@
 										<div class="quantity">
 											<div class="counter">
 												<span class="down" onClick="decreaseCount()">-</span>
-												<input type="text" id="quantityInput" value="@Model.Quantity">
+												<input type="text" id="quantityInput" name="Quantity" value="@Model.Quantity">
 												<span class="up" onClick="increaseCount()">+</span>
 											</div>
 
@@ -116,7 +116,7 @@
 								</div>
 							</div>
 							<div class="booking-btn">
-								<a asp-controller="Basket" asp-action="AddBasketItem" asp-route-eventId="@Model.Id" class="main-btn btn-hover w-100">Book Now</a>
+								<a asp-controller="Basket" id="bookNow" asp-action="AddBasketItem" asp-route-eventId="@Model.Id" asp-route-quantity="0" class="main-btn btn-hover w-100">Book Now</a>
 							</div>
 						</div>
 					</div>
@@ -152,6 +152,12 @@
 			var quantity = parseInt(document.getElementById('quantityInput').value);
 			var price = parseFloat('@Model.Price');
 			var total = quantity * price;
+			var bookNow = document.getElementById("bookNow");
+			var currentHref = bookNow.getAttribute("href");
+			var newHref = currentHref.replace(/quantity=[^&]+/, "quantity=" + quantity);
+
+			bookNow.setAttribute("href", newHref);
+
 
 			document.getElementById('quantityDisplay').textContent = quantity;
 			document.getElementById('calculatedTotal').textContent = total.toFixed(2) + ' AZN';

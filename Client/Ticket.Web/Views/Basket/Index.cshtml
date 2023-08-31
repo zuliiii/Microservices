@@ -39,6 +39,12 @@
 										<p class="lead fw-normal mb-2">@item.EventTitle</p>
 									</div>
 								</td>
+								
+								<td style="font-size: 14px; font-weight: 500;">
+									<div class="col">
+										<p class="lead fw-normal mb-2">@item.Quantity</p>
+									</div>
+								</td>
 								<td>
 									<div class="col">
 										<h5 class="mb-0">@item.GetCurrentPrice AZN @(Model.HasDiscount ? $"(%{Model.DiscountRate.Value} percent discount applied)" : "")</h5>

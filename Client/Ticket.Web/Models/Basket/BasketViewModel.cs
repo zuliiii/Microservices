@@ -35,7 +35,7 @@
 
 		public decimal TotalPrice
 		{
-			get => _basketItems.Sum(x => x.GetCurrentPrice);
+			get => _basketItems.Sum(x => x.GetCurrentPrice*x.Quantity);
 		}
 		public bool HasDiscount
 		{
