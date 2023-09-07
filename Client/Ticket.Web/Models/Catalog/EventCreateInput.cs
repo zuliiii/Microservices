@@ -12,8 +12,9 @@ namespace Ticket.Web.Models.Catalog
 		public string? Location { get; set; } 
 		public string? CategoryId { get; set; }
 
-		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-ddTHH:mm}")]
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy-MM-dd}")]
 		public DateTime EventDateTime { get; set; }
+
 
 		public IFormFile? PhotoFormFile { get; set; }
 	}

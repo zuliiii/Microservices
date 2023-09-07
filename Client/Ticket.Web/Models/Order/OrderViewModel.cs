@@ -11,6 +11,6 @@
 
 		public List<OrderItemViewModel>? OrderItems { get; set; }
 
-		public decimal? TotalPrice => OrderItems.Sum(x => x.Price);
+		public decimal? TotalPrice => OrderItems.Sum(x => x.Price*x.Quantity);
 	}
 }

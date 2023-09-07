@@ -26,7 +26,7 @@ namespace Ticket.Web.Models.Catalog
 			set { _SubTotal = Price * Quantity; }
 		}
 
-		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+		[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{yyyy-MM-dd}")]
 		public DateTime EventDateTime { get; set; }
 
 		public CategoryViewModel Category { get; set; }

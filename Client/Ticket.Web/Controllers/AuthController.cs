@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Ticket.Web.Models;
 using Ticket.Web.Services.Interfaces;
+using System.Diagnostics;
 
 namespace Ticket.Web.Controllers
 {

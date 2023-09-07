@@ -25,6 +25,9 @@ namespace Ticket.Web.Services
 				if (!basket.BasketItems.Any(x => x.EventId == basketItemViewModel.EventId))
 				{
 					basket.BasketItems.Add(basketItemViewModel);
+				} else
+				{
+					basket.BasketItems.Find(x => x.EventId == basketItemViewModel.EventId).Quantity = basketItemViewModel.Quantity;
 				}
 			}
 			else

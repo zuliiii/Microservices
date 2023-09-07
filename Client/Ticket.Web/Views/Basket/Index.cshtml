@@ -20,11 +20,12 @@
 				{
 					<table class="table">
 
-						@*<tr>
-							<th>Event Title</th>
-							<th>Event Price</th>
-							<th>Operation</th>
-						</tr>*@
+						<tr>
+							<th>Picture</th>
+							<th>Title</th>
+							<th>Quantity</th>
+							<th>Price</th>
+						</tr>
 
 						@foreach (var item in Model.BasketItems)
 						{
@@ -68,7 +69,7 @@
 
 						}
 
-						<tr style="font-size: 14px; font-weight: 500;">
+						<tr style="font-size: 14px; font-weight: 500; border: none">
 							<td>
 								@(Model.HasDiscount ? "Discounted price" : "Total Price")</td>
 							<th colspan="2">@Model.TotalPrice AZN</th>

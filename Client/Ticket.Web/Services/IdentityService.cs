@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
@@ -181,7 +182,10 @@ namespace Ticket.Web.Services
 				throw discovery.Exception;
 			}
 
-			var userCreationResponse = await _httpClient.PostAsJsonAsync($"{discovery.AuthorizeEndpoint}/api/User/SignUp", signUpInput);
+			var userCreationResponse = await _httpClient.PostAsJsonAsync("http://localhost:5001/api/User/SignUp", signUpInput);
+
+			Debug.WriteLine("SignUp: " + userCreationResponse.Content.ReadAsStringAsync());
+			Debug.WriteLine("SignUp: " + userCreationResponse.Content.ReadAsStringAsync().Result);
 
 			if (!userCreationResponse.IsSuccessStatusCode)
 			{
