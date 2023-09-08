@@ -394,6 +394,8 @@
 	
 	<!-- Footer End-->
 
+	
+
 	<script src="vendor/mixitup/dist/mixitup.min.js"></script>
 	
 	<script>
@@ -408,7 +410,56 @@
 				console.log("Selected Category:", selectedCategoryValue);
 			});
 		});
+
 	</script>
+
+	<script>
+		// Get references to the elements
+		const eventContainer = document.querySelector('[data-ref="event-filter-content"]');
+		const seeMoreButton = document.querySelector('.browse-btn a');
+
+		// Initial number of events displayed
+		let displayedEvents = 8;
+
+		// Function to load additional events
+		function loadMoreEvents() {
+			// Increase the number of displayed events
+			displayedEvents += 2; // Load 2 more columns
+
+			// Show the hidden events based on the displayedEvents count
+			const allEvents = Array.from(eventContainer.querySelectorAll('.col-xl-3'));
+			allEvents.forEach((event, index) => {
+				if (index < displayedEvents) {
+					event.style.display = 'block';
+				} else {
+					event.style.display = 'none';
+				}
+			});
+
+			// Check if there are more events to load
+			if (displayedEvents >= allEvents.length) {
+				// Hide the "See More" button when all events are displayed
+				seeMoreButton.style.display = 'none';
+			}
+		}
+
+		// Add a click event listener to the "See More" button
+		seeMoreButton.addEventListener('click', loadMoreEvents);
+
+		// Initially hide events beyond the initial display limit
+		const allEvents = Array.from(eventContainer.querySelectorAll('.col-xl-3'));
+		allEvents.forEach((event, index) => {
+			if (index >= displayedEvents) {
+				event.style.display = 'none';
+			}
+		});
+
+		// Hide the "See More" button if all events are initially displayed
+		if (displayedEvents >= allEvents.length) {
+			seeMoreButton.style.display = 'none';
+		}
+	</script>
+
 
 
 	<script>

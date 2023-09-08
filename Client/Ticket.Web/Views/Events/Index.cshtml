@@ -26,6 +26,9 @@
 			</div>
 		</div>*@
 
+		<a asp-controller="Events" asp-action="Create" class="btn btn-default btn-hover steps_btn" >Create an Event</a>
+
+
 		@if (Model.Any())
 		{
 			@foreach (var item in Model)
@@ -96,7 +99,6 @@
 		{
 			<div><h1>There is no event</h1></div>
 		}
-		<a asp-controller="Events" asp-action="Create" class="btn btn-success btn-sm">Create an Event</a>
 
 </div>
 

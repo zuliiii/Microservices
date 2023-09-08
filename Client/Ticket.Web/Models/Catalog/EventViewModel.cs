@@ -4,7 +4,11 @@ namespace Ticket.Web.Models.Catalog
 {
     public class EventViewModel
     {
-        public string? Id { get; set; }
+		public EventViewModel()
+		{
+			Quantity = 1; 
+		}
+		public string? Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string? UserId { get; set; }
@@ -15,7 +19,7 @@ namespace Ticket.Web.Models.Catalog
         public DateTime CreatedTime { get; set; }
         public string Location { get; set; }
         public string? CategoryId { get; set; }
-        public int Quantity { get; set; }
+		public int Quantity { get; set; } = 1;
 
 		//public decimal ItemTotalPrice { get; set; }
 
