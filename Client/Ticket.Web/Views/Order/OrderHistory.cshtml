@@ -3,6 +3,80 @@
 }
 @model List<OrderViewModel>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet"  href="~/css//orderhistory.css" />
+</head>
+<body>
+
+    <div class="container">
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-1">Order no</div>
+                <div class="col col-2">Order date</div>
+                <div class="col col-3">Details</div>
+            </li>
+            @if (Model.Any())
+            {
+                @foreach (var item in Model)
+                {
+                    <li class="table-row">
+                        <div class="col col-1" data-label="Order no">@item.Id</div>
+                        <div class="col col-2" data-label="Order date">@item.CreatedDate.GetValueOrDefault().ToString("yyyy-MM-dd")</div>
+                        <div class="col col-3" data-label="Details">
+                            <table class="table">
+                                <tr>
+                                    <th>Event title</th>
+                                    <th>Event Price</th>
+                                </tr>
+                                @foreach (var orderItem in item.OrderItems)
+                                {
+                                    <tr>
+                                        <td>@orderItem.ProductName</td>
+                                        <td>@orderItem.Price AZN</td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="table-row">
+                    <div class="col col-1" data-label="Order no"></div>
+                    <div class="col col-2" data-label="Order date"></div>
+                    <div class="col col-3" data-label="Details">
+                        <div class="alert alert-info">Your order history is empty</div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+
+
+@*<div class="container">
+    <ul class="responsive-table">
+        <li class="table-header">
+            <div class="col col-1">ORDER NO</div>
+            <div class="col col-2">ORDER DATE</div>
+            <div class="col col-3">DETAILS</div>
+        </li>
+
+        <li class="table-row">
+            <div class="col col-1" data-label="Job Id">42311</div>
+            <div class="col col-2" data-label="Customer Name">John Carpenter</div>
+            <div class="col col-3" data-label="Amount">$115</div>
+        </li>
+    </ul>
+</div>*@
+</body>
+</html>
+
+
+
+
 <div class="row">
 
     <div class="col-md-12">
