@@ -12,7 +12,7 @@ using static IdentityServer4.IdentityServerConstants;
 
 namespace Ticket.IdentityServer.Controllers
 {
-    [Authorize(LocalApi.PolicyName)]
+    
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -44,7 +44,8 @@ namespace Ticket.IdentityServer.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUser()
+		[Authorize(LocalApi.PolicyName)]
+		public async Task<IActionResult> GetUser()
         {
             var userClaim = User.Claims.FirstOrDefault(X=> X.Type == JwtRegisteredClaimNames.Sub);
 

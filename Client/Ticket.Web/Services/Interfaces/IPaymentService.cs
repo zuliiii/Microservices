@@ -6,7 +6,7 @@ namespace Ticket.Web.Services.Interfaces
 	public interface IPaymentService
 	{
 		Task<bool> ReceivePayment(PaymentInfoInput paymentInfoInput);
-		Task<string> CreateStripeCheckout(List<BasketItemViewModel> items, int orderId);
+		Task<string> CreateStripeCheckout(BasketViewModel basket, int orderId);
 
 	}
 }

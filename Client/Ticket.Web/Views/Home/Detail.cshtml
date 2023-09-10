@@ -100,7 +100,7 @@
 										<div class="quantity">
 											<div class="counter">
 												<span class="down" onClick="decreaseCount()">-</span>
-												<input type="text" id="quantityInput" name="Quantity" value="@Model.Quantity">
+												<input type="text" id="quantityInput" name="Quantity" value="1">
 												<span class="up" onClick="increaseCount()">+</span>
 											</div>
 
@@ -110,9 +110,9 @@
 								</div>
 								<div class="xtotel-tickets-count">
 									<div class="x-title">
-										<span id="quantityDisplay">@Model.Quantity</span> Ticket(s)
+										<span id="quantityDisplay">1</span> Ticket(s)
 									</div>
-									<h4>Total: <span class="totalPrice" id="calculatedTotal">@Model.SubTotal</span>AZN</h4>
+									<h4>Total: <span class="totalPrice" id="calculatedTotal" value="@Model.Price">@Model.Price</span></h4>
 
 								</div>
 							</div>
@@ -135,14 +135,14 @@
 		function increaseCount() {
 			var quantityInput = document.getElementById('quantityInput');
 			var quantity = parseInt(quantityInput.value) + 1;
-			quantityInput.setAttribute('value', quantity);
+			quantityInput.value = quantity;
 			updateTotal();
 		}
 
 		function decreaseCount() {
 			var quantityInput = document.getElementById('quantityInput');
 			var quantity = parseInt(quantityInput.value);
-			if (quantity > 0) {
+			if (quantity > 1) {
 				quantityInput.value = quantity - 1;
 				updateTotal();
 			}

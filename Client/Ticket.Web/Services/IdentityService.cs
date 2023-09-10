@@ -9,6 +9,7 @@ using System.Globalization;
 using System.Security.Claims;
 using System.Text.Json;
 using Ticket.Shared.DTOs;
+using Ticket.Web.Handler;
 using Ticket.Web.Models;
 using Ticket.Web.Services.Interfaces;
 
@@ -171,6 +172,7 @@ namespace Ticket.Web.Services
 
 		public async Task<Response<bool>> SignUp(SignUpInput signUpInput)
 		{
+
 			var discovery = await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
 			{
 				Address = _serviceApiSettings.IdentityBaseUri,

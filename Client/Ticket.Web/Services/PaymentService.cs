@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using NuGet.ContentModel;
+using System.Diagnostics;
 using System.Text.Json;
 using Ticket.Web.Models.Basket;
 using Ticket.Web.Models.Payment;
@@ -23,9 +24,10 @@ namespace Ticket.Web.Services
 			return response.IsSuccessStatusCode;
 		}
 
-		public async Task<string> CreateStripeCheckout(List<BasketItemViewModel> items, int orderId)
+		public async Task<string> CreateStripeCheckout(BasketViewModel basket, int orderId)
 		{
 
+			var items = basket.BasketItems;
 			var lineItems = new List<Dictionary<string, string>>();
 			var lineItem = new Dictionary<string, string>();
 				foreach(var item in items)
@@ -41,6 +43,11 @@ namespace Ticket.Web.Services
 			{ "payment_method_types[0]", "card" },
 			{ "mode", "payment" }
 		};
+
+			if (basket.HasDiscount)
+			{
+				requestData.Add("discounts[][coupon]", basket.DiscountCode);
+			}
 
 			for (int i = 0; i < lineItems.Count; i++)
 			{

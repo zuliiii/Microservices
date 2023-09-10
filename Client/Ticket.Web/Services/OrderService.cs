@@ -66,7 +66,7 @@ namespace Ticket.Web.Services
 
 			var orderCreatedViewModel = await response.Content.ReadFromJsonAsync<Response<OrderCreatedViewModel>>();
 
-			var checkoutUrl = await _paymentService.CreateStripeCheckout(basket.BasketItems, orderCreatedViewModel.Data.OrderId);
+			var checkoutUrl = await _paymentService.CreateStripeCheckout(basket, orderCreatedViewModel.Data.OrderId);
 			orderCreatedViewModel.Data.IsSuccessful = true;
 			orderCreatedViewModel.Data.checkoutUrl = checkoutUrl;
 
