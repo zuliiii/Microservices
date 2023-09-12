@@ -24,9 +24,9 @@ namespace Ticket.Services.Payment.Controllers
         {
 			var sendEndpoint = await _sendEndpointProvider.GetSendEndpoint(new Uri("queue:create-order-service"));
 
-			var createOrderMessageCommand = new CreateOrderMessageCommand();
+			var createOrderMessageCommand = new CreateOrderMessageCommand();// state yoxdumendeeeeeeeeeeeeeeeeeee
 			createOrderMessageCommand.BuyerId = paymentDto.Order.BuyerId;
-			createOrderMessageCommand.State = paymentDto.Order.Address.State;
+			//createOrderMessageCommand.State = paymentDto.Order.Address.State;
 			createOrderMessageCommand.Country = paymentDto.Order.Address.Country;
 			createOrderMessageCommand.City= paymentDto.Order.Address.City;
 			createOrderMessageCommand.ZipCode= paymentDto.Order.Address.ZipCode;

@@ -31,23 +31,25 @@ namespace Ticket.Web.Services
 			var orderCreateInput = new OrderCreateInput()
 			{
 				BuyerId = _sharedIdentityService.GetUserId,
-				Address = new AddressCreateInput { Country = checkoutInfoInput.Country, State = checkoutInfoInput.State, City = checkoutInfoInput.City, ZipCode = checkoutInfoInput.ZipCode },
+				Address = new AddressCreateInput { Country = checkoutInfoInput.Country, /*State = checkoutInfoInput.State*/ City = checkoutInfoInput.City, ZipCode = checkoutInfoInput.ZipCode },
 			};
 
 			var paymentInfoInput = new PaymentInfoInput()
 			{
-				CardName = checkoutInfoInput.CardName,
-				CardNumber = checkoutInfoInput.CardNumber,
-				Expiration = checkoutInfoInput.Expiration,
-				CVV = checkoutInfoInput.CVV,
+				//CardName = checkoutInfoInput.CardName,
+				//CardNumber = checkoutInfoInput.CardNumber,
+				//Expiration = checkoutInfoInput.Expiration,
+				//CVV = checkoutInfoInput.CVV,
 				TotalPrice = basket.TotalPrice,
 				Order = orderCreateInput
 			};
+
+			//bir deq biseye baxim bacdin? he
 			var responsePayment = await _paymentService.ReceivePayment(paymentInfoInput);
 
 			if (!responsePayment)
 			{
-				return new OrderCreatedViewModel() { Error = "Ödeme alınamadı", IsSuccessful = false };
+				return new OrderCreatedViewModel() { Error = "Payment could not be received", IsSuccessful = false };
 			}
 
 
@@ -59,9 +61,10 @@ namespace Ticket.Web.Services
 
 
 				var response = await _httpClient.PostAsJsonAsync<OrderCreateInput>("orders", orderCreateInput);
+			Debug.WriteLine("My responsee: " + response.Content.ReadAsStringAsync().Result);
             if (!response.IsSuccessStatusCode)
 			{
-				return new OrderCreatedViewModel() { Error = "Sipariş oluşturulamadı", IsSuccessful = false };
+				return new OrderCreatedViewModel() { Error = "Can't create a order", IsSuccessful = false };
 			}
 
 			var orderCreatedViewModel = await response.Content.ReadFromJsonAsync<Response<OrderCreatedViewModel>>();
@@ -103,7 +106,7 @@ namespace Ticket.Web.Services
 			var orderCreateInput = new OrderCreateInput()
 			{
 				BuyerId = _sharedIdentityService.GetUserId,
-				Address = new AddressCreateInput { Country = checkoutInfoInput.Country, State = checkoutInfoInput.State, City = checkoutInfoInput.City, ZipCode = checkoutInfoInput.ZipCode },
+				Address = new AddressCreateInput { Country = checkoutInfoInput.Country, /*State = checkoutInfoInput.State*/ City = checkoutInfoInput.City, ZipCode = checkoutInfoInput.ZipCode },
 			};
 
 			basket.BasketItems.ForEach(x =>
@@ -114,10 +117,10 @@ namespace Ticket.Web.Services
 
 			var paymentInfoInput = new PaymentInfoInput()
 			{
-				CardName = checkoutInfoInput.CardName,
-				CardNumber = checkoutInfoInput.CardNumber,
-				Expiration = checkoutInfoInput.Expiration,
-				CVV = checkoutInfoInput.CVV,
+				//CardName = checkoutInfoInput.CardName,
+				//CardNumber = checkoutInfoInput.CardNumber,
+				//Expiration = checkoutInfoInput.Expiration,
+				//CVV = checkoutInfoInput.CVV,
 				TotalPrice = basket.TotalPrice,
 				Order= orderCreateInput,
 			};

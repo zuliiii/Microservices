@@ -14,7 +14,7 @@ namespace Ticket.Shared.Messages
 		public List<OrderItem> OrderItems { get; set; }
 
 		public string Country { get; set; }
-		public string State { get; set; }
+		//public string State { get; set; } gozle biseye baxim
 		public string City { get; set; }
 		public string ZipCode { get; set; }
 	}

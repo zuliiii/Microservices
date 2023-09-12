@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet"  href="~/css//orderhistory.css" />
+    <link rel="stylesheet" href="~/css//orderhistory.css" />
 </head>
 <body>
 
@@ -21,25 +21,29 @@
             {
                 @foreach (var item in Model)
                 {
-                    <li class="table-row">
-                        <div class="col col-1" data-label="Order no">@item.Id</div>
-                        <div class="col col-2" data-label="Order date">@item.CreatedDate.GetValueOrDefault().ToString("yyyy-MM-dd")</div>
-                        <div class="col col-3" data-label="Details">
-                            <table class="table">
-                                <tr>
-                                    <th>Event title</th>
-                                    <th>Event Price</th>
-                                </tr>
-                                @foreach (var orderItem in item.OrderItems)
-                                {
+                    @if (item.OrderItems.Any())
+                    {
+
+                        <li class="table-row">
+                            <div class="col col-1" data-label="Order no">@item.Id</div>
+                            <div class="col col-2" data-label="Order date">@item.CreatedDate.GetValueOrDefault().ToString("yyyy-MM-dd")</div>
+                            <div class="col col-3" data-label="Details">
+                                <table class="table">
                                     <tr>
-                                        <td>@orderItem.ProductName</td>
-                                        <td>@orderItem.Price AZN</td>
+                                        <th>Event title</th>
+                                        <th>Event Price</th>
                                     </tr>
-                                }
-                            </table>
-                        </div>
-                    </li>
+                                    @foreach (var orderItem in item.OrderItems)
+                                    {
+                                        <tr>
+                                            <td>@orderItem.ProductName</td>
+                                            <td>@orderItem.Price AZN</td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        </li>
+                    }
                 }
             }
             else

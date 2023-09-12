@@ -20,7 +20,7 @@ namespace Ticket.Services.Order.Application.Consumers
 
 		public async Task Consume(ConsumeContext<CreateOrderMessageCommand> context)
 		{
-			var newAddress = new Domain.OrderAggregate.Address(context.Message.State, context.Message.Country, context.Message.City, context.Message.ZipCode);
+			var newAddress = new Domain.OrderAggregate.Address(/*context.Message.State, */context.Message.Country, context.Message.City, context.Message.ZipCode);
 
 			Domain.OrderAggregate.Order order = new Domain.OrderAggregate.Order(context.Message.BuyerId, newAddress);
 

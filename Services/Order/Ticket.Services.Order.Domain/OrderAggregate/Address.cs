@@ -11,14 +11,12 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
     {
 
         public string Country { get; private set; }
-        public string State { get; private set; }
         public string City { get; private set; }
         public string ZipCode { get; private set; }
 
-        public Address(string country, string state, string city, string zipCode)
+        public Address(string country, string city, string zipCode)
         {
             Country = country;
-            State = state;
             City = city;
             ZipCode = zipCode;
         }
@@ -26,7 +24,6 @@ namespace Ticket.Services.Order.Domain.OrderAggregate
         protected override IEnumerable<object> GetEqualityComponents()
         {
             yield return Country;
-            yield return State; 
             yield return City; 
             yield return ZipCode;
         }

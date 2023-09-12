@@ -24,7 +24,7 @@ namespace Ticket.Services.Order.Application.Handlers
         }
         public async Task<Response<CreatedOrderDto>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-            var newAddress = new Address(request.Address.Country, request.Address.State, request.Address.City, request.Address.ZipCode);
+            var newAddress = new Address(request.Address.Country, request.Address.City, request.Address.ZipCode);
 
             Domain.OrderAggregate.Order newOrder = new Domain.OrderAggregate.Order(request.BuyerId, newAddress);
 
