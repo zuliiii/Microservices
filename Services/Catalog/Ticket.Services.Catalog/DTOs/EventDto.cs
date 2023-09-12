@@ -12,8 +12,9 @@ public class EventDto
     public string UserId { get; set; }
     public decimal Price { get; set; } 
     public string Picture { get; set; }
-    public DateTime CreatedTime { get; set; } 
-    public string Location { get; set; } 
+    public DateTime CreatedTime { get; set; }
+	public DateTime EventDateTime { get; set; }
+	public string Location { get; set; } 
     public string CategoryId { get; set; }
 	public int Quantity { get; set; }
 

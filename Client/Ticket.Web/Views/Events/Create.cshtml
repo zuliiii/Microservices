@@ -90,9 +90,9 @@
 																<div class="col-md-6">
 																	<label asp-for="EventDateTime" class="form-label mt-3 fs-6">Event Date and Time.*</label>
 																	<div class="loc-group position-relative">
-																		<input asp-for="EventDateTime" class="form-control h_50" type="datetime-local">
+																		<input asp-for="EventDateTime" type="date" />@* class="form-control h_50" type="datetime-local"*@
 																		<span asp-validation-for="EventDateTime" class="text-danger"></span>
-																		<span asp-for="EventDateTime" class="absolute-icon"><i class="fa-solid fa-calendar-days"></i></span>
+																		<span class="absolute-icon"><i class="fa-solid fa-calendar-days"></i></span>
 																	</div>
 																</div>
 
@@ -150,7 +150,7 @@
 														</div>
 														<div class="ticket-section">
 															<label class="form-label fs-16">Let's create tickets!</label>
-															<p class="mt-2 fs-14 d-block mb-3 pe_right">Add the ticket price. For free events, keep the price at $0.</p>
+															<p class="mt-2 fs-14 d-block mb-3 pe_right">Add the ticket price.</p>
 															<div class="content-holder">
 																<div class="row g-3">
 																	<div class="col-md-6">

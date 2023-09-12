@@ -56,8 +56,9 @@ public class EventService: IEventService
         {
             events = new List<Event>();
         }
+        var eventsResult = _mapper.Map<List<EventDto>>(events);
 
-        return Response<List<EventDto>>.Success(_mapper.Map<List<EventDto>>(events), StatusCodes.Status200OK);
+			return Response<List<EventDto>>.Success(eventsResult, StatusCodes.Status200OK);
     }
 
     public async Task<Response<EventDto>> GetByIdAsync(string id)

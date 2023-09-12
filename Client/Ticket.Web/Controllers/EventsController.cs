@@ -21,7 +21,8 @@ namespace Ticket.Web.Controllers
 
 		public async Task<IActionResult> Index()
 		{
-			return View(await _catalogService.GetAllEventByUserIdAsync(_sharedIdentityService.GetUserId));
+			var a = await _catalogService.GetAllEventByUserIdAsync(_sharedIdentityService.GetUserId);
+			return View(a);
 		}
 
 		public async Task<IActionResult> Create()
