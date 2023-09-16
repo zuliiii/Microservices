@@ -58,7 +58,7 @@ namespace Ticket.Web.Services
 				var orderItem = new OrderItemCreateInput { ProductId = x.EventId, Price = x.GetCurrentPrice, PictureUrl = "", ProductName = x.EventTitle, Quantity = x.Quantity };
 				orderCreateInput.OrderItems.Add(orderItem);
 			});
-
+			// databasei ac order olani
 
 				var response = await _httpClient.PostAsJsonAsync<OrderCreateInput>("orders", orderCreateInput);
 			Debug.WriteLine("My responsee: " + response.Content.ReadAsStringAsync().Result);

@@ -39,7 +39,6 @@
 								<div class="event-top-info-status">
 									<span class="event-type-name"><i class="fa-solid fa-location-dot"></i>@Model.Location</span>
 									<span class="event-type-name details-hr">Starts on <span class="ev-event-date">@Model.EventDateTime</span></span>
-									<span class="event-type-name details-hr">2h</span>
 								</div>
 							</div>
 						</div>
@@ -62,16 +61,16 @@
 								<h4>Event Details</h4>
 							</div>
 						
-							<div class="event-dt-right-group mt-5">
+							@*<div class="event-dt-right-group mt-5">
 								<div class="event-dt-right-icon">
 									<i class="fa-solid fa-circle-user"></i>
 								</div>
 								<div class="event-dt-right-content">
-									<h4>Organised by</h4>
+									<h4>Created by</h4>
 									<h5>@Model.UserName</h5>
 									
 								</div>
-							</div>
+							</div>*@
 							<div class="event-dt-right-group">
 								<div class="event-dt-right-icon">
 									<i class="fa-solid fa-calendar-day"></i>
@@ -117,7 +116,7 @@
 								</div>
 							</div>
 							<div class="booking-btn">
-								<a asp-controller="Basket" id="bookNow" asp-action="AddBasketItem" asp-route-eventId="@Model.Id" asp-route-quantity="0" class="main-btn btn-hover w-100">Book Now</a>
+								<a asp-controller="Basket" id="bookNow" asp-action="AddBasketItem" asp-route-eventId="@Model.Id" asp-route-quantity="1" class="main-btn btn-hover w-100">Book Now</a>
 							</div>
 						</div>
 					</div>

@@ -13,6 +13,8 @@ public class Event
     public string Description { get; set; }
 
     public string? UserId { get; set; }
+    public string? UserName { get; set; }
+
 
     [BsonRepresentation(BsonType.Decimal128)]
     public decimal Price { get; set; }
