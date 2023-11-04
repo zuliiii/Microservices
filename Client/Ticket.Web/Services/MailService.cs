@@ -36,7 +36,7 @@ namespace Ticket.Web.Services
 				smtpClient.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
 				smtpClient.Port = 587;
 				smtpClient.UseDefaultCredentials = false;
-				smtpClient.Credentials = new NetworkCredential("zuleyxas@hotmail.com", "3423010zuli"); 
+				smtpClient.Credentials = new NetworkCredential("zuleyxas@hotmail.com", "******"); 
 				smtpClient.EnableSsl = true;
 
 
